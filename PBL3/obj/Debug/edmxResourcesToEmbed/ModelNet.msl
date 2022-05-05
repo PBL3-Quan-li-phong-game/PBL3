@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBNetModelStoreContainer" CdmEntityContainer="DBNet">
+    <EntitySetMapping Name="AREAs">
+      <EntityTypeMapping TypeName="DBNetModel.AREA">
+        <MappingFragment StoreEntitySet="AREA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AreaType" ColumnName="AreaType" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHAT_LOG">
+      <EntityTypeMapping TypeName="DBNetModel.CHAT_LOG">
+        <MappingFragment StoreEntitySet="CHAT_LOG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGIN_HISTORY">
+      <EntityTypeMapping TypeName="DBNetModel.LOGIN_HISTORY">
+        <MappingFragment StoreEntitySet="LOGIN_HISTORY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PCID" ColumnName="PCID" />
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+          <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PCs">
+      <EntityTypeMapping TypeName="DBNetModel.PC">
+        <MappingFragment StoreEntitySet="PC">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="PCStatus" ColumnName="PCStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC_STATUS">
+      <EntityTypeMapping TypeName="DBNetModel.PC_STATUS">
+        <MappingFragment StoreEntitySet="PC_STATUS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECEIPTs">
+      <EntityTypeMapping TypeName="DBNetModel.RECEIPT">
+        <MappingFragment StoreEntitySet="RECEIPT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="FormedDate" ColumnName="FormedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECEIPT_ITEM">
+      <EntityTypeMapping TypeName="DBNetModel.RECEIPT_ITEM">
+        <MappingFragment StoreEntitySet="RECEIPT_ITEM">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ReceiptID" ColumnName="ReceiptID" />
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="DBNetModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVs">
+      <EntityTypeMapping TypeName="DBNetModel.SERV">
+        <MappingFragment StoreEntitySet="SERV">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="DBNetModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PWD" ColumnName="PWD" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UsingPC" ColumnName="UsingPC" />
+          <ScalarProperty Name="RemainingMoney" ColumnName="RemainingMoney" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="OnlineStatus" ColumnName="OnlineStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
