@@ -34,12 +34,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbUserName = new System.Windows.Forms.Label();
-            this.bProfile = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bHelp = new System.Windows.Forms.Button();
-            this.bMsg = new System.Windows.Forms.Button();
-            this.bStat = new System.Windows.Forms.Button();
-            this.bQuit = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPC = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -48,7 +43,6 @@
             this.dgvCurrInvoice = new System.Windows.Forms.DataGridView();
             this.dgvPC = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.bSearchPC = new System.Windows.Forms.Button();
             this.txtSearchPC = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabAccount = new System.Windows.Forms.TabPage();
@@ -57,10 +51,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dgvAccount = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.bAddUser = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bSeachAcc = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSearchAcc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,6 +59,16 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AccMenuResetPwd = new System.Windows.Forms.ToolStripMenuItem();
             this.AccMenuDel = new System.Windows.Forms.ToolStripMenuItem();
+            this.bSearchPC = new System.Windows.Forms.Button();
+            this.bAddUser = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.bSeachAcc = new System.Windows.Forms.Button();
+            this.bHelp = new System.Windows.Forms.Button();
+            this.bReceipt = new System.Windows.Forms.Button();
+            this.bMsg = new System.Windows.Forms.Button();
+            this.bStat = new System.Windows.Forms.Button();
+            this.bQuit = new System.Windows.Forms.Button();
+            this.bProfile = new System.Windows.Forms.Button();
             this.pFooter.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -133,20 +134,10 @@
             this.lbUserName.Text = "UserName";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bProfile
-            // 
-            this.bProfile.BackgroundImage = global::PBL3.Properties.Resources.Setting_Profile;
-            this.bProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bProfile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bProfile.Location = new System.Drawing.Point(1505, 0);
-            this.bProfile.Name = "bProfile";
-            this.bProfile.Size = new System.Drawing.Size(37, 37);
-            this.bProfile.TabIndex = 0;
-            this.bProfile.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.bHelp);
+            this.panel1.Controls.Add(this.bReceipt);
             this.panel1.Controls.Add(this.bMsg);
             this.panel1.Controls.Add(this.bStat);
             this.panel1.Controls.Add(this.bQuit);
@@ -156,56 +147,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(104, 739);
             this.panel1.TabIndex = 0;
-            // 
-            // bHelp
-            // 
-            this.bHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bHelp.Image = global::PBL3.Properties.Resources.help_icon;
-            this.bHelp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bHelp.Location = new System.Drawing.Point(12, 552);
-            this.bHelp.Name = "bHelp";
-            this.bHelp.Size = new System.Drawing.Size(80, 96);
-            this.bHelp.TabIndex = 0;
-            this.bHelp.Text = "Trợ giúp";
-            this.bHelp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bHelp.UseVisualStyleBackColor = true;
-            // 
-            // bMsg
-            // 
-            this.bMsg.Image = global::PBL3.Properties.Resources.msg_icon;
-            this.bMsg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bMsg.Location = new System.Drawing.Point(12, 223);
-            this.bMsg.Name = "bMsg";
-            this.bMsg.Size = new System.Drawing.Size(80, 96);
-            this.bMsg.TabIndex = 0;
-            this.bMsg.Text = "Nhắn tin";
-            this.bMsg.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bMsg.UseVisualStyleBackColor = true;
-            // 
-            // bStat
-            // 
-            this.bStat.Image = global::PBL3.Properties.Resources.statitic_ico;
-            this.bStat.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bStat.Location = new System.Drawing.Point(12, 63);
-            this.bStat.Name = "bStat";
-            this.bStat.Size = new System.Drawing.Size(80, 96);
-            this.bStat.TabIndex = 0;
-            this.bStat.Text = "Thống kê";
-            this.bStat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bStat.UseVisualStyleBackColor = true;
-            // 
-            // bQuit
-            // 
-            this.bQuit.Image = global::PBL3.Properties.Resources.quit_icon;
-            this.bQuit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bQuit.Location = new System.Drawing.Point(12, 394);
-            this.bQuit.Name = "bQuit";
-            this.bQuit.Size = new System.Drawing.Size(80, 96);
-            this.bQuit.TabIndex = 0;
-            this.bQuit.Text = "Thoát";
-            this.bQuit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bQuit.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -293,16 +234,6 @@
             this.panel5.Size = new System.Drawing.Size(1424, 35);
             this.panel5.TabIndex = 0;
             // 
-            // bSearchPC
-            // 
-            this.bSearchPC.BackgroundImage = global::PBL3.Properties.Resources.Search;
-            this.bSearchPC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bSearchPC.Location = new System.Drawing.Point(241, -1);
-            this.bSearchPC.Name = "bSearchPC";
-            this.bSearchPC.Size = new System.Drawing.Size(34, 35);
-            this.bSearchPC.TabIndex = 2;
-            this.bSearchPC.UseVisualStyleBackColor = true;
-            // 
             // txtSearchPC
             // 
             this.txtSearchPC.Location = new System.Drawing.Point(71, 6);
@@ -374,6 +305,7 @@
             this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersWidth = 51;
             this.dgvAccount.RowTemplate.Height = 24;
+            this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAccount.Size = new System.Drawing.Size(1424, 669);
             this.dgvAccount.TabIndex = 4;
             this.dgvAccount.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAccount_CellMouseClick);
@@ -393,44 +325,12 @@
             this.panel7.Size = new System.Drawing.Size(1424, 35);
             this.panel7.TabIndex = 3;
             // 
-            // bAddUser
-            // 
-            this.bAddUser.Image = global::PBL3.Properties.Resources.add_user_icon;
-            this.bAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bAddUser.Location = new System.Drawing.Point(949, 3);
-            this.bAddUser.Name = "bAddUser";
-            this.bAddUser.Size = new System.Drawing.Size(124, 29);
-            this.bAddUser.TabIndex = 3;
-            this.bAddUser.Text = "Thêm tài khoản";
-            this.bAddUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bAddUser.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::PBL3.Properties.Resources.Search;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(1390, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 35);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(1221, 7);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 22);
             this.textBox1.TabIndex = 1;
-            // 
-            // bSeachAcc
-            // 
-            this.bSeachAcc.BackgroundImage = global::PBL3.Properties.Resources.Search;
-            this.bSeachAcc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bSeachAcc.Location = new System.Drawing.Point(241, -1);
-            this.bSeachAcc.Name = "bSeachAcc";
-            this.bSeachAcc.Size = new System.Drawing.Size(34, 35);
-            this.bSeachAcc.TabIndex = 2;
-            this.bSeachAcc.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -473,6 +373,7 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 24);
             this.toolStripMenuItem1.Text = "Nạp tiền";
             this.toolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // AccMenuResetPwd
             // 
@@ -488,6 +389,124 @@
             this.AccMenuDel.Text = "Xóa tài khoản";
             this.AccMenuDel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // bSearchPC
+            // 
+            this.bSearchPC.BackgroundImage = global::PBL3.Properties.Resources.Search;
+            this.bSearchPC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bSearchPC.Location = new System.Drawing.Point(241, -1);
+            this.bSearchPC.Name = "bSearchPC";
+            this.bSearchPC.Size = new System.Drawing.Size(34, 35);
+            this.bSearchPC.TabIndex = 2;
+            this.bSearchPC.UseVisualStyleBackColor = true;
+            // 
+            // bAddUser
+            // 
+            this.bAddUser.Image = global::PBL3.Properties.Resources.add_user_icon;
+            this.bAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bAddUser.Location = new System.Drawing.Point(949, 3);
+            this.bAddUser.Name = "bAddUser";
+            this.bAddUser.Size = new System.Drawing.Size(124, 29);
+            this.bAddUser.TabIndex = 3;
+            this.bAddUser.Text = "Thêm tài khoản";
+            this.bAddUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bAddUser.UseVisualStyleBackColor = true;
+            this.bAddUser.Click += new System.EventHandler(this.bAddUser_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::PBL3.Properties.Resources.Search;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(1390, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 35);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // bSeachAcc
+            // 
+            this.bSeachAcc.BackgroundImage = global::PBL3.Properties.Resources.Search;
+            this.bSeachAcc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bSeachAcc.Location = new System.Drawing.Point(241, -1);
+            this.bSeachAcc.Name = "bSeachAcc";
+            this.bSeachAcc.Size = new System.Drawing.Size(34, 35);
+            this.bSeachAcc.TabIndex = 2;
+            this.bSeachAcc.UseVisualStyleBackColor = true;
+            // 
+            // bHelp
+            // 
+            this.bHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bHelp.Image = global::PBL3.Properties.Resources.help_icon;
+            this.bHelp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bHelp.Location = new System.Drawing.Point(12, 588);
+            this.bHelp.Name = "bHelp";
+            this.bHelp.Size = new System.Drawing.Size(80, 96);
+            this.bHelp.TabIndex = 0;
+            this.bHelp.Text = "Trợ giúp";
+            this.bHelp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.bHelp.UseVisualStyleBackColor = true;
+            // 
+            // bReceipt
+            // 
+            this.bReceipt.Image = global::PBL3.Properties.Resources.bill_icon;
+            this.bReceipt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bReceipt.Location = new System.Drawing.Point(12, 313);
+            this.bReceipt.Name = "bReceipt";
+            this.bReceipt.Size = new System.Drawing.Size(80, 96);
+            this.bReceipt.TabIndex = 0;
+            this.bReceipt.Text = "Đơn mới";
+            this.bReceipt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bReceipt.UseVisualStyleBackColor = true;
+            // 
+            // bMsg
+            // 
+            this.bMsg.Image = global::PBL3.Properties.Resources.msg_icon;
+            this.bMsg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bMsg.Location = new System.Drawing.Point(12, 175);
+            this.bMsg.Name = "bMsg";
+            this.bMsg.Size = new System.Drawing.Size(80, 96);
+            this.bMsg.TabIndex = 0;
+            this.bMsg.Text = "Nhắn tin";
+            this.bMsg.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bMsg.UseVisualStyleBackColor = true;
+            this.bMsg.Click += new System.EventHandler(this.bMsg_Click);
+            // 
+            // bStat
+            // 
+            this.bStat.Image = global::PBL3.Properties.Resources.statitic_ico;
+            this.bStat.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bStat.Location = new System.Drawing.Point(12, 37);
+            this.bStat.Name = "bStat";
+            this.bStat.Size = new System.Drawing.Size(80, 96);
+            this.bStat.TabIndex = 0;
+            this.bStat.Text = "Thống kê";
+            this.bStat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bStat.UseVisualStyleBackColor = true;
+            // 
+            // bQuit
+            // 
+            this.bQuit.Image = global::PBL3.Properties.Resources.quit_icon;
+            this.bQuit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bQuit.Location = new System.Drawing.Point(12, 451);
+            this.bQuit.Name = "bQuit";
+            this.bQuit.Size = new System.Drawing.Size(80, 96);
+            this.bQuit.TabIndex = 0;
+            this.bQuit.Text = "Thoát";
+            this.bQuit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bQuit.UseVisualStyleBackColor = true;
+            // 
+            // bProfile
+            // 
+            this.bProfile.BackgroundImage = global::PBL3.Properties.Resources.Setting_Profile;
+            this.bProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bProfile.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bProfile.Location = new System.Drawing.Point(1505, 0);
+            this.bProfile.Name = "bProfile";
+            this.bProfile.Size = new System.Drawing.Size(37, 37);
+            this.bProfile.TabIndex = 0;
+            this.bProfile.UseVisualStyleBackColor = true;
+            this.bProfile.Click += new System.EventHandler(this.bProfile_Click);
+            // 
             // AdminModForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -499,7 +518,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AdminModForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Manage";
+            this.Text = "NetCafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminModForm_FormClosed);
             this.pFooter.ResumeLayout(false);
@@ -569,5 +588,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem AccMenuResetPwd;
         private System.Windows.Forms.ToolStripMenuItem AccMenuDel;
+        private System.Windows.Forms.Button bReceipt;
     }
 }

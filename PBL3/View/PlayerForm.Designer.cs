@@ -199,6 +199,7 @@
             this.bMSG.Text = "Nhắn tin";
             this.bMSG.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bMSG.UseVisualStyleBackColor = true;
+            this.bMSG.Click += new System.EventHandler(this.bMSG_Click);
             // 
             // bLogOut
             // 
@@ -226,6 +227,7 @@
             this.bAccMNG.Text = "Tài khoản";
             this.bAccMNG.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bAccMNG.UseVisualStyleBackColor = true;
+            this.bAccMNG.Click += new System.EventHandler(this.bAccMNG_Click);
             // 
             // bService
             // 

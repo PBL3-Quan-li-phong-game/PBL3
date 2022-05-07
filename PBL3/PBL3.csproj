@@ -71,6 +71,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\bll.cs" />
+    <Compile Include="View\AdminMod-subform\AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\AddForm.Designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ChargeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ChargeForm.Designer.cs">
+      <DependentUpon>ChargeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ChatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ChatForm.Designer.cs">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminModForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +107,18 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Player-subform\ChatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Player-subform\ChatForm.Designer.cs">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Player-subform\ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Player-subform\ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PlayerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,11 +127,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\AdminMod-subform\AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\ChargeForm.resx">
+      <DependentUpon>ChargeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\ChatForm.resx">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminModForm.resx">
       <DependentUpon>AdminModForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Player-subform\ChatForm.resx">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Player-subform\ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PlayerForm.resx">
       <DependentUpon>PlayerForm.cs</DependentUpon>
@@ -147,16 +201,19 @@
     <None Include="icon\service-icon.png" />
     <None Include="icon\statitic-ico.png" />
     <None Include="icon\add_user-icon.jpg" />
+    <Content Include="icon\bill-icon.jpg" />
     <Content Include="icon\help-icon.jpg" />
     <None Include="icon\msg-icon.png" />
     <None Include="icon\quit-icon.jpg" />
     <None Include="icon\logout-icon.png" />
     <None Include="icon\playerprofile-icon.png" />
+    <None Include="icon\pwdchange-icon.png" />
     <Content Include="icon\Search.png" />
     <None Include="icon\Setting-Profile.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

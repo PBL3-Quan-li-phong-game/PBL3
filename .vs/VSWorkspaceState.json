@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PBL3"
+    "\\PBL3",
+    "\\PBL3\\View",
+    "\\PBL3\\View\\AdminMod-subform"
   ],
   "SelectedNode": "\\PBL3.sln",
   "PreviewInSolutionExplorer": false

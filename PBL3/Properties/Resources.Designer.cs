@@ -73,6 +73,16 @@ namespace PBL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bill_icon {
+            get {
+                object obj = ResourceManager.GetObject("bill-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help_icon {
             get {
                 object obj = ResourceManager.GetObject("help-icon", resourceCulture);
@@ -106,6 +116,16 @@ namespace PBL3.Properties {
         internal static System.Drawing.Bitmap playerprofile_icon {
             get {
                 object obj = ResourceManager.GetObject("playerprofile-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pwdchange_icon {
+            get {
+                object obj = ResourceManager.GetObject("pwdchange-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

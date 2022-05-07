@@ -31,3 +31,9 @@ C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\bin\Debug\EntityFr
 C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\bin\Debug\EntityFramework.xml
 C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
+C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.ChargeForm.resources
+C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.AddForm.resources
+C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.ProfileForm.resources
+C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.ChatForm.resources
+C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.Player_subform.ChatForm.resources
+C:\Users\minhn\Source\Repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.Player_subform.ProfileForm.resources

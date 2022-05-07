@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.View.AdminMod_subform;
 
 namespace PBL3
 {
@@ -44,6 +45,34 @@ namespace PBL3
             {
                 cmsAccount.Show(dgvAccount, new Point(e.X + 50, e.Y + 40));
             }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ChargeForm cf = new ChargeForm();
+
+            cf.Show();
+        }
+
+        private void bAddUser_Click(object sender, EventArgs e)
+        {
+            AddForm af = new AddForm();
+
+            af.Show();
+        }
+
+        private void bProfile_Click(object sender, EventArgs e)
+        {
+            ProfileForm pf = new ProfileForm();
+
+            pf.Show();
+        }
+
+        private void bMsg_Click(object sender, EventArgs e)
+        {
+            ChatForm cf = new ChatForm();
+
+            cf.Show();
         }
     }
 }
