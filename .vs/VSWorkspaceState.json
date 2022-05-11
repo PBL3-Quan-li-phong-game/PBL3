@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\PBL3",
+    "\\PBL3\\Model",
+    "\\PBL3\\Model\\obj",
+    "\\PBL3\\OnViewOBJ",
     "\\PBL3\\View",
-    "\\PBL3\\View\\AdminMod-subform"
+    "\\PBL3\\View\\AdminMod-subform",
+    "\\PBL3\\View\\Player-subform"
   ],
   "SelectedNode": "\\PBL3.sln",
   "PreviewInSolutionExplorer": false

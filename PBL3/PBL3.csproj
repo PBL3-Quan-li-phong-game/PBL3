@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,6 +28,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,10 +52,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -71,6 +74,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\bll.cs" />
+    <Compile Include="Migrations\202205110511491_DBmig.cs" />
+    <Compile Include="Migrations\202205110511491_DBmig.designer.cs">
+      <DependentUpon>202205110511491_DBmig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\InitialDB.cs" />
+    <Compile Include="Model\Model_Net.cs" />
+    <Compile Include="Model\obj\AREA.cs" />
+    <Compile Include="Model\obj\CHAT_LOG.cs" />
+    <Compile Include="Model\obj\LOGIN_HISTORY.cs" />
+    <Compile Include="Model\obj\PC.cs" />
+    <Compile Include="Model\obj\PC_STATUS.cs" />
+    <Compile Include="Model\obj\RECEIPT.cs" />
+    <Compile Include="Model\obj\RECEIPT_ITEM.cs" />
+    <Compile Include="Model\obj\ROLES.cs" />
+    <Compile Include="Model\obj\SERV.cs" />
+    <Compile Include="Model\obj\USERS.cs" />
+    <Compile Include="OnViewOBJ\userOnView.cs" />
     <Compile Include="View\AdminMod-subform\AddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +148,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Migrations\202205110511491_DBmig.resx">
+      <DependentUpon>202205110511491_DBmig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +215,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="icon\service-icon.png" />
+    <None Include="icon\statitic-ico.png" />
+    <None Include="icon\add_user-icon.jpg" />
     <Content Include="DBNet.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -198,9 +225,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DBNet.mdf</DependentUpon>
     </Content>
-    <None Include="icon\service-icon.png" />
-    <None Include="icon\statitic-ico.png" />
-    <None Include="icon\add_user-icon.jpg" />
     <Content Include="icon\bill-icon.jpg" />
     <Content Include="icon\help-icon.jpg" />
     <None Include="icon\msg-icon.png" />
@@ -214,6 +238,16 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\DB\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

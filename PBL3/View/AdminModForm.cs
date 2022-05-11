@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.View.AdminMod_subform;
+using PBL3.BLL;
+using PBL3.Model;
+using PBL3.Model.obj;
+using PBL3.OnViewOBJ;
 
 namespace PBL3
 {
@@ -15,18 +19,23 @@ namespace PBL3
     {
         public delegate void CloseGate();
         public CloseGate close;
+        public Model_Net NetModel;
         public AdminModForm()
         {
+            NetModel = new Model_Net();
             InitializeComponent();
-            this.timer.Enabled = true;
-            DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[]{
-                new DataColumn { ColumnName = "Tên tài khoản", DataType = typeof(string) },
-                new DataColumn { ColumnName = "Số tiền còn lại", DataType = typeof(int) },
-                new DataColumn { ColumnName = "Thời gian còn lại", DataType = typeof(string) }
+            //dgvAccount.DataSource = bll.Instance.getViewUsers();
+            NetModel.USERs.Add(new USERS
+            {
+                UserName = "user07",
+                RoleID = 3,
+                PWD = "123123123",
+                RemainingMoney = 0,
+                RegisterDate = DateTime.Now,
+                LastLogin = DateTime.Now
             });
-            dt.Rows.Add("user1", 30000, "5:00:00");
-            dgvAccount.DataSource = dt;
+            NetModel.SaveChanges();
+            dgvAccount.DataSource = NetModel.USERs.ToList();
         }
 
         private void AdminModForm_FormClosed(object sender, FormClosedEventArgs e)

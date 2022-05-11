@@ -1,1 +1,2 @@
-# PBL3
+﻿# sửa đường dẫn tuyệt đối đến file DataBase trong file app.config...
+# ko hiểu sao dùng đường dẫn tuyệt đối nó rend đc mà tương đối thì ko :v
