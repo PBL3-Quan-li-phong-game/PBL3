@@ -41,7 +41,7 @@
             this.bMsg = new System.Windows.Forms.Button();
             this.bStat = new System.Windows.Forms.Button();
             this.bQuit = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPC = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -66,13 +66,13 @@
             this.txtSearchAcc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmsAccount = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.AccMenuResetPwd = new System.Windows.Forms.ToolStripMenuItem();
-            this.AccMenuDel = new System.Windows.Forms.ToolStripMenuItem();
+            this.Charge = new System.Windows.Forms.ToolStripMenuItem();
+            this.ResetPWD = new System.Windows.Forms.ToolStripMenuItem();
+            this.Del = new System.Windows.Forms.ToolStripMenuItem();
             this.pFooter.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tabPC.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -223,16 +223,17 @@
             this.bQuit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bQuit.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPC);
-            this.tabControl1.Controls.Add(this.tabAccount);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(104, 37);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1438, 739);
-            this.tabControl1.TabIndex = 3;
+            this.tabControl.Controls.Add(this.tabPC);
+            this.tabControl.Controls.Add(this.tabAccount);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(104, 37);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1438, 739);
+            this.tabControl.TabIndex = 3;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPC
             // 
@@ -290,12 +291,11 @@
             // dgvPC
             // 
             this.dgvPC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPC.Location = new System.Drawing.Point(0, 35);
             this.dgvPC.Name = "dgvPC";
             this.dgvPC.RowHeadersWidth = 51;
             this.dgvPC.RowTemplate.Height = 24;
-            this.dgvPC.Size = new System.Drawing.Size(1424, 669);
+            this.dgvPC.Size = new System.Drawing.Size(1078, 669);
             this.dgvPC.TabIndex = 1;
             // 
             // panel5
@@ -384,14 +384,13 @@
             this.dgvAccount.AllowUserToResizeColumns = false;
             this.dgvAccount.AllowUserToResizeRows = false;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAccount.Location = new System.Drawing.Point(3, 38);
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersWidth = 51;
             this.dgvAccount.RowTemplate.Height = 24;
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccount.Size = new System.Drawing.Size(1424, 669);
+            this.dgvAccount.Size = new System.Drawing.Size(1073, 669);
             this.dgvAccount.TabIndex = 4;
             this.dgvAccount.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAccount_CellMouseClick);
             // 
@@ -479,39 +478,39 @@
             // 
             this.cmsAccount.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAccount.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.AccMenuResetPwd,
-            this.AccMenuDel});
+            this.Charge,
+            this.ResetPWD,
+            this.Del});
             this.cmsAccount.Name = "contextMenuStrip1";
             this.cmsAccount.Size = new System.Drawing.Size(182, 76);
             // 
-            // toolStripMenuItem1
+            // Charge
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 24);
-            this.toolStripMenuItem1.Text = "Nạp tiền";
-            this.toolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.Charge.Name = "Charge";
+            this.Charge.Size = new System.Drawing.Size(181, 24);
+            this.Charge.Text = "Nạp tiền";
+            this.Charge.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Charge.Click += new System.EventHandler(this.Charge_Click);
             // 
-            // AccMenuResetPwd
+            // ResetPWD
             // 
-            this.AccMenuResetPwd.Name = "AccMenuResetPwd";
-            this.AccMenuResetPwd.Size = new System.Drawing.Size(181, 24);
-            this.AccMenuResetPwd.Text = "Reset password";
-            this.AccMenuResetPwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ResetPWD.Name = "ResetPWD";
+            this.ResetPWD.Size = new System.Drawing.Size(181, 24);
+            this.ResetPWD.Text = "Reset password";
+            this.ResetPWD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // AccMenuDel
+            // Del
             // 
-            this.AccMenuDel.Name = "AccMenuDel";
-            this.AccMenuDel.Size = new System.Drawing.Size(181, 24);
-            this.AccMenuDel.Text = "Xóa tài khoản";
-            this.AccMenuDel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Del.Name = "Del";
+            this.Del.Size = new System.Drawing.Size(181, 24);
+            this.Del.Text = "Xóa tài khoản";
+            this.Del.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AdminModForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1542, 793);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pFooter);
@@ -526,7 +525,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabPC.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -554,7 +553,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPC;
         private System.Windows.Forms.TabPage tabAccount;
         private System.Windows.Forms.Button bProfile;
@@ -578,16 +577,16 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvCurrInvoice;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ContextMenuStrip cmsAccount;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem AccMenuResetPwd;
-        private System.Windows.Forms.ToolStripMenuItem AccMenuDel;
+        private System.Windows.Forms.ToolStripMenuItem Charge;
+        private System.Windows.Forms.ToolStripMenuItem ResetPWD;
+        private System.Windows.Forms.ToolStripMenuItem Del;
         private System.Windows.Forms.Button bReceipt;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

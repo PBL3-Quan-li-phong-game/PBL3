@@ -21,8 +21,8 @@ namespace PBL3.Model.obj
         public DateTime SendTime { get; set; }
 
         [ForeignKey("sender")]
-        public USERS Sender { get; set; }
+        public virtual USERS Sender { get; set; }
         [ForeignKey("receiver")]
-        public USERS Receiver { get; set; }
+        public virtual USERS Receiver { get; set; }
     }
 }

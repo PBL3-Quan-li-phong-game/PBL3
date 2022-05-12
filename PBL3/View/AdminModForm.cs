@@ -20,26 +20,19 @@ namespace PBL3
         public delegate void CloseGate();
         public CloseGate close;
         public Model_Net NetModel;
-        public AdminModForm()
+        private USERS USER;
+        public AdminModForm(USERS user)
         {
-            NetModel = new Model_Net();
+            this.USER = user;
             InitializeComponent();
-            //dgvAccount.DataSource = bll.Instance.getViewUsers();
-            NetModel.USERs.Add(new USERS
-            {
-                UserName = "user07",
-                RoleID = 3,
-                PWD = "123123123",
-                RemainingMoney = 0,
-                RegisterDate = DateTime.Now,
-                LastLogin = DateTime.Now
-            });
-            NetModel.SaveChanges();
-            dgvAccount.DataSource = NetModel.USERs.ToList();
+            dgvPC.DataSource = bll.Instance.getViewPC();
+            dgvAccount.DataSource = bll.Instance.getViewUsers();
+            this.timer.Enabled = true;
         }
 
         private void AdminModForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            bll.Instance.onLogout(USER);
             this.close();
         }
 
@@ -54,13 +47,6 @@ namespace PBL3
             {
                 cmsAccount.Show(dgvAccount, new Point(e.X + 50, e.Y + 40));
             }
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ChargeForm cf = new ChargeForm();
-
-            cf.Show();
         }
 
         private void bAddUser_Click(object sender, EventArgs e)
@@ -82,6 +68,19 @@ namespace PBL3
             ChatForm cf = new ChatForm();
 
             cf.Show();
+        }
+
+        private void Charge_Click(object sender, EventArgs e)
+        {
+            ChargeForm cf = new ChargeForm();
+
+            cf.Show();
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvPC.DataSource = bll.Instance.getViewPC();
+            dgvAccount.DataSource = bll.Instance.getViewUsers();
         }
     }
 }

@@ -32,9 +32,9 @@ namespace PBL3.Model.obj
         public bool OnlineStatus { get; set; }
 
         [ForeignKey("RoleID")]
-        public ROLES ROLE { get; set; }
+        public virtual ROLES ROLE { get; set; }
         [ForeignKey("UsingPC")]
-        public PC PC { get; set; }
+        public virtual PC PC { get; set; }
 
         public virtual ICollection<LOGIN_HISTORY> LOGIN_HISTORY { get; set; }
         public virtual ICollection<RECEIPT> RECEIPTs { get; set; }

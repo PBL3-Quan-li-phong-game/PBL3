@@ -91,6 +91,7 @@
     <Compile Include="Model\obj\ROLES.cs" />
     <Compile Include="Model\obj\SERV.cs" />
     <Compile Include="Model\obj\USERS.cs" />
+    <Compile Include="OnViewOBJ\pcOnView.cs" />
     <Compile Include="OnViewOBJ\userOnView.cs" />
     <Compile Include="View\AdminMod-subform\AddForm.cs">
       <SubType>Form</SubType>
@@ -232,6 +233,7 @@
     <None Include="icon\logout-icon.png" />
     <None Include="icon\playerprofile-icon.png" />
     <None Include="icon\pwdchange-icon.png" />
+    <None Include="icon\refresh-icon.png" />
     <Content Include="icon\Search.png" />
     <None Include="icon\Setting-Profile.png" />
   </ItemGroup>

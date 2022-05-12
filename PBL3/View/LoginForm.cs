@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.Model;
+using PBL3.Model.obj;
+using PBL3.BLL;
 
 namespace PBL3
 {
@@ -14,25 +17,63 @@ namespace PBL3
     {
         public LoginForm()
         {
-            
             InitializeComponent();
+            this.lNotify.Visible = false;
         }
 
         private void bLogin_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            USERS user = bll.Instance.GetUser(txtUserName.Text, txtPWD.Text);
+            if(user == null)
             {
-                AdminModForm admForm = new AdminModForm();
-                admForm.close += this.Close;
-                admForm.Show();
+                lNotify.Text = "Sai tên đăng nhập hoặc mật khẩu!";
+                lNotify.Visible = true;
             }
-            else 
-            { 
-                PlayerForm plForm = new PlayerForm();
-                plForm.close += this.Close;
-                plForm.Show();
+            else
+            {
+                if(bll.Instance.CheckOnlineADMOD() == true)
+                {
+                    if(user.RoleID < 3)
+                    {
+                        lNotify.Text = "Sai tên đăng nhập hoặc mật khẩu!";
+                        lNotify.Visible = true;
+                    }
+                    else
+                    {
+                        PlayerForm pf = new PlayerForm(user);
+                        pf.close = new PlayerForm.closeDel(this.Close);
+                        bll.Instance.onLogin(user);
+                        pf.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    if(user.RoleID == 3)
+                    {
+                        lNotify.Text = "Chưa thể đăng nhập lúc này!";
+                        lNotify.Visible = true;
+                    }
+                    else
+                    {
+                        AdminModForm amf = new AdminModForm(user);
+                        amf.close = new AdminModForm.CloseGate(this.Close);
+                        bll.Instance.onLogin(user);
+                        amf.Show();
+                        this.Hide();
+                    }
+                }
             }
-            this.Hide();
+        }
+
+        private void txtPWD_TextChanged(object sender, EventArgs e)
+        {
+            this.lNotify.Visible = false;
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+            this.lNotify.Visible = false;
         }
     }
 }

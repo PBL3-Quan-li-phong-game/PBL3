@@ -17,8 +17,8 @@ namespace PBL3.Model.obj
         public int Amount { get; set; }
 
         [ForeignKey("ReceiptID")]
-        public RECEIPT RECEIPT { get; set; }
+        public virtual RECEIPT RECEIPT { get; set; }
         [ForeignKey("ServiceID")]
-        public SERV Service { get; set; }
+        public virtual SERV Service { get; set; }
     }
 }

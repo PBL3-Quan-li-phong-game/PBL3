@@ -20,8 +20,8 @@ namespace PBL3.Model.obj
         public DateTime LogoutTime { get; set; }
 
         [ForeignKey("UserName")]
-        public USERS USER { get; set; }
+        public virtual USERS USER { get; set; }
         [ForeignKey("PCID")]
-        public PC PC { get; set; }
+        public virtual PC PC { get; set; }
     }
 }

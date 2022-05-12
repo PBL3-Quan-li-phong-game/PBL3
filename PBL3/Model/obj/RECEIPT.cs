@@ -23,7 +23,7 @@ namespace PBL3.Model.obj
         public DateTime FormedDate { get; set; }
 
         [ForeignKey("UserName")]
-        public USERS USER { get; set; }
+        public virtual USERS USER { get; set; }
 
         public virtual ICollection<RECEIPT_ITEM> RECEIPT_ITEMs { get; set; }    
     }

@@ -21,10 +21,10 @@ namespace PBL3.Model.obj
         public int StatusID { get; set; }
 
         [ForeignKey("AreaID")]
-        public AREA AREA { get; set; }
+        public virtual AREA AREA { get; set; }
 
         [ForeignKey("StatusID")]
-        public PC_STATUS PC_Status { get; set; }
+        public virtual PC_STATUS PC_Status { get; set; }
         
         public virtual ICollection<USERS> USERS { get; set; }
     }

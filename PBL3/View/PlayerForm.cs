@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.Model.obj;
+using PBL3.BLL;
 using PBL3.View.Player_subform;
 
 namespace PBL3
@@ -15,13 +17,17 @@ namespace PBL3
     {
         public delegate void closeDel();
         public closeDel close;
-        public PlayerForm()
+        public USERS USER;
+        public PC PC;
+        public PlayerForm(USERS user)
         {
+            this.USER = user;
             InitializeComponent();
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
         {
+            bll.Instance.onLogout(USER);
             this.close();
         }
 
