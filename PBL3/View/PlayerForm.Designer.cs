@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lPCID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lUserName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -53,7 +53,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lPCID);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -61,15 +61,15 @@
             this.panel1.Size = new System.Drawing.Size(339, 50);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // lPCID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên máy";
+            this.lPCID.AutoSize = true;
+            this.lPCID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPCID.Location = new System.Drawing.Point(100, 9);
+            this.lPCID.Name = "lPCID";
+            this.lPCID.Size = new System.Drawing.Size(113, 29);
+            this.lPCID.TabIndex = 0;
+            this.lPCID.Text = "Tên máy";
             // 
             // label2
             // 
@@ -125,14 +125,14 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Giá 1 giờ sử dụng";
             // 
-            // label8
+            // lUserName
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(213, 64);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 16);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Tên tài khoản";
+            this.lUserName.AutoSize = true;
+            this.lUserName.Location = new System.Drawing.Point(213, 64);
+            this.lUserName.Name = "lUserName";
+            this.lUserName.Size = new System.Drawing.Size(88, 16);
+            this.lUserName.TabIndex = 2;
+            this.lUserName.Text = "Tên tài khoản";
             // 
             // textBox1
             // 
@@ -253,7 +253,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lUserName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -277,14 +277,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lPCID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -295,5 +294,6 @@
         private System.Windows.Forms.Button bLogOut;
         private System.Windows.Forms.Button bAccMNG;
         private System.Windows.Forms.Button bService;
+        private System.Windows.Forms.Label lUserName;
     }
 }

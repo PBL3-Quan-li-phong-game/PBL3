@@ -73,7 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\bll.cs" />
+    <Compile Include="BLL\NetBLL.cs" />
     <Compile Include="Migrations\202205110511491_DBmig.cs" />
     <Compile Include="Migrations\202205110511491_DBmig.designer.cs">
       <DependentUpon>202205110511491_DBmig.cs</DependentUpon>
@@ -129,6 +129,12 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PCSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PCSelectForm.Designer.cs">
+      <DependentUpon>PCSelectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Player-subform\ChatForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PCSelectForm.resx">
+      <DependentUpon>PCSelectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Player-subform\ChatForm.resx">
       <DependentUpon>ChatForm.cs</DependentUpon>

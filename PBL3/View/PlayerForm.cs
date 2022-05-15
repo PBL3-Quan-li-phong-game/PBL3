@@ -19,15 +19,18 @@ namespace PBL3
         public closeDel close;
         public USERS USER;
         public PC PC;
-        public PlayerForm(USERS user)
+        public PlayerForm(USERS user, PC pc)
         {
             this.USER = user;
+            this.PC = pc;
             InitializeComponent();
+            lPCID.Text = PC.ID;
+            lUserName.Text = USER.UserName;
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
         {
-            bll.Instance.onLogout(USER);
+            NetBLL.Instance.onLogout(USER, PC);
             this.close();
         }
 

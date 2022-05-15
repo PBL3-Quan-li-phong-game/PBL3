@@ -33,7 +33,7 @@
             this.lDateTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbUserName = new System.Windows.Forms.Label();
+            this.lUserName = new System.Windows.Forms.Label();
             this.bProfile = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bHelp = new System.Windows.Forms.Button();
@@ -113,7 +113,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lbUserName);
+            this.panel2.Controls.Add(this.lUserName);
             this.panel2.Controls.Add(this.bProfile);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -123,16 +123,16 @@
             this.panel2.Size = new System.Drawing.Size(1542, 37);
             this.panel2.TabIndex = 2;
             // 
-            // lbUserName
+            // lUserName
             // 
-            this.lbUserName.AutoSize = true;
-            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUserName.Location = new System.Drawing.Point(1433, 10);
-            this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(73, 16);
-            this.lbUserName.TabIndex = 1;
-            this.lbUserName.Text = "UserName";
-            this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lUserName.AutoSize = true;
+            this.lUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lUserName.Location = new System.Drawing.Point(1433, 10);
+            this.lUserName.Name = "lUserName";
+            this.lUserName.Size = new System.Drawing.Size(73, 16);
+            this.lUserName.TabIndex = 1;
+            this.lUserName.Text = "UserName";
+            this.lUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bProfile
             // 
@@ -295,6 +295,7 @@
             this.dgvPC.Name = "dgvPC";
             this.dgvPC.RowHeadersWidth = 51;
             this.dgvPC.RowTemplate.Height = 24;
+            this.dgvPC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPC.Size = new System.Drawing.Size(1078, 669);
             this.dgvPC.TabIndex = 1;
             // 
@@ -568,7 +569,7 @@
         private System.Windows.Forms.Button bSeachAcc;
         private System.Windows.Forms.TextBox txtSearchAcc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbUserName;
+        private System.Windows.Forms.Label lUserName;
         private System.Windows.Forms.Button bHelp;
         private System.Windows.Forms.Button bMsg;
         private System.Windows.Forms.Button bStat;

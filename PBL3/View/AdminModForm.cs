@@ -25,14 +25,15 @@ namespace PBL3
         {
             this.USER = user;
             InitializeComponent();
-            dgvPC.DataSource = bll.Instance.getViewPC();
-            dgvAccount.DataSource = bll.Instance.getViewUsers();
+            lUserName.Text = USER.UserName;
+            dgvPC.DataSource = NetBLL.Instance.getViewPC();
+            dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
             this.timer.Enabled = true;
         }
 
         private void AdminModForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            bll.Instance.onLogout(USER);
+            NetBLL.Instance.onLogout(USER);
             this.close();
         }
 
@@ -79,8 +80,8 @@ namespace PBL3
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvPC.DataSource = bll.Instance.getViewPC();
-            dgvAccount.DataSource = bll.Instance.getViewUsers();
+            dgvPC.DataSource = NetBLL.Instance.getViewPC();
+            dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
         }
     }
 }

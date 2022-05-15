@@ -23,7 +23,7 @@ namespace PBL3
 
         private void bLogin_Click(object sender, EventArgs e)
         {
-            USERS user = bll.Instance.GetUser(txtUserName.Text, txtPWD.Text);
+            USERS user = NetBLL.Instance.GetUser(txtUserName.Text, txtPWD.Text);
             if(user == null)
             {
                 lNotify.Text = "Sai tên đăng nhập hoặc mật khẩu!";
@@ -31,7 +31,7 @@ namespace PBL3
             }
             else
             {
-                if(bll.Instance.CheckOnlineADMOD() == true)
+                if(NetBLL.Instance.CheckOnlineADMOD() == true)
                 {
                     if(user.RoleID < 3)
                     {
@@ -40,10 +40,9 @@ namespace PBL3
                     }
                     else
                     {
-                        PlayerForm pf = new PlayerForm(user);
-                        pf.close = new PlayerForm.closeDel(this.Close);
-                        bll.Instance.onLogin(user);
-                        pf.Show();
+                        PCSelectForm sf = new PCSelectForm(user);
+                        sf.close = new PCSelectForm.CloseGate(this.Close);
+                        sf.Show();
                         this.Hide();
                     }
                 }
@@ -58,7 +57,7 @@ namespace PBL3
                     {
                         AdminModForm amf = new AdminModForm(user);
                         amf.close = new AdminModForm.CloseGate(this.Close);
-                        bll.Instance.onLogin(user);
+                        NetBLL.Instance.onLogin(user);
                         amf.Show();
                         this.Hide();
                     }
