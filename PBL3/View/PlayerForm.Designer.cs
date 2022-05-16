@@ -65,7 +65,7 @@
             // 
             this.lPCID.AutoSize = true;
             this.lPCID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPCID.Location = new System.Drawing.Point(100, 9);
+            this.lPCID.Location = new System.Drawing.Point(121, 9);
             this.lPCID.Name = "lPCID";
             this.lPCID.Size = new System.Drawing.Size(113, 29);
             this.lPCID.TabIndex = 0;
@@ -128,7 +128,7 @@
             // lUserName
             // 
             this.lUserName.AutoSize = true;
-            this.lUserName.Location = new System.Drawing.Point(213, 64);
+            this.lUserName.Location = new System.Drawing.Point(222, 64);
             this.lUserName.Name = "lUserName";
             this.lUserName.Size = new System.Drawing.Size(88, 16);
             this.lUserName.TabIndex = 2;
@@ -136,41 +136,51 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(172, 94);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(137, 22);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(172, 128);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(137, 22);
             this.textBox2.TabIndex = 3;
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(172, 162);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(137, 22);
             this.textBox3.TabIndex = 3;
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(172, 198);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(137, 22);
             this.textBox4.TabIndex = 3;
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(172, 233);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(137, 22);
             this.textBox5.TabIndex = 3;
             // 

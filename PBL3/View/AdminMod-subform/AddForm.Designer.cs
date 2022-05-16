@@ -33,9 +33,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPWD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMoney = new System.Windows.Forms.TextBox();
             this.bCancel = new System.Windows.Forms.Button();
             this.bOK = new System.Windows.Forms.Button();
+            this.lNotify = new System.Windows.Forms.Label();
+            this.cbMOD = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -53,6 +55,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(100, 22);
             this.txtUserName.TabIndex = 1;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // label2
             // 
@@ -69,6 +72,7 @@
             this.txtPWD.Name = "txtPWD";
             this.txtPWD.Size = new System.Drawing.Size(100, 22);
             this.txtPWD.TabIndex = 1;
+            this.txtPWD.TextChanged += new System.EventHandler(this.txtPWD_TextChanged);
             // 
             // label3
             // 
@@ -79,16 +83,17 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tiền nạp lần đầu:";
             // 
-            // textBox1
+            // txtMoney
             // 
-            this.textBox1.Location = new System.Drawing.Point(149, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtMoney.Location = new System.Drawing.Point(149, 111);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(100, 22);
+            this.txtMoney.TabIndex = 1;
+            this.txtMoney.TextChanged += new System.EventHandler(this.txtMoney_TextChanged);
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(24, 169);
+            this.bCancel.Location = new System.Drawing.Point(24, 207);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(75, 23);
             this.bCancel.TabIndex = 2;
@@ -98,7 +103,7 @@
             // 
             // bOK
             // 
-            this.bOK.Location = new System.Drawing.Point(174, 169);
+            this.bOK.Location = new System.Drawing.Point(174, 207);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
             this.bOK.TabIndex = 3;
@@ -106,14 +111,38 @@
             this.bOK.UseVisualStyleBackColor = true;
             this.bOK.Click += new System.EventHandler(this.bOK_Click);
             // 
+            // lNotify
+            // 
+            this.lNotify.AutoSize = true;
+            this.lNotify.ForeColor = System.Drawing.Color.Red;
+            this.lNotify.Location = new System.Drawing.Point(58, 176);
+            this.lNotify.Name = "lNotify";
+            this.lNotify.Size = new System.Drawing.Size(41, 16);
+            this.lNotify.TabIndex = 4;
+            this.lNotify.Text = "Notify";
+            // 
+            // cbMOD
+            // 
+            this.cbMOD.AutoSize = true;
+            this.cbMOD.Location = new System.Drawing.Point(91, 145);
+            this.cbMOD.Name = "cbMOD";
+            this.cbMOD.Size = new System.Drawing.Size(101, 20);
+            this.cbMOD.TabIndex = 5;
+            this.cbMOD.Text = "Vai trò MOD";
+            this.cbMOD.UseVisualStyleBackColor = true;
+            this.cbMOD.CheckedChanged += new System.EventHandler(this.cbMOD_CheckedChanged);
+            // 
             // AddForm
             // 
+            this.AcceptButton = this.bOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 213);
+            this.ClientSize = new System.Drawing.Size(273, 253);
+            this.Controls.Add(this.cbMOD);
+            this.Controls.Add(this.lNotify);
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.bCancel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.txtPWD);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtUserName);
@@ -133,8 +162,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPWD;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.Button bOK;
+        private System.Windows.Forms.Label lNotify;
+        private System.Windows.Forms.CheckBox cbMOD;
     }
 }

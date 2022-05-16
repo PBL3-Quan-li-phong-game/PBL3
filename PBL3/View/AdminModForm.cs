@@ -57,8 +57,8 @@ namespace PBL3
 
         private void bAddUser_Click(object sender, EventArgs e)
         {
-            AddForm af = new AddForm();
-
+            AddForm af = new AddForm(USER.RoleID);
+            af.Reload = new AddForm.ReloadGate(ReloadView);
             af.Show();
         }
 

@@ -123,6 +123,13 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+        public void addUser(USERS user)
+        {
+            NetModel = new Model_Net();
+            NetModel.USERs.Add(user);
+            NetModel.SaveChanges();
+            NetModel.Dispose();
+        }
         public void MoneyCharge(USERS user, int Amount)
         {
             NetModel = new Model_Net();
