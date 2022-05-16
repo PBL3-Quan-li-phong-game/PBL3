@@ -5,20 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PBL3.Model.obj
+namespace PBL3.Model.Context
 {
-    public class AREA
+    public class PC_STATUS
     {
-        public AREA()
+        public PC_STATUS()
         {
             this.PCs = new HashSet<PC>();
         }
 
         [Key]
         public int ID { get; set; }
-        public string Name { get; set; }
-        public double Cost { get; set; }
+        public string StatusName { get; set; }
 
-        public virtual ICollection<PC> PCs { get; set; }
+        public virtual ICollection<PC> PCs{ get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PBL3.Model.obj;
+using PBL3.Model.Context;
 using PBL3.BLL;
 using PBL3.View.Player_subform;
 

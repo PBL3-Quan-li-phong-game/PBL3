@@ -47,7 +47,7 @@
             // 
             // bOK
             // 
-            this.bOK.Location = new System.Drawing.Point(148, 140);
+            this.bOK.Location = new System.Drawing.Point(148, 135);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
             this.bOK.TabIndex = 1;
@@ -57,12 +57,13 @@
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(31, 140);
+            this.bCancel.Location = new System.Drawing.Point(31, 135);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(75, 23);
             this.bCancel.TabIndex = 2;
             this.bCancel.Text = "Hủy";
             this.bCancel.UseVisualStyleBackColor = true;
+            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
             // lUserName
             // 
@@ -79,7 +80,7 @@
             // 
             this.lNotify.AutoSize = true;
             this.lNotify.ForeColor = System.Drawing.Color.Red;
-            this.lNotify.Location = new System.Drawing.Point(76, 99);
+            this.lNotify.Location = new System.Drawing.Point(65, 100);
             this.lNotify.Name = "lNotify";
             this.lNotify.Size = new System.Drawing.Size(41, 16);
             this.lNotify.TabIndex = 4;
@@ -107,6 +108,7 @@
             this.Controls.Add(this.cbbPC);
             this.Name = "PCSelectForm";
             this.Text = "PCSelectForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PCSelectForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

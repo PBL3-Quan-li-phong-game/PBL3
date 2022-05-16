@@ -4,7 +4,7 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using PBL3.Model.obj;
+    using PBL3.Model.Context;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PBL3.Model.Model_Net>
     {

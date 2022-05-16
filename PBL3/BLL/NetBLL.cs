@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PBL3.Model;
-using PBL3.Model.obj;
-using PBL3.OnViewOBJ;
+using PBL3.Model.Context;
+using PBL3.OnViewContext;
 
 namespace PBL3.BLL
 {
@@ -63,6 +63,12 @@ namespace PBL3.BLL
                 }
             }
         }
+        public USERS getUserbyUserName(string UserName)
+        {
+            NetModel = new Model_Net();
+            USERS user = NetModel.USERs.Find(UserName);
+            return user;
+        }
         public List<PC> GetAllPC()
         {
             List<PC> data = new List<PC>();
@@ -83,7 +89,6 @@ namespace PBL3.BLL
         {
             NetModel = new Model_Net();
             List<USERS> li = NetModel.USERs.Where(p => p.RoleID < 3).Where(p => p.OnlineStatus == true).ToList();
-            NetModel.Dispose();
             if (li.Count > 0) return true;
             return false;
         }
@@ -92,6 +97,7 @@ namespace PBL3.BLL
             NetModel = new Model_Net();
             USERS u = NetModel.USERs.Find(user.UserName);
             u.OnlineStatus = true;
+            u.LastLogin = DateTime.Now;
             if(pc != null)
             {
                 PC p = NetModel.PCs.Find(pc.ID);
@@ -114,6 +120,14 @@ namespace PBL3.BLL
                 p.USERS.Remove(u);
                 p.StatusID = 1;
             }
+            NetModel.SaveChanges();
+            NetModel.Dispose();
+        }
+        public void MoneyCharge(USERS user, int Amount)
+        {
+            NetModel = new Model_Net();
+            USERS u = NetModel.USERs.Find(user.UserName);
+            u.RemainingMoney += Amount;
             NetModel.SaveChanges();
             NetModel.Dispose();
         }

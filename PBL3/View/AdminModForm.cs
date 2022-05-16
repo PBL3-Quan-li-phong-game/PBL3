@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using PBL3.View.AdminMod_subform;
 using PBL3.BLL;
 using PBL3.Model;
-using PBL3.Model.obj;
-using PBL3.OnViewOBJ;
+using PBL3.Model.Context;
+using PBL3.OnViewContext;
 
 namespace PBL3
 {
@@ -26,9 +26,14 @@ namespace PBL3
             this.USER = user;
             InitializeComponent();
             lUserName.Text = USER.UserName;
+            ReloadView();
+            this.timer.Enabled = true;
+        }
+
+        public void ReloadView()
+        {
             dgvPC.DataSource = NetBLL.Instance.getViewPC();
             dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
-            this.timer.Enabled = true;
         }
 
         private void AdminModForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -73,15 +78,14 @@ namespace PBL3
 
         private void Charge_Click(object sender, EventArgs e)
         {
-            ChargeForm cf = new ChargeForm();
-
+            ChargeForm cf = new ChargeForm(dgvAccount.SelectedRows[0].Cells[0].Value.ToString());
+            cf.Reload = new ChargeForm.ReloadGate(this.ReloadView);
             cf.Show();
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvPC.DataSource = NetBLL.Instance.getViewPC();
-            dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
+            ReloadView();
         }
     }
 }

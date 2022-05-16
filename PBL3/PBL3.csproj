@@ -57,7 +57,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -81,18 +83,18 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\InitialDB.cs" />
     <Compile Include="Model\Model_Net.cs" />
-    <Compile Include="Model\obj\AREA.cs" />
-    <Compile Include="Model\obj\CHAT_LOG.cs" />
-    <Compile Include="Model\obj\LOGIN_HISTORY.cs" />
-    <Compile Include="Model\obj\PC.cs" />
-    <Compile Include="Model\obj\PC_STATUS.cs" />
-    <Compile Include="Model\obj\RECEIPT.cs" />
-    <Compile Include="Model\obj\RECEIPT_ITEM.cs" />
-    <Compile Include="Model\obj\ROLES.cs" />
-    <Compile Include="Model\obj\SERV.cs" />
-    <Compile Include="Model\obj\USERS.cs" />
-    <Compile Include="OnViewOBJ\pcOnView.cs" />
-    <Compile Include="OnViewOBJ\userOnView.cs" />
+    <Compile Include="Model\Context\AREA.cs" />
+    <Compile Include="Model\Context\CHAT_LOG.cs" />
+    <Compile Include="Model\Context\LOGIN_HISTORY.cs" />
+    <Compile Include="Model\Context\PC.cs" />
+    <Compile Include="Model\Context\PC_STATUS.cs" />
+    <Compile Include="Model\Context\RECEIPT.cs" />
+    <Compile Include="Model\Context\RECEIPT_ITEM.cs" />
+    <Compile Include="Model\Context\ROLES.cs" />
+    <Compile Include="Model\Context\SERV.cs" />
+    <Compile Include="Model\Context\USERS.cs" />
+    <Compile Include="OnViewContext\pcOnView.cs" />
+    <Compile Include="OnViewContext\userOnView.cs" />
     <Compile Include="View\AdminMod-subform\AddForm.cs">
       <SubType>Form</SubType>
     </Compile>

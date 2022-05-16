@@ -1,7 +1,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
-using PBL3.Model.obj;
+using PBL3.Model.Context;
 
 
 namespace PBL3.Model

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PBL3.Model.obj
+namespace PBL3.Model.Context
 {
     public class SERV
     {

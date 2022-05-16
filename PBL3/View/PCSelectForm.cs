@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
-using PBL3.Model.obj;
+using PBL3.Model.Context;
 
 namespace PBL3
 {
@@ -55,6 +55,16 @@ namespace PBL3
         private void cbbPC_SelectedIndexChanged(object sender, EventArgs e)
         {
             lNotify.Visible = false;
+        }
+
+        private void PCSelectForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.close();
+        }
+
+        private void bCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

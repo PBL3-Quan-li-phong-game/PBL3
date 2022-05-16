@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PBL3.Model.obj;
+using PBL3.Model.Context;
 
-namespace PBL3.OnViewOBJ
+namespace PBL3.OnViewContext
 {
     public class pcOnView
     {

@@ -6,22 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PBL3.Model.obj
+namespace PBL3.Model.Context
 {
-    public class LOGIN_HISTORY
+    public class RECEIPT
     {
+        public RECEIPT()
+        {
+            this.RECEIPT_ITEMs = new HashSet<RECEIPT_ITEM>();
+        }
+
         [Key][DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        [Required][MaxLength(18)]
+        [MaxLength(18)]
         public string UserName { get; set; }
-        [MaxLength(6)]
-        public string PCID { get; set; }
-        public DateTime LoginTime { get; set; }
-        public DateTime LogoutTime { get; set; }
+        public double TotalPrice { get; set; }
+        public DateTime FormedDate { get; set; }
 
         [ForeignKey("UserName")]
         public virtual USERS USER { get; set; }
-        [ForeignKey("PCID")]
-        public virtual PC PC { get; set; }
+
+        public virtual ICollection<RECEIPT_ITEM> RECEIPT_ITEMs { get; set; }    
     }
 }
