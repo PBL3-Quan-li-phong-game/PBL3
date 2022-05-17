@@ -115,7 +115,7 @@
             // 
             this.lNotify.AutoSize = true;
             this.lNotify.ForeColor = System.Drawing.Color.Red;
-            this.lNotify.Location = new System.Drawing.Point(58, 176);
+            this.lNotify.Location = new System.Drawing.Point(36, 176);
             this.lNotify.Name = "lNotify";
             this.lNotify.Size = new System.Drawing.Size(41, 16);
             this.lNotify.TabIndex = 4;

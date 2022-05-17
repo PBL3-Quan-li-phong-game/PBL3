@@ -74,7 +74,6 @@ namespace PBL3
                         this.Hide();
                     }
                 }
-                txtPWD.Clear();
             }
         }
 

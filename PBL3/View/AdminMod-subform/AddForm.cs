@@ -55,7 +55,7 @@ namespace PBL3.View.AdminMod_subform
         }
         private bool CheckValidate()
         {
-            if (emptyCheck())
+            if (!TextLengthCheck())
             {
                 lNotify.Visible = true;
                 return false;
@@ -88,24 +88,34 @@ namespace PBL3.View.AdminMod_subform
             }
             return true;
         }
-        private bool emptyCheck()
+        private bool TextLengthCheck()
         {
             if (txtUserName.Text.Length == 0)
             {
-                lNotify.Text = "Tên đăng nhập trống!";
-                return true;
+                lNotify.Text = "      Tên đăng nhập trống!  ";
+                return false;
             }
             if (txtPWD.Text.Length == 0)
             {
-                lNotify.Text = "Mật khẩu trống!     ";
-                return true;
+                lNotify.Text = "        Mật khẩu trống!     ";
+                return false;
             }
             if (txtMoney.Text.Length == 0)
             {
-                lNotify.Text = "Số tiền trống!      ";
-                return true;
+                lNotify.Text = "         Số tiền trống!      ";
+                return false;
             }
-            return false;
+            if(txtUserName.Text.Length > 18)
+            {
+                lNotify.Text = "Tên đăng nhập tối đa 18 kí tự";
+                return false;
+            }
+            if(txtPWD.Text.Length > 18)
+            {
+                lNotify.Text = "   Mật khẩu tối đa 18 kí tự  ";
+                return false;
+            }
+            return true;
         }
 
         private void txtUserName_TextChanged(object sender, EventArgs e)

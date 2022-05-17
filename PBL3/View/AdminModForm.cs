@@ -36,6 +36,16 @@ namespace PBL3
             dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
         }
 
+        public void SwitchUser(USERS user)
+        {
+            if (USER == user) return;
+
+            NetBLL.Instance.onLogout(USER);
+            USER = user;
+            NetBLL.Instance.onLogin(USER);
+            lUserName.Text = USER.UserName;
+        }
+
         private void AdminModForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             NetBLL.Instance.onLogout(USER);
@@ -64,8 +74,8 @@ namespace PBL3
 
         private void bProfile_Click(object sender, EventArgs e)
         {
-            ProfileForm pf = new ProfileForm();
-
+            ProfileForm pf = new ProfileForm(USER);
+            pf.uSwitch = new ProfileForm.USwitchGate(SwitchUser);
             pf.Show();
         }
 

@@ -28,33 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bLogOut = new System.Windows.Forms.Button();
-            this.bPWDChange = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.bChangeAccount = new System.Windows.Forms.Button();
+            this.bPWDChange = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // bLogOut
-            // 
-            this.bLogOut.BackgroundImage = global::PBL3.Properties.Resources.logout_icon;
-            this.bLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bLogOut.Location = new System.Drawing.Point(244, 31);
-            this.bLogOut.Name = "bLogOut";
-            this.bLogOut.Size = new System.Drawing.Size(90, 90);
-            this.bLogOut.TabIndex = 1;
-            this.bLogOut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bLogOut.UseVisualStyleBackColor = true;
-            // 
-            // bPWDChange
-            // 
-            this.bPWDChange.BackgroundImage = global::PBL3.Properties.Resources.pwdchange_icon;
-            this.bPWDChange.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bPWDChange.Location = new System.Drawing.Point(66, 31);
-            this.bPWDChange.Name = "bPWDChange";
-            this.bPWDChange.Size = new System.Drawing.Size(90, 90);
-            this.bPWDChange.TabIndex = 0;
-            this.bPWDChange.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bPWDChange.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -68,11 +46,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(257, 123);
+            this.label2.Location = new System.Drawing.Point(235, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 16);
+            this.label2.Size = new System.Drawing.Size(109, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Đăng xuất";
+            this.label2.Text = "Chuyển tài khoản";
+            // 
+            // bChangeAccount
+            // 
+            this.bChangeAccount.BackgroundImage = global::PBL3.Properties.Resources.ChangeAccount_icon;
+            this.bChangeAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bChangeAccount.Location = new System.Drawing.Point(244, 31);
+            this.bChangeAccount.Name = "bChangeAccount";
+            this.bChangeAccount.Size = new System.Drawing.Size(90, 90);
+            this.bChangeAccount.TabIndex = 1;
+            this.bChangeAccount.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bChangeAccount.UseVisualStyleBackColor = true;
+            this.bChangeAccount.Click += new System.EventHandler(this.bChangeAccount_Click);
+            // 
+            // bPWDChange
+            // 
+            this.bPWDChange.BackgroundImage = global::PBL3.Properties.Resources.pwdchange_icon;
+            this.bPWDChange.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bPWDChange.Location = new System.Drawing.Point(66, 31);
+            this.bPWDChange.Name = "bPWDChange";
+            this.bPWDChange.Size = new System.Drawing.Size(90, 90);
+            this.bPWDChange.TabIndex = 0;
+            this.bPWDChange.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bPWDChange.UseVisualStyleBackColor = true;
+            this.bPWDChange.Click += new System.EventHandler(this.bPWDChange_Click);
             // 
             // ProfileForm
             // 
@@ -81,7 +83,7 @@
             this.ClientSize = new System.Drawing.Size(427, 175);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bLogOut);
+            this.Controls.Add(this.bChangeAccount);
             this.Controls.Add(this.bPWDChange);
             this.Name = "ProfileForm";
             this.Text = "ProfileForm";
@@ -93,7 +95,7 @@
         #endregion
 
         private System.Windows.Forms.Button bPWDChange;
-        private System.Windows.Forms.Button bLogOut;
+        private System.Windows.Forms.Button bChangeAccount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

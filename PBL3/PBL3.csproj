@@ -76,11 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\NetBLL.cs" />
-    <Compile Include="Migrations\202205110511491_DBmig.cs" />
-    <Compile Include="Migrations\202205110511491_DBmig.designer.cs">
-      <DependentUpon>202205110511491_DBmig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\InitialDB.cs" />
     <Compile Include="Model\Model_Net.cs" />
     <Compile Include="Model\Context\AREA.cs" />
@@ -119,6 +114,12 @@
     <Compile Include="View\AdminMod-subform\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminMod-subform\SwitchAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\SwitchAccountForm.Designer.cs">
+      <DependentUpon>SwitchAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminModForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +150,18 @@
     <Compile Include="View\Player-subform\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminMod-subform\PWDChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\PWDChangeForm.Designer.cs">
+      <DependentUpon>PWDChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Player-subform\PWDChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Player-subform\PWDChangeForm.Designer.cs">
+      <DependentUpon>PWDChangeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PlayerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,9 +170,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202205110511491_DBmig.resx">
-      <DependentUpon>202205110511491_DBmig.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\SwitchAccountForm.resx">
+      <DependentUpon>SwitchAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminModForm.resx">
       <DependentUpon>AdminModForm.cs</DependentUpon>
@@ -186,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Player-subform\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\PWDChangeForm.resx">
+      <DependentUpon>PWDChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Player-subform\PWDChangeForm.resx">
+      <DependentUpon>PWDChangeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PlayerForm.resx">
       <DependentUpon>PlayerForm.cs</DependentUpon>
@@ -238,6 +257,7 @@
       <DependentUpon>DBNet.mdf</DependentUpon>
     </Content>
     <Content Include="icon\bill-icon.jpg" />
+    <Content Include="icon\ChangeAccount-icon.png" />
     <Content Include="icon\help-icon.jpg" />
     <None Include="icon\msg-icon.png" />
     <None Include="icon\quit-icon.jpg" />

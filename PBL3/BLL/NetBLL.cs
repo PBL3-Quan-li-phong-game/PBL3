@@ -113,13 +113,22 @@ namespace PBL3.BLL
             NetModel = new Model_Net();
             USERS u = NetModel.USERs.Find(user.UserName);
             u.OnlineStatus = false;
-            if(pc != null)
+            LOGIN_HISTORY lh = new LOGIN_HISTORY
+            {
+                UserName = u.UserName,
+                PCID = null,
+                LoginTime = u.LastLogin,
+                LogoutTime = DateTime.Now
+            };
+            if (pc != null)
             {
                 PC p = NetModel.PCs.Find(pc.ID);
+                lh.PCID = p.ID;
                 u.UsingPC = null;
                 p.USERS.Remove(u);
                 p.StatusID = 1;
             }
+            NetModel.LOGIN_HISTORY.Add(lh);
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
@@ -135,6 +144,14 @@ namespace PBL3.BLL
             NetModel = new Model_Net();
             USERS u = NetModel.USERs.Find(user.UserName);
             u.RemainingMoney += Amount;
+            NetModel.SaveChanges();
+            NetModel.Dispose();
+        }
+        public void ChangePWD(USERS user, string NewPWD)
+        {
+            NetModel = new Model_Net();
+            USERS u = NetModel.USERs.Find(user.UserName);
+            u.PWD = NewPWD;
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
