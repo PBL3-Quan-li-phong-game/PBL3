@@ -393,7 +393,7 @@
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAccount.Size = new System.Drawing.Size(1073, 669);
             this.dgvAccount.TabIndex = 4;
-            this.dgvAccount.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAccount_CellMouseClick);
+            this.dgvAccount.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAccount_MouseClick);
             // 
             // panel7
             // 
@@ -499,6 +499,7 @@
             this.ResetPWD.Size = new System.Drawing.Size(181, 24);
             this.ResetPWD.Text = "Reset password";
             this.ResetPWD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ResetPWD.Click += new System.EventHandler(this.ResetPWD_Click);
             // 
             // Del
             // 
@@ -506,6 +507,7 @@
             this.Del.Size = new System.Drawing.Size(181, 24);
             this.Del.Text = "Xóa tài khoản";
             this.Del.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Del.Click += new System.EventHandler(this.Del_Click);
             // 
             // AdminModForm
             // 

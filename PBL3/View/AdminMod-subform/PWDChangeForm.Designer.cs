@@ -55,6 +55,7 @@
             // 
             this.txtOldPWD.Location = new System.Drawing.Point(148, 72);
             this.txtOldPWD.Name = "txtOldPWD";
+            this.txtOldPWD.PasswordChar = '*';
             this.txtOldPWD.Size = new System.Drawing.Size(128, 22);
             this.txtOldPWD.TabIndex = 1;
             this.txtOldPWD.TextChanged += new System.EventHandler(this.txtOldPWD_TextChanged);
@@ -63,6 +64,7 @@
             // 
             this.txtNewPWD.Location = new System.Drawing.Point(148, 114);
             this.txtNewPWD.Name = "txtNewPWD";
+            this.txtNewPWD.PasswordChar = '*';
             this.txtNewPWD.Size = new System.Drawing.Size(128, 22);
             this.txtNewPWD.TabIndex = 2;
             this.txtNewPWD.TextChanged += new System.EventHandler(this.txtNewPWD_TextChanged);
@@ -129,6 +131,7 @@
             // 
             this.txtConfirmPWD.Location = new System.Drawing.Point(148, 158);
             this.txtConfirmPWD.Name = "txtConfirmPWD";
+            this.txtConfirmPWD.PasswordChar = '*';
             this.txtConfirmPWD.Size = new System.Drawing.Size(128, 22);
             this.txtConfirmPWD.TabIndex = 2;
             this.txtConfirmPWD.TextChanged += new System.EventHandler(this.txtConfirmPWD_TextChanged);

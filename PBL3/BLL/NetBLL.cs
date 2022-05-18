@@ -26,28 +26,7 @@ namespace PBL3.BLL
             private set { }
         }
 
-        public List<userOnView> getViewUsers()
-        {
-            NetModel = new Model_Net();
-            List<userOnView> data = new List<userOnView>();
-            foreach(USERS i in NetModel.USERs.Where(p => p.ROLE.Name != "AD"))
-            {
-                data.Add(new userOnView(i));
-            }
-            NetModel.Dispose();
-            return data;
-        }
-        public List<pcOnView> getViewPC()
-        {
-            NetModel = new Model_Net();
-            List<pcOnView> data = new List<pcOnView>();
-            foreach(PC i in NetModel.PCs)
-            {
-                data.Add(new pcOnView(i));
-            }
-            NetModel.Dispose();
-            return data;
-        }
+        ///*********************GENERAL METHOD*************************///
         public USERS GetUser(string username, string pwd) 
         {
             NetModel = new Model_Net();
@@ -132,6 +111,32 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+        ///*******************END GENERAL METHOD************************///
+
+
+        ///*******************ADMIN_MOD SECTION*************************///
+        public List<userOnView> getViewUsers()
+        {
+            NetModel = new Model_Net();
+            List<userOnView> data = new List<userOnView>();
+            foreach (USERS i in NetModel.USERs.Where(p => p.ROLE.Name != "AD"))
+            {
+                data.Add(new userOnView(i));
+            }
+            NetModel.Dispose();
+            return data;
+        }
+        public List<pcOnView> getViewPC()
+        {
+            NetModel = new Model_Net();
+            List<pcOnView> data = new List<pcOnView>();
+            foreach (PC i in NetModel.PCs)
+            {
+                data.Add(new pcOnView(i));
+            }
+            NetModel.Dispose();
+            return data;
+        }
         public void addUser(USERS user)
         {
             NetModel = new Model_Net();
@@ -155,5 +160,24 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+        public void ResetPWD(USERS user)
+        {
+            ChangePWD(user, "1");
+        }
+        public void DelUser(USERS user)
+        {
+            NetModel = new Model_Net();
+            USERS u = NetModel.USERs.Find(user.UserName);
+            NetModel.USERs.Remove(u);
+            NetModel.SaveChanges();
+            NetModel.Dispose();
+        }
+
+        ///*******************END ADMIN_MOD SECTION*************************///
+
+
+        ///**********************PLAYER SECTION*****************************///
+
+        ///********************END PLAYER SECTION***************************///
     }
 }

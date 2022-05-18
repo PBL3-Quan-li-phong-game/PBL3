@@ -57,13 +57,7 @@ namespace PBL3
             lDateTime.Text = DateTime.Now.ToString();
         }
 
-        private void dgvAccount_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Right && dgvAccount.SelectedRows.Count > 0)
-            {
-                cmsAccount.Show(dgvAccount, new Point(e.X + 50, e.Y + 40));
-            }
-        }
+        
 
         private void bAddUser_Click(object sender, EventArgs e)
         {
@@ -96,6 +90,34 @@ namespace PBL3
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReloadView();
+        }
+
+        private void ResetPWD_Click(object sender, EventArgs e)
+        {
+            USERS u = NetBLL.Instance.getUserbyUserName(dgvAccount.SelectedRows[0].Cells[0].Value.ToString());
+            DialogResult r = MessageBox.Show(String.Format("Reset mật khẩu của tài khoản {0} ? (Mật khẩu mặc định là \"1\")", u.UserName), "Xác nhận reset", MessageBoxButtons.OKCancel);
+            if (r == DialogResult.OK)
+            {
+                NetBLL.Instance.ResetPWD(u);
+            }
+        }
+
+        private void Del_Click(object sender, EventArgs e)
+        {
+            USERS u = NetBLL.Instance.getUserbyUserName(dgvAccount.SelectedRows[0].Cells[0].Value.ToString());
+            DialogResult r = MessageBox.Show(String.Format("Xóa tài khoản {0} ?", u.UserName), "Xóa tài khoản", MessageBoxButtons.OKCancel);
+            if (r == DialogResult.OK)
+            {
+                NetBLL.Instance.DelUser(u);
+                ReloadView();
+            }
+        }
+        private void dgvAccount_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && dgvAccount.SelectedRows.Count > 0)
+            {
+                cmsAccount.Show(dgvAccount, new Point(e.X, e.Y));
+            }
         }
     }
 }
