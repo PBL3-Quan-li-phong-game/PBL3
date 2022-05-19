@@ -20,7 +20,7 @@ namespace PBL3.Model
         public virtual DbSet<USERS> USERs { get; set; }
         public virtual DbSet<LOGIN_HISTORY> LOGIN_HISTORY { get; set; }
         public virtual DbSet<CHAT_LOG> CHAT_LOGs { get; set; }
-        public virtual DbSet<SERV> SERVICE { get; set; }
+        public virtual DbSet<SERV> SERVICEs { get; set; }
         public virtual DbSet<RECEIPT> RECEIPTs { get; set; }
         public virtual DbSet<RECEIPT_ITEM> RECEIPT_ITEMs { get; set; }
 

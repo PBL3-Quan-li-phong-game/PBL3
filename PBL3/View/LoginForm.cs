@@ -51,6 +51,12 @@ namespace PBL3
                         lNotify.Visible = true;
                     }
                     else
+                    if(user.RemainingMoney <= 0)
+                    {
+                        lNotify.Text = "Vui lòng nạp thêm vào tài khoản!";
+                        lNotify.Visible = true;
+                    }
+                    else
                     {
                         PCSelectForm sf = new PCSelectForm(user);
                         sf.close = new PCSelectForm.CloseGate(this.Close);
@@ -86,6 +92,7 @@ namespace PBL3
         {
             this.lNotify.Visible = false;
         }
+
         private bool TextValidate()
         {
             foreach(char c in txtUserName.Text)
@@ -100,6 +107,7 @@ namespace PBL3
             }
             return true;
         }
+        
         private bool emptyCheck()
         {
             if (txtPWD.Text.Length == 0 || txtUserName.Text.Length == 0) return true;

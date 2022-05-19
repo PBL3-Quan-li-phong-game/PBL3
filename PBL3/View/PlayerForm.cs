@@ -19,13 +19,21 @@ namespace PBL3
         public closeDel close;
         public USERS USER;
         public PC PC;
+        public TimeSpan RemainingTime;
         public PlayerForm(USERS user, PC pc)
         {
-            this.USER = user;
-            this.PC = pc;
+            this.USER = NetBLL.Instance.getUserbyUserName(user.UserName);
+            this.PC = NetBLL.Instance.getPCbyID(pc.ID);
+            this.USER.PC = this.PC;
             InitializeComponent();
             lPCID.Text = PC.ID;
             lUserName.Text = USER.UserName;
+            txtReMoney.Text = USER.RemainingMoney.ToString();
+            RemainingTime = TimeSpan.FromHours(USER.RemainingMoney / USER.PC.AREA.Cost);
+            txtReTime.Text = RemainingTime.ToString().Remove(RemainingTime.ToString().Length - 3);
+
+            txt1hPrice.Text = PC.AREA.Cost.ToString();
+            this.timer.Enabled = true;
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
@@ -46,6 +54,18 @@ namespace PBL3
             ChatForm cf = new ChatForm();
 
             cf.Show();
+        }
+
+        private void bService_Click(object sender, EventArgs e)
+        {
+            ServiceForm sf = new ServiceForm(USER);
+
+            sf.Show();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

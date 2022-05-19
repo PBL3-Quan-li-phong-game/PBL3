@@ -46,22 +46,20 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.dgvCurrInvoice = new System.Windows.Forms.DataGridView();
+            this.dgvCurrReceipt = new System.Windows.Forms.DataGridView();
             this.dgvPC = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.bSearchPC = new System.Windows.Forms.Button();
             this.txtSearchPC = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabAccount = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvReceiptHistory = new System.Windows.Forms.DataGridView();
             this.dgvAccount = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.bAddUser = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bSearchReceipt = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bSeachAcc = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSearchAcc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,12 +74,12 @@
             this.tabPC.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrInvoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrReceipt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
             this.panel5.SuspendLayout();
             this.tabAccount.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiptHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.panel7.SuspendLayout();
             this.cmsAccount.SuspendLayout();
@@ -260,7 +258,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.dgvCurrInvoice);
+            this.panel3.Controls.Add(this.dgvCurrReceipt);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(1074, 35);
             this.panel3.Name = "panel3";
@@ -277,16 +275,16 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Hóa đơn";
             // 
-            // dgvCurrInvoice
+            // dgvCurrReceipt
             // 
-            this.dgvCurrInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCurrInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCurrInvoice.Location = new System.Drawing.Point(10, 20);
-            this.dgvCurrInvoice.Name = "dgvCurrInvoice";
-            this.dgvCurrInvoice.RowHeadersWidth = 51;
-            this.dgvCurrInvoice.RowTemplate.Height = 24;
-            this.dgvCurrInvoice.Size = new System.Drawing.Size(340, 649);
-            this.dgvCurrInvoice.TabIndex = 0;
+            this.dgvCurrReceipt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCurrReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCurrReceipt.Location = new System.Drawing.Point(10, 20);
+            this.dgvCurrReceipt.Name = "dgvCurrReceipt";
+            this.dgvCurrReceipt.RowHeadersWidth = 51;
+            this.dgvCurrReceipt.RowTemplate.Height = 24;
+            this.dgvCurrReceipt.Size = new System.Drawing.Size(340, 649);
+            this.dgvCurrReceipt.TabIndex = 0;
             // 
             // dgvPC
             // 
@@ -301,7 +299,6 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.bSearchPC);
             this.panel5.Controls.Add(this.txtSearchPC);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -310,22 +307,13 @@
             this.panel5.Size = new System.Drawing.Size(1424, 35);
             this.panel5.TabIndex = 0;
             // 
-            // bSearchPC
-            // 
-            this.bSearchPC.BackgroundImage = global::PBL3.Properties.Resources.Search;
-            this.bSearchPC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bSearchPC.Location = new System.Drawing.Point(241, -1);
-            this.bSearchPC.Name = "bSearchPC";
-            this.bSearchPC.Size = new System.Drawing.Size(34, 35);
-            this.bSearchPC.TabIndex = 2;
-            this.bSearchPC.UseVisualStyleBackColor = true;
-            // 
             // txtSearchPC
             // 
             this.txtSearchPC.Location = new System.Drawing.Point(71, 6);
             this.txtSearchPC.Name = "txtSearchPC";
             this.txtSearchPC.Size = new System.Drawing.Size(164, 22);
             this.txtSearchPC.TabIndex = 1;
+            this.txtSearchPC.TextChanged += new System.EventHandler(this.txtSearchPC_TextChanged);
             // 
             // label1
             // 
@@ -352,7 +340,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Controls.Add(this.dgvReceiptHistory);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel6.Location = new System.Drawing.Point(1077, 38);
             this.panel6.Name = "panel6";
@@ -369,16 +357,16 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Lịch sử hóa đơn";
             // 
-            // dataGridView1
+            // dgvReceiptHistory
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(340, 649);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvReceiptHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReceiptHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvReceiptHistory.Location = new System.Drawing.Point(10, 20);
+            this.dgvReceiptHistory.Name = "dgvReceiptHistory";
+            this.dgvReceiptHistory.RowHeadersWidth = 51;
+            this.dgvReceiptHistory.RowTemplate.Height = 24;
+            this.dgvReceiptHistory.Size = new System.Drawing.Size(340, 649);
+            this.dgvReceiptHistory.TabIndex = 0;
             // 
             // dgvAccount
             // 
@@ -398,9 +386,8 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.bAddUser);
-            this.panel7.Controls.Add(this.button1);
+            this.panel7.Controls.Add(this.bSearchReceipt);
             this.panel7.Controls.Add(this.textBox1);
-            this.panel7.Controls.Add(this.bSeachAcc);
             this.panel7.Controls.Add(this.label5);
             this.panel7.Controls.Add(this.txtSearchAcc);
             this.panel7.Controls.Add(this.label2);
@@ -423,15 +410,15 @@
             this.bAddUser.UseVisualStyleBackColor = true;
             this.bAddUser.Click += new System.EventHandler(this.bAddUser_Click);
             // 
-            // button1
+            // bSearchReceipt
             // 
-            this.button1.BackgroundImage = global::PBL3.Properties.Resources.Search;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(1390, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 35);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
+            this.bSearchReceipt.BackgroundImage = global::PBL3.Properties.Resources.Search;
+            this.bSearchReceipt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bSearchReceipt.Location = new System.Drawing.Point(1390, 0);
+            this.bSearchReceipt.Name = "bSearchReceipt";
+            this.bSearchReceipt.Size = new System.Drawing.Size(34, 35);
+            this.bSearchReceipt.TabIndex = 2;
+            this.bSearchReceipt.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -439,16 +426,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 22);
             this.textBox1.TabIndex = 1;
-            // 
-            // bSeachAcc
-            // 
-            this.bSeachAcc.BackgroundImage = global::PBL3.Properties.Resources.Search;
-            this.bSeachAcc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bSeachAcc.Location = new System.Drawing.Point(241, -1);
-            this.bSeachAcc.Name = "bSeachAcc";
-            this.bSeachAcc.Size = new System.Drawing.Size(34, 35);
-            this.bSeachAcc.TabIndex = 2;
-            this.bSeachAcc.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -465,6 +442,7 @@
             this.txtSearchAcc.Name = "txtSearchAcc";
             this.txtSearchAcc.Size = new System.Drawing.Size(164, 22);
             this.txtSearchAcc.TabIndex = 1;
+            this.txtSearchAcc.TextChanged += new System.EventHandler(this.txtSearchAcc_TextChanged);
             // 
             // label2
             // 
@@ -533,14 +511,14 @@
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrInvoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrReceipt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabAccount.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiptHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -563,12 +541,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvPC;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button bSearchPC;
         private System.Windows.Forms.TextBox txtSearchPC;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvAccount;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button bSeachAcc;
         private System.Windows.Forms.TextBox txtSearchAcc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lUserName;
@@ -579,8 +555,8 @@
         private System.Windows.Forms.Button bAddUser;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgvCurrInvoice;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvCurrReceipt;
+        private System.Windows.Forms.Button bSearchReceipt;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ContextMenuStrip cmsAccount;
@@ -590,6 +566,6 @@
         private System.Windows.Forms.Button bReceipt;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvReceiptHistory;
     }
 }

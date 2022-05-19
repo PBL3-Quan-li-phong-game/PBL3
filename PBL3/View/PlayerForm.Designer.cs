@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lPCID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,16 +38,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lUserName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtReMoney = new System.Windows.Forms.TextBox();
+            this.txtReTime = new System.Windows.Forms.TextBox();
+            this.txtUsedMoney = new System.Windows.Forms.TextBox();
+            this.txtUsedTime = new System.Windows.Forms.TextBox();
+            this.txt1hPrice = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bMSG = new System.Windows.Forms.Button();
             this.bLogOut = new System.Windows.Forms.Button();
             this.bAccMNG = new System.Windows.Forms.Button();
             this.bService = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -134,55 +136,65 @@
             this.lUserName.TabIndex = 2;
             this.lUserName.Text = "Tên tài khoản";
             // 
-            // textBox1
+            // txtReMoney
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(172, 94);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(137, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtReMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReMoney.Enabled = false;
+            this.txtReMoney.Location = new System.Drawing.Point(172, 94);
+            this.txtReMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtReMoney.Name = "txtReMoney";
+            this.txtReMoney.ReadOnly = true;
+            this.txtReMoney.Size = new System.Drawing.Size(137, 22);
+            this.txtReMoney.TabIndex = 3;
+            this.txtReMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox2
+            // txtReTime
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(172, 128);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(137, 22);
-            this.textBox2.TabIndex = 3;
+            this.txtReTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReTime.Enabled = false;
+            this.txtReTime.Location = new System.Drawing.Point(172, 128);
+            this.txtReTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtReTime.Name = "txtReTime";
+            this.txtReTime.ReadOnly = true;
+            this.txtReTime.Size = new System.Drawing.Size(137, 22);
+            this.txtReTime.TabIndex = 3;
+            this.txtReTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox3
+            // txtUsedMoney
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(172, 162);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(137, 22);
-            this.textBox3.TabIndex = 3;
+            this.txtUsedMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsedMoney.Enabled = false;
+            this.txtUsedMoney.Location = new System.Drawing.Point(172, 162);
+            this.txtUsedMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsedMoney.Name = "txtUsedMoney";
+            this.txtUsedMoney.ReadOnly = true;
+            this.txtUsedMoney.Size = new System.Drawing.Size(137, 22);
+            this.txtUsedMoney.TabIndex = 3;
+            this.txtUsedMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox4
+            // txtUsedTime
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(172, 198);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(137, 22);
-            this.textBox4.TabIndex = 3;
+            this.txtUsedTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsedTime.Enabled = false;
+            this.txtUsedTime.Location = new System.Drawing.Point(172, 198);
+            this.txtUsedTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsedTime.Name = "txtUsedTime";
+            this.txtUsedTime.ReadOnly = true;
+            this.txtUsedTime.Size = new System.Drawing.Size(137, 22);
+            this.txtUsedTime.TabIndex = 3;
+            this.txtUsedTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox5
+            // txt1hPrice
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(172, 233);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(137, 22);
-            this.textBox5.TabIndex = 3;
+            this.txt1hPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt1hPrice.Enabled = false;
+            this.txt1hPrice.Location = new System.Drawing.Point(172, 233);
+            this.txt1hPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt1hPrice.Name = "txt1hPrice";
+            this.txt1hPrice.ReadOnly = true;
+            this.txt1hPrice.Size = new System.Drawing.Size(137, 22);
+            this.txt1hPrice.TabIndex = 3;
+            this.txt1hPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel2
             // 
@@ -251,6 +263,11 @@
             this.bService.Text = "Dịch vụ";
             this.bService.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bService.UseVisualStyleBackColor = true;
+            this.bService.Click += new System.EventHandler(this.bService_Click);
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // PlayerForm
             // 
@@ -258,11 +275,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 564);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt1hPrice);
+            this.Controls.Add(this.txtUsedTime);
+            this.Controls.Add(this.txtUsedMoney);
+            this.Controls.Add(this.txtReTime);
+            this.Controls.Add(this.txtReMoney);
             this.Controls.Add(this.lUserName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -294,16 +311,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtReMoney;
+        private System.Windows.Forms.TextBox txtReTime;
+        private System.Windows.Forms.TextBox txtUsedMoney;
+        private System.Windows.Forms.TextBox txtUsedTime;
+        private System.Windows.Forms.TextBox txt1hPrice;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button bMSG;
         private System.Windows.Forms.Button bLogOut;
         private System.Windows.Forms.Button bAccMNG;
         private System.Windows.Forms.Button bService;
         private System.Windows.Forms.Label lUserName;
+        private System.Windows.Forms.Timer timer;
     }
 }

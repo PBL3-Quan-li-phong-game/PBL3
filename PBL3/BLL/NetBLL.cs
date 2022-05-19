@@ -111,10 +111,12 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+
         ///*******************END GENERAL METHOD************************///
 
 
         ///*******************ADMIN_MOD SECTION*************************///
+        
         public List<userOnView> getViewUsers()
         {
             NetModel = new Model_Net();
@@ -135,6 +137,24 @@ namespace PBL3.BLL
                 data.Add(new pcOnView(i));
             }
             NetModel.Dispose();
+            return data;
+        }
+        public List<userOnView> getViewUserbySearch(string search)
+        {
+            List<userOnView> data = new List<userOnView>();
+            foreach(userOnView u in NetBLL.Instance.getViewUsers())
+            {
+                if(u.UserName.ToUpper().Contains(search.ToUpper())) data.Add(u);
+            }
+            return data;
+        }
+        public List<pcOnView> getViewPCbySearch(string search)
+        {
+            List<pcOnView> data = new List<pcOnView>();
+            foreach (pcOnView pc in NetBLL.Instance.getViewPC())
+            {
+                if (pc.ID.ToUpper().Contains(search.ToUpper())) data.Add(pc);
+            }
             return data;
         }
         public void addUser(USERS user)
@@ -177,6 +197,25 @@ namespace PBL3.BLL
 
 
         ///**********************PLAYER SECTION*****************************///
+
+        public List<SERV> getAllService()
+        {
+            NetModel = new Model_Net();
+            List<SERV> data = new List<SERV>();
+            foreach(SERV s in NetModel.SERVICEs)
+            {
+                data.Add(s);
+            }
+            NetModel.Dispose();
+            return data;
+        }
+        public SERV getServicebyID(string ID)
+        {
+            NetModel = new Model_Net();
+            SERV s = NetModel.SERVICEs.Find(ID);
+            NetModel.Dispose();
+            return s;
+        }
 
         ///********************END PLAYER SECTION***************************///
     }

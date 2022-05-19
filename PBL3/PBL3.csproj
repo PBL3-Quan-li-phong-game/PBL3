@@ -64,6 +64,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\NetBLL.cs" />
+    <Compile Include="Component\cpnService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\cpnService.Designer.cs">
+      <DependentUpon>cpnService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\InitialDB.cs" />
     <Compile Include="Model\Model_Net.cs" />
     <Compile Include="Model\Context\AREA.cs" />
@@ -162,6 +169,12 @@
     <Compile Include="View\Player-subform\PWDChangeForm.Designer.cs">
       <DependentUpon>PWDChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Player-subform\ServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Player-subform\ServiceForm.Designer.cs">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PlayerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +183,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Component\cpnService.resx">
+      <DependentUpon>cpnService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Player-subform\PWDChangeForm.resx">
       <DependentUpon>PWDChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Player-subform\ServiceForm.resx">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PlayerForm.resx">
       <DependentUpon>PlayerForm.cs</DependentUpon>
@@ -265,6 +284,15 @@
     <None Include="icon\playerprofile-icon.png" />
     <None Include="icon\pwdchange-icon.png" />
     <None Include="icon\refresh-icon.png" />
+    <None Include="icon\illu-Service\MiTom.jpeg" />
+    <None Include="icon\illu-Service\7up.jpg" />
+    <None Include="icon\illu-Service\Aqua.jpg" />
+    <None Include="icon\illu-Service\Coca.jpg" />
+    <None Include="icon\illu-Service\Mirinda.jpg" />
+    <None Include="icon\illu-Service\Pepsi.jpg" />
+    <None Include="icon\illu-Service\redString.jpg" />
+    <None Include="icon\illu-Service\sprite.jpg" />
+    <None Include="icon\illu-Service\yellowSting.jpg" />
     <Content Include="icon\Search.png" />
     <None Include="icon\Setting-Profile.png" />
   </ItemGroup>

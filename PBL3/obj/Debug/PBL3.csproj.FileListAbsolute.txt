@@ -41,3 +41,5 @@ C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.PCS
 C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.PWDChangeForm.resources
 C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.Player_subform.PWDChangeForm.resources
 C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.SwitchAccountForm.resources
+C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.Component.cpnService.resources
+C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.Player_subform.ServiceForm.resources

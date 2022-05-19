@@ -57,8 +57,6 @@ namespace PBL3
             lDateTime.Text = DateTime.Now.ToString();
         }
 
-        
-
         private void bAddUser_Click(object sender, EventArgs e)
         {
             AddForm af = new AddForm(USER.RoleID);
@@ -112,11 +110,30 @@ namespace PBL3
                 ReloadView();
             }
         }
+
         private void dgvAccount_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right && dgvAccount.SelectedRows.Count > 0)
             {
                 cmsAccount.Show(dgvAccount, new Point(e.X, e.Y));
+            }
+        }
+
+        private void txtSearchPC_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchPC.Text == "") dgvPC.DataSource = NetBLL.Instance.getViewPC();
+            else
+            {
+                dgvPC.DataSource = NetBLL.Instance.getViewPCbySearch(txtSearchPC.Text);
+            }
+        }
+
+        private void txtSearchAcc_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchAcc.Text == "") dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
+            else
+            {
+                dgvAccount.DataSource = NetBLL.Instance.getViewUserbySearch(txtSearchAcc.Text);
             }
         }
     }

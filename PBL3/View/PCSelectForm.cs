@@ -38,8 +38,8 @@ namespace PBL3
                 case 1:
                     PlayerForm pf = new PlayerForm(user, pc);
                     pf.close = new PlayerForm.closeDel(this.close);
-                    pf.Show();
                     NetBLL.Instance.onLogin(user, pc);
+                    pf.Show();
                     this.Hide();
                     break;
                 case 2:

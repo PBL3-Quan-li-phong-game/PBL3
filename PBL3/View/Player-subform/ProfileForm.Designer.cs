@@ -73,6 +73,7 @@
             this.bPWDChange.TabIndex = 3;
             this.bPWDChange.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bPWDChange.UseVisualStyleBackColor = true;
+            this.bPWDChange.Click += new System.EventHandler(this.bPWDChange_Click);
             // 
             // ProfileForm
             // 

@@ -57,7 +57,7 @@ namespace PBL3.Model
                 new USERS { UserName = "user03", PWD = "123456789", RoleID = 3, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false}
             });
 
-            context.SERVICE.AddRange(new SERV[]
+            context.SERVICEs.AddRange(new SERV[]
             {
                 new SERV { ID = "MiTom", Name = "Mì Tôm", Unit = "Tô", UnitPrice = 10000.0},
                 new SERV { ID = "MiTomTrung", Name = "Mì Tôm Trứng", Unit = "Tô", UnitPrice = 15000.0},

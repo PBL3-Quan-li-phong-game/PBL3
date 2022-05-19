@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL3.Model.Context;
 
 namespace PBL3.View.Player_subform
 {
     public partial class ProfileForm : Form
     {
+        public USERS user;
         public ProfileForm()
         {
             InitializeComponent();
+        }
+
+        private void bPWDChange_Click(object sender, EventArgs e)
+        {
+            PWDChangeForm pf = new PWDChangeForm(user);
+            pf.Show();
+            this.Close();
         }
     }
 }
