@@ -31,7 +31,6 @@
             this.bSend = new System.Windows.Forms.Button();
             this.rtbSend = new System.Windows.Forms.RichTextBox();
             this.rtbDisplay = new System.Windows.Forms.RichTextBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.lAdmin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -43,6 +42,7 @@
             this.bSend.TabIndex = 7;
             this.bSend.Text = "Gửi";
             this.bSend.UseVisualStyleBackColor = true;
+            this.bSend.Click += new System.EventHandler(this.bSend_Click);
             // 
             // rtbSend
             // 
@@ -54,6 +54,7 @@
             // 
             // rtbDisplay
             // 
+            this.rtbDisplay.Enabled = false;
             this.rtbDisplay.Location = new System.Drawing.Point(12, 31);
             this.rtbDisplay.Name = "rtbDisplay";
             this.rtbDisplay.ReadOnly = true;
@@ -81,6 +82,7 @@
             this.Controls.Add(this.lAdmin);
             this.Name = "ChatForm";
             this.Text = "ChatForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,10 +90,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bSend;
-        private System.Windows.Forms.RichTextBox rtbSend;
-        private System.Windows.Forms.RichTextBox rtbDisplay;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Label lAdmin;
+        public System.Windows.Forms.Button bSend;
+        public System.Windows.Forms.RichTextBox rtbSend;
+        public System.Windows.Forms.RichTextBox rtbDisplay;
+        public System.Windows.Forms.Label lAdmin;
     }
 }

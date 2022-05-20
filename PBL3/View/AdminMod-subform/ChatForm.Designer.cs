@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.rtbDisplay = new System.Windows.Forms.RichTextBox();
+            this.rtbSend = new System.Windows.Forms.RichTextBox();
             this.bSend = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SocketList = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lwConnection = new System.Windows.Forms.ListView();
             this.lUserName = new System.Windows.Forms.Label();
             this.SocketList.SuspendLayout();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // rtbDisplay
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(218, 31);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(580, 297);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtbDisplay.Enabled = false;
+            this.rtbDisplay.Location = new System.Drawing.Point(218, 31);
+            this.rtbDisplay.Name = "rtbDisplay";
+            this.rtbDisplay.ReadOnly = true;
+            this.rtbDisplay.Size = new System.Drawing.Size(580, 297);
+            this.rtbDisplay.TabIndex = 0;
+            this.rtbDisplay.Text = "";
             // 
-            // richTextBox2
+            // rtbSend
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(218, 348);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(477, 90);
-            this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "";
+            this.rtbSend.Location = new System.Drawing.Point(218, 348);
+            this.rtbSend.Name = "rtbSend";
+            this.rtbSend.Size = new System.Drawing.Size(477, 90);
+            this.rtbSend.TabIndex = 1;
+            this.rtbSend.Text = "";
             // 
             // bSend
             // 
@@ -63,11 +63,11 @@
             this.bSend.TabIndex = 2;
             this.bSend.Text = "Gửi";
             this.bSend.UseVisualStyleBackColor = true;
-            this.bSend.Click += new System.EventHandler(this.button1_Click);
+            this.bSend.Click += new System.EventHandler(this.bSend_Click);
             // 
             // SocketList
             // 
-            this.SocketList.Controls.Add(this.panel1);
+            this.SocketList.Controls.Add(this.lwConnection);
             this.SocketList.Location = new System.Drawing.Point(13, 13);
             this.SocketList.Name = "SocketList";
             this.SocketList.Size = new System.Drawing.Size(188, 425);
@@ -75,13 +75,16 @@
             this.SocketList.TabStop = false;
             this.SocketList.Text = "Danh sách kết nối";
             // 
-            // panel1
+            // lwConnection
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 18);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(182, 404);
-            this.panel1.TabIndex = 0;
+            this.lwConnection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lwConnection.HideSelection = false;
+            this.lwConnection.Location = new System.Drawing.Point(3, 18);
+            this.lwConnection.Name = "lwConnection";
+            this.lwConnection.Size = new System.Drawing.Size(182, 404);
+            this.lwConnection.TabIndex = 0;
+            this.lwConnection.UseCompatibleStateImageBehavior = false;
+            this.lwConnection.View = System.Windows.Forms.View.List;
             // 
             // lUserName
             // 
@@ -100,10 +103,11 @@
             this.Controls.Add(this.lUserName);
             this.Controls.Add(this.SocketList);
             this.Controls.Add(this.bSend);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbSend);
+            this.Controls.Add(this.rtbDisplay);
             this.Name = "ChatForm";
             this.Text = "ChatForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatForm_FormClosing);
             this.SocketList.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -112,12 +116,11 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button bSend;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.GroupBox SocketList;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lUserName;
+        public System.Windows.Forms.RichTextBox rtbDisplay;
+        public System.Windows.Forms.RichTextBox rtbSend;
+        public System.Windows.Forms.Button bSend;
+        public System.Windows.Forms.GroupBox SocketList;
+        public System.Windows.Forms.Label lUserName;
+        public System.Windows.Forms.ListView lwConnection;
     }
 }

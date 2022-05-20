@@ -14,8 +14,9 @@ namespace PBL3.View.Player_subform
     public partial class ProfileForm : Form
     {
         public USERS user;
-        public ProfileForm()
+        public ProfileForm(USERS user)
         {
+            this.user = user;
             InitializeComponent();
         }
 

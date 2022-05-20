@@ -51,6 +51,12 @@ namespace PBL3
                         lNotify.Visible = true;
                     }
                     else
+                    if(user.OnlineStatus == true)
+                    {
+                        lNotify.Text = "    Tài khoản đang hoạt động!   ";
+                        lNotify.Visible = true;
+                    }
+                    else
                     if(user.RemainingMoney <= 0)
                     {
                         lNotify.Text = "Vui lòng nạp thêm vào tài khoản!";

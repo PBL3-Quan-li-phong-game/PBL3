@@ -17,7 +17,16 @@ namespace PBL3.View.AdminMod_subform
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ChatForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+        }
+
+        private void bSend_Click(object sender, EventArgs e)
         {
 
         }

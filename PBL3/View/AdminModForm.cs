@@ -12,6 +12,12 @@ using PBL3.BLL;
 using PBL3.Model;
 using PBL3.Model.Context;
 using PBL3.OnViewContext;
+using System.Net.Sockets;
+using System.Net;
+using System.Threading;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using PBL3.DTO;
 
 namespace PBL3
 {
@@ -19,15 +25,18 @@ namespace PBL3
     {
         public delegate void CloseGate();
         public CloseGate close;
-        public Model_Net NetModel;
+
         private USERS USER;
+        private ChatForm cf;
+
         public AdminModForm(USERS user)
         {
             this.USER = user;
+            this.cf = new ChatForm();
             InitializeComponent();
             lUserName.Text = USER.UserName;
             ReloadView();
-            this.timer.Enabled = true;
+            SetupServer();
         }
 
         public void ReloadView()
@@ -49,6 +58,7 @@ namespace PBL3
         private void AdminModForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             NetBLL.Instance.onLogout(USER);
+            Disconnect();
             this.close();
         }
 
@@ -73,8 +83,6 @@ namespace PBL3
 
         private void bMsg_Click(object sender, EventArgs e)
         {
-            ChatForm cf = new ChatForm();
-
             cf.Show();
         }
 
@@ -134,6 +142,126 @@ namespace PBL3
             else
             {
                 dgvAccount.DataSource = NetBLL.Instance.getViewUserbySearch(txtSearchAcc.Text);
+            }
+        }
+
+        private void refreshUserListView()
+        {
+            cf.lwConnection.Items.Clear();
+            foreach(string s in listUserName)
+            {
+                cf.lwConnection.Items.Add(s);
+            }
+        }
+
+        ///*************SOCKET SECTION***************///
+
+        List<Socket> ConnectionList = new List<Socket>();
+        List<string> listUserName = new List<string>();
+        Socket ServerSocket;
+        IPEndPoint IP;
+
+        private void SetupServer()
+        {
+            IP = new IPEndPoint(IPAddress.Any, 9999);
+            ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            ServerSocket.Bind(IP);
+
+            Thread listen = new Thread(() =>
+            {
+                try
+                {
+                    while (true)
+                    {
+                        ServerSocket.Listen(20);
+                        Socket cnn = ServerSocket.Accept();
+
+                        byte[] data = new byte[1024];
+                        cnn.Send(Serialize(new MSGviaSocket { Title = "GetUserName", Message = "" }));
+                        cnn.Receive(data);
+                        listUserName.Add((string)Deserialize(data));
+                        MessageBox.Show(listUserName.ElementAt(0));
+                        refreshUserListView();
+                        ConnectionList.Add(cnn);
+
+                        Thread receive = new Thread(() => Receive(cnn));
+                        receive.IsBackground = true;
+                        receive.Start();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    IP = new IPEndPoint(IPAddress.Any, 9999);
+                    ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                }
+            });
+            listen.IsBackground = true;
+            listen.Start();
+        }
+
+        private void Send(Socket Dest, object obj)
+        {
+            Dest.Send(Serialize(obj));
+        }
+
+        private void Receive(object obj)
+        {
+            Socket src = obj as Socket;
+            try
+            {
+                while (true)
+                {
+                    byte[] data = new byte[1024];
+                    src.Receive(data);
+
+                    MSGviaSocket msg = (MSGviaSocket)Deserialize(data);
+                    msgHandle(msg);
+                }
+            }
+            catch
+            {
+                //listUserName.RemoveAt(ConnectionList.IndexOf(src));
+                ConnectionList.Remove(src);
+                src.Close();
+            }
+        }
+
+        private void msgHandle(MSGviaSocket msg)
+        {
+            switch (msg.Title)
+            {
+                case "CHAT":
+                    break;
+                case "RECEIPT":
+                    break;
+            }
+        }
+
+        private byte[] Serialize(object obj)
+        {
+            MemoryStream stream = new MemoryStream();
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            formatter.Serialize(stream, obj);
+
+            return stream.ToArray();
+        }
+
+        private object Deserialize(byte[] data)
+        {
+            MemoryStream stream = new MemoryStream(data);
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            return formatter.Deserialize(stream);
+        }
+
+        private void Disconnect()
+        {
+            foreach(Socket client in ConnectionList)
+            {
+                client.Close();
             }
         }
     }
