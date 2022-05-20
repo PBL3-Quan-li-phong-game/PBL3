@@ -36,9 +36,9 @@ namespace PBL3
             switch (pc.StatusID)
             {
                 case 1:
+                    NetBLL.Instance.onLogin(user, pc);
                     PlayerForm pf = new PlayerForm(user, pc);
                     pf.close = new PlayerForm.closeDel(this.close);
-                    NetBLL.Instance.onLogin(user, pc);
                     pf.Show();
                     this.Hide();
                     break;

@@ -23,8 +23,11 @@ namespace PBL3
     {
         public delegate void closeDel();
         public closeDel close;
+
         public USERS USER;
         public PC PC;
+        public int ReceiptID;
+
         public TimeSpan RemainingTime;
 
         public ChatForm cf;
@@ -34,7 +37,10 @@ namespace PBL3
             this.USER = NetBLL.Instance.getUserbyUserName(user.UserName);
             this.PC = NetBLL.Instance.getPCbyID(pc.ID);
             this.USER.PC = this.PC;
+            this.ReceiptID = NetBLL.Instance.getLastReceiptRecordof(USER.UserName).ID;
+
             InitializeComponent();
+
             lPCID.Text = PC.ID;
             lUserName.Text = USER.UserName;
             txtReMoney.Text = USER.RemainingMoney.ToString();
@@ -42,12 +48,14 @@ namespace PBL3
             txtReTime.Text = RemainingTime.ToString().Remove(RemainingTime.ToString().Length - 3);
 
             txt1hPrice.Text = PC.AREA.Cost.ToString();
+            timer.Enabled = true;
+
             Connect();
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
         {
-            NetBLL.Instance.onLogout(USER, PC);
+            NetBLL.Instance.onLogout(USER, PC, ReceiptID);
             Disconnect();
             this.close();
         }
@@ -66,8 +74,8 @@ namespace PBL3
 
         private void bService_Click(object sender, EventArgs e)
         {
-            ServiceForm sf = new ServiceForm(USER);
-
+            ServiceForm sf = new ServiceForm(USER, ReceiptID);
+            sf.socketSend = new ServiceForm.SocketSend(Send);
             sf.Show();
         }
 
@@ -143,6 +151,8 @@ namespace PBL3
         {
             Server.Close();
         }
+
+        ///*******************SOCKET MESSAGE HANDLER**********************///
 
         private void msgHandle(MSGviaSocket msg)
         {

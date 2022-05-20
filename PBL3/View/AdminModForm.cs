@@ -27,14 +27,22 @@ namespace PBL3
         public CloseGate close;
 
         private USERS USER;
-        private ChatForm cf;
+
+        private ChatForm chatForm;
+        private OrderGettingForm orderGettingForm;
 
         public AdminModForm(USERS user)
         {
+            CheckForIllegalCrossThreadCalls = false;
             this.USER = user;
-            this.cf = new ChatForm();
+            this.chatForm = new ChatForm();
+            this.orderGettingForm = new OrderGettingForm();
+
             InitializeComponent();
+
             lUserName.Text = USER.UserName;
+            timer.Enabled = true;
+
             ReloadView();
             SetupServer();
         }
@@ -83,7 +91,12 @@ namespace PBL3
 
         private void bMsg_Click(object sender, EventArgs e)
         {
-            cf.Show();
+            chatForm.Show();
+        }
+
+        private void bReceipt_Click(object sender, EventArgs e)
+        { 
+            orderGettingForm.Show();
         }
 
         private void Charge_Click(object sender, EventArgs e)
@@ -147,17 +160,25 @@ namespace PBL3
 
         private void refreshUserListView()
         {
-            cf.lwConnection.Items.Clear();
-            foreach(string s in listUserName)
+            chatForm.lwConnection.Items.Clear();
+            orderGettingForm.lwConnection.Items.Clear();
+            foreach (string s in listUserName)
             {
-                cf.lwConnection.Items.Add(s);
+                chatForm.lwConnection.Items.Add(s);
+            }
+            foreach (string s in listUserName)
+            {
+                orderGettingForm.lwConnection.Items.Add(s);
             }
         }
 
         ///*************SOCKET SECTION***************///
 
         List<Socket> ConnectionList = new List<Socket>();
+
         List<string> listUserName = new List<string>();
+        List<string> ChatContext = new List<string>();
+
         Socket ServerSocket;
         IPEndPoint IP;
 
@@ -181,7 +202,7 @@ namespace PBL3
                         cnn.Send(Serialize(new MSGviaSocket { Title = "GetUserName", Message = "" }));
                         cnn.Receive(data);
                         listUserName.Add((string)Deserialize(data));
-                        MessageBox.Show(listUserName.ElementAt(0));
+                        orderGettingForm.OrderList.Add(new Order());
                         refreshUserListView();
                         ConnectionList.Add(cnn);
 
@@ -222,20 +243,10 @@ namespace PBL3
             }
             catch
             {
-                //listUserName.RemoveAt(ConnectionList.IndexOf(src));
+                listUserName.RemoveAt(ConnectionList.IndexOf(src));
+                orderGettingForm.OrderList.RemoveAt(ConnectionList.IndexOf(src));
                 ConnectionList.Remove(src);
                 src.Close();
-            }
-        }
-
-        private void msgHandle(MSGviaSocket msg)
-        {
-            switch (msg.Title)
-            {
-                case "CHAT":
-                    break;
-                case "RECEIPT":
-                    break;
             }
         }
 
@@ -263,6 +274,32 @@ namespace PBL3
             {
                 client.Close();
             }
+        }
+
+        ///*******************SOCKET MESSAGE HANDLER**********************///
+        
+        private void msgHandle(MSGviaSocket msg)
+        {
+            switch (msg.Title)
+            {
+                case "CHAT":
+                    break;
+                case "RECEIPT":
+                    ReceiptHandle(msg.Message);
+                    break;
+            }
+        }
+
+        private void ReceiptHandle(string msg)
+        {
+            string[] msg_split = msg.Split(',');
+            int index = listUserName.IndexOf(msg_split[0]);
+            orderGettingForm.OrderList.ElementAt(index).items.Add(new RECEIPT_ITEM
+            {
+                ReceiptID = Convert.ToInt32(msg_split[1]),
+                ServiceID = msg_split[2],
+                Amount = Convert.ToInt32(msg_split[3])
+            });
         }
     }
 }

@@ -27,7 +27,7 @@ namespace PBL3.BLL
         }
 
         ///*********************GENERAL METHOD*************************///
-        public USERS GetUser(string username, string pwd) 
+        public USERS GetUser(string username, string pwd)
         {
             NetModel = new Model_Net();
             USERS user = NetModel.USERs.Find(username);
@@ -35,7 +35,7 @@ namespace PBL3.BLL
             if (user == null) { return null; }
             else
             {
-                if(user.PWD != pwd) { return null; }
+                if (user.PWD != pwd) { return null; }
                 else
                 {
                     return user;
@@ -52,7 +52,7 @@ namespace PBL3.BLL
         {
             List<PC> data = new List<PC>();
             NetModel = new Model_Net();
-            foreach(PC i in NetModel.PCs)
+            foreach (PC i in NetModel.PCs)
             {
                 data.Add(i);
             }
@@ -77,17 +77,23 @@ namespace PBL3.BLL
             USERS u = NetModel.USERs.Find(user.UserName);
             u.OnlineStatus = true;
             u.LastLogin = DateTime.Now;
-            if(pc != null)
+            if (pc != null)      //vai trò player
             {
                 PC p = NetModel.PCs.Find(pc.ID);
                 u.UsingPC = p.ID;
                 p.USERS.Add(u);
                 p.StatusID = 2;
+                NetModel.RECEIPTs.Add(new RECEIPT
+                {
+                    UserName = user.UserName,
+                    TotalPrice = 0,
+                    FormedDate = u.LastLogin
+                });
             }
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
-        public void onLogout(USERS user, PC pc = null)
+        public void onLogout(USERS user, PC pc = null, int ReceiptID = 0)
         {
             NetModel = new Model_Net();
             USERS u = NetModel.USERs.Find(user.UserName);
@@ -99,24 +105,38 @@ namespace PBL3.BLL
                 LoginTime = u.LastLogin,
                 LogoutTime = DateTime.Now
             };
-            if (pc != null)
+            if (pc != null) //vai trò player
             {
                 PC p = NetModel.PCs.Find(pc.ID);
                 lh.PCID = p.ID;
                 u.UsingPC = null;
                 p.USERS.Remove(u);
                 p.StatusID = 1;
+                RECEIPT r = NetModel.RECEIPTs.Find(ReceiptID);
+                foreach(RECEIPT_ITEM ri in NetBLL.Instance.getAllReceiptItembyReceiptID(r.ID))
+                {
+                    r.TotalPrice += ri.Amount * NetBLL.Instance.getServicebyID(ri.ServiceID).UnitPrice;
+                }
             }
             NetModel.LOGIN_HISTORY.Add(lh);
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
 
+        public List<RECEIPT_ITEM> getAllReceiptItembyReceiptID(int ReceiptID)
+        {
+            NetModel = new Model_Net();
+            List<RECEIPT_ITEM> data = new List<RECEIPT_ITEM>();
+            data = NetModel.RECEIPT_ITEMs.Where(p => p.ReceiptID == ReceiptID).ToList();
+            NetModel.Dispose();
+            return data;
+        }
+
         ///*******************END GENERAL METHOD************************///
 
 
         ///*******************ADMIN_MOD SECTION*************************///
-        
+
         public List<userOnView> getViewUsers()
         {
             NetModel = new Model_Net();
@@ -142,9 +162,9 @@ namespace PBL3.BLL
         public List<userOnView> getViewUserbySearch(string search)
         {
             List<userOnView> data = new List<userOnView>();
-            foreach(userOnView u in NetBLL.Instance.getViewUsers())
+            foreach (userOnView u in NetBLL.Instance.getViewUsers())
             {
-                if(u.UserName.ToUpper().Contains(search.ToUpper())) data.Add(u);
+                if (u.UserName.ToUpper().Contains(search.ToUpper())) data.Add(u);
             }
             return data;
         }
@@ -192,6 +212,14 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+        public void AddReceiptItem(RECEIPT_ITEM ri)
+        {
+            NetModel = new Model_Net();
+            NetModel.RECEIPT_ITEMs.Add(ri);
+            NetModel.SaveChanges();
+            NetModel.Dispose();
+        }
+
 
         ///*******************END ADMIN_MOD SECTION*************************///
 
@@ -202,7 +230,7 @@ namespace PBL3.BLL
         {
             NetModel = new Model_Net();
             List<SERV> data = new List<SERV>();
-            foreach(SERV s in NetModel.SERVICEs)
+            foreach (SERV s in NetModel.SERVICEs)
             {
                 data.Add(s);
             }
@@ -215,6 +243,18 @@ namespace PBL3.BLL
             SERV s = NetModel.SERVICEs.Find(ID);
             NetModel.Dispose();
             return s;
+        }
+        public List<RECEIPT> getListReceiptbyUserName(string UserName)
+        {
+            NetModel = new Model_Net();
+            List<RECEIPT> data = new List<RECEIPT>();
+            data = NetModel.RECEIPTs.Where(p => p.UserName == UserName).OrderByDescending(p => p.ID).ToList();
+            NetModel.Dispose();
+            return data;
+        }
+        public RECEIPT getLastReceiptRecordof(string UserName)
+        {
+            return NetBLL.Instance.getListReceiptbyUserName(UserName).ElementAt(0);
         }
 
         ///********************END PLAYER SECTION***************************///

@@ -10,22 +10,31 @@ using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.Model.Context;
 using PBL3.Component;
+using PBL3.DTO;
+
 
 namespace PBL3.View.Player_subform
 {
     public partial class ServiceForm : Form
     {
+        public delegate void SocketSend(object obj);
+        public SocketSend socketSend;
+
         private List<cpnService> cpnList = new List<cpnService>();
         private USERS user;
-        public ServiceForm(USERS user)
+
+        private int ReceiptID;
+        public ServiceForm(USERS user, int ReceiptID)
         {
             this.user = user;
+            this.ReceiptID = ReceiptID;
             InitializeComponent();
             initializeComponentList();
             foreach(cpnService c in cpnList)
             {
                 c.txtAmount.TextChanged += txtAmount_onTextChange;
             }
+            txtTotalCost.Text = "0";
         }
 
         private void txtAmount_onTextChange(object sender, EventArgs e)
@@ -115,8 +124,24 @@ namespace PBL3.View.Player_subform
 
         private void bOrder_Click(object sender, EventArgs e)
         {
-
-            this.Close();
+            if (txtTotalCost.Text == "0") return;
+            DialogResult r = MessageBox.Show("Xác nhận đặt đơn này?", "Xác nhận", MessageBoxButtons.YesNo);
+            if(r == DialogResult.Yes)
+            {
+                foreach(cpnService c in cpnList)
+                {
+                    if(c.txtAmount.Text != "0")
+                    {
+                        socketSend(new MSGviaSocket
+                        {
+                            Title = "RECEIPT",
+                            Message = user.UserName + "," + ReceiptID.ToString() + "," + c.service.ID + "," + c.txtAmount.Text  
+                            // format "UserName,ReceiptID,ServiceID,Amount"
+                        });
+                    }
+                }
+                this.Close();
+            }
         }
     }
 }

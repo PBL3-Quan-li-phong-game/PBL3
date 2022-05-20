@@ -183,6 +183,7 @@
             this.bReceipt.Text = "Đơn mới";
             this.bReceipt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bReceipt.UseVisualStyleBackColor = true;
+            this.bReceipt.Click += new System.EventHandler(this.bReceipt_Click);
             // 
             // bMsg
             // 

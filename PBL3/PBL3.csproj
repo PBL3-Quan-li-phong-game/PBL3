@@ -84,6 +84,7 @@
       <DependentUpon>cpnService.cs</DependentUpon>
     </Compile>
     <Compile Include="DTO\MSGviaSocket.cs" />
+    <Compile Include="DTO\Order.cs" />
     <Compile Include="Model\InitialDB.cs" />
     <Compile Include="Model\Model_Net.cs" />
     <Compile Include="Model\Context\AREA.cs" />
@@ -115,6 +116,12 @@
     </Compile>
     <Compile Include="View\AdminMod-subform\ChatForm.Designer.cs">
       <DependentUpon>ChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\OrderGettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\OrderGettingForm.Designer.cs">
+      <DependentUpon>OrderGettingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMod-subform\ProfileForm.cs">
       <SubType>Form</SubType>
@@ -195,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\ChatForm.resx">
       <DependentUpon>ChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\OrderGettingForm.resx">
+      <DependentUpon>OrderGettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
