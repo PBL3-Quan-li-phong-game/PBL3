@@ -55,7 +55,7 @@ namespace PBL3.View.AdminMod_subform
                 NetBLL.Instance.addChatLog(log);
                 string Context =
                     "(" + SendTime + ") " + "Admin" + ":\n" +
-                    rtbSend.Text + "\n";
+                    rtbSend.Text + "\n\n";
                 socketSend(lwConnection.SelectedIndices[0], new MSGviaSocket
                 {
                     Title = "CHAT",

@@ -43,7 +43,7 @@ namespace PBL3.View.Player_subform
                 };
                 NetBLL.Instance.addChatLog(log);
                 string Context =
-                    user.UserName + "|(" + SendTime + ")"  + user.UserName + ":\n" +
+                    user.UserName + "|(" + SendTime + ") "  + user.UserName + ":\n" +
                     rtbSend.Text + "\n\n";
                 socketSend(new MSGviaSocket
                 {
