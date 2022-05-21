@@ -73,6 +73,7 @@
             // 
             // ChatForm
             // 
+            this.AcceptButton = this.bSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 450);

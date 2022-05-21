@@ -80,11 +80,13 @@
             this.lwConnection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lwConnection.HideSelection = false;
             this.lwConnection.Location = new System.Drawing.Point(3, 18);
+            this.lwConnection.MultiSelect = false;
             this.lwConnection.Name = "lwConnection";
             this.lwConnection.Size = new System.Drawing.Size(182, 404);
             this.lwConnection.TabIndex = 0;
             this.lwConnection.UseCompatibleStateImageBehavior = false;
             this.lwConnection.View = System.Windows.Forms.View.List;
+            this.lwConnection.SelectedIndexChanged += new System.EventHandler(this.lwConnection_SelectedIndexChanged);
             // 
             // lUserName
             // 

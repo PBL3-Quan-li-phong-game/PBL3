@@ -35,7 +35,8 @@ namespace PBL3
         {
             CheckForIllegalCrossThreadCalls = false;
             this.USER = user;
-            this.chatForm = new ChatForm();
+            this.chatForm = new ChatForm(USER);
+            this.chatForm.socketSend = new ChatForm.SocketSend(this.SendAtIndex);
             this.orderGettingForm = new OrderGettingForm();
 
             InitializeComponent();
@@ -177,7 +178,6 @@ namespace PBL3
         List<Socket> ConnectionList = new List<Socket>();
 
         List<string> listUserName = new List<string>();
-        List<string> ChatContext = new List<string>();
 
         Socket ServerSocket;
         IPEndPoint IP;
@@ -203,6 +203,7 @@ namespace PBL3
                         cnn.Receive(data);
                         listUserName.Add((string)Deserialize(data));
                         orderGettingForm.OrderList.Add(new Order());
+                        chatForm.chatContexts.Add(new ChatContext());
                         refreshUserListView();
                         ConnectionList.Add(cnn);
 
@@ -226,6 +227,11 @@ namespace PBL3
         {
             Dest.Send(Serialize(obj));
         }
+        
+        private void SendAtIndex(int IndexOfSocket, object obj)
+        {
+            Send(ConnectionList.ElementAt(IndexOfSocket), obj);
+        }
 
         private void Receive(object obj)
         {
@@ -245,6 +251,7 @@ namespace PBL3
             {
                 listUserName.RemoveAt(ConnectionList.IndexOf(src));
                 orderGettingForm.OrderList.RemoveAt(ConnectionList.IndexOf(src));
+                chatForm.chatContexts.RemoveAt(ConnectionList.IndexOf(src));
                 ConnectionList.Remove(src);
                 src.Close();
             }
@@ -283,10 +290,22 @@ namespace PBL3
             switch (msg.Title)
             {
                 case "CHAT":
+                    ChatHandle(msg.Message);
                     break;
                 case "RECEIPT":
                     ReceiptHandle(msg.Message);
                     break;
+            }
+        }
+
+        private void ChatHandle(string msg)
+        {
+            string[] msg_split = msg.Split('|');
+            int index = listUserName.IndexOf(msg_split[0]);
+            chatForm.chatContexts.ElementAt(index).isRead = false;
+            for(int i = 1; i < msg_split.Length; i++)
+            {
+                chatForm.chatContexts.ElementAt(index).Message += msg_split[i];
             }
         }
 

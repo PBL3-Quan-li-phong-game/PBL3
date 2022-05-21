@@ -30,14 +30,15 @@ namespace PBL3
 
         public TimeSpan RemainingTime;
 
-        public ChatForm cf;
+        public ChatForm chatForm;
         public PlayerForm(USERS user, PC pc)
         {
-            this.cf = new ChatForm();
             this.USER = NetBLL.Instance.getUserbyUserName(user.UserName);
             this.PC = NetBLL.Instance.getPCbyID(pc.ID);
             this.USER.PC = this.PC;
             this.ReceiptID = NetBLL.Instance.getLastReceiptRecordof(USER.UserName).ID;
+            this.chatForm = new ChatForm(USER);
+            this.chatForm.socketSend = new ChatForm.SocketSend(this.Send);
 
             InitializeComponent();
 
@@ -69,7 +70,7 @@ namespace PBL3
 
         private void bMSG_Click(object sender, EventArgs e)
         {
-            cf.Show();
+            chatForm.Show();
         }
 
         private void bService_Click(object sender, EventArgs e)
@@ -160,6 +161,9 @@ namespace PBL3
             {
                 case "GetUserName":
                     Send(USER.UserName);
+                    break;
+                case "CHAT":
+                    chatForm.rtbDisplay.Text += msg.Message;
                     break;
             }
         }

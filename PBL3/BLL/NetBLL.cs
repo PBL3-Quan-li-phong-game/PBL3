@@ -71,6 +71,13 @@ namespace PBL3.BLL
             if (li.Count > 0) return true;
             return false;
         }
+        public USERS getOnlineADMOD()
+        {
+            NetModel = new Model_Net();
+            List<USERS> li = NetModel.USERs.Where(p => p.RoleID < 3).Where(p =>p.OnlineStatus == true).ToList();
+            USERS user = li.ElementAt(0);
+            return user;
+        }
         public void onLogin(USERS user, PC pc = null)
         {
             NetModel = new Model_Net();
@@ -122,14 +129,19 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
-
         public List<RECEIPT_ITEM> getAllReceiptItembyReceiptID(int ReceiptID)
         {
             NetModel = new Model_Net();
             List<RECEIPT_ITEM> data = new List<RECEIPT_ITEM>();
             data = NetModel.RECEIPT_ITEMs.Where(p => p.ReceiptID == ReceiptID).ToList();
-            NetModel.Dispose();
             return data;
+        }
+        public void addChatLog(CHAT_LOG log)
+        {
+            NetModel = new Model_Net();
+            NetModel.CHAT_LOGs.Add(log);
+            NetModel.SaveChanges();
+            NetModel.Dispose();
         }
 
         ///*******************END GENERAL METHOD************************///

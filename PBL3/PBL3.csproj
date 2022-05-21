@@ -83,6 +83,7 @@
     <Compile Include="Component\cpnService.Designer.cs">
       <DependentUpon>cpnService.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTO\ChatContext.cs" />
     <Compile Include="DTO\MSGviaSocket.cs" />
     <Compile Include="DTO\Order.cs" />
     <Compile Include="Model\InitialDB.cs" />
