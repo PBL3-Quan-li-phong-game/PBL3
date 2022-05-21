@@ -293,6 +293,7 @@
             this.Name = "PlayerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PlayerForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlayerForm_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

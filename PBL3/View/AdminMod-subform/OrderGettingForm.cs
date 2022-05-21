@@ -22,48 +22,52 @@ namespace PBL3.View.AdminMod_subform
             CheckForIllegalCrossThreadCalls = false;
             OrderList = new List<Order>();
             InitializeComponent();
-            lwOrder.Columns.Add(new ColumnHeader { Name = "ServiceName", Text = "Tên món", Width = 170 });
-            lwOrder.Columns.Add(new ColumnHeader { Name = "Amount", Text = "Số lượng", Width = 70 });
+            lvOrder.Columns.Add(new ColumnHeader { Name = "ServiceName", Text = "Tên món", Width = 170 });
+            lvOrder.Columns.Add(new ColumnHeader { Name = "Amount", Text = "Số lượng", Width = 70 });
             bDiscard.Enabled = false;
             bMarkasDone.Enabled = false;
         }
 
-        private void reloadOrderList()
+        public void reloadOrderList()
         {
-            if(lwConnection.SelectedItems == null || lwConnection.SelectedItems.Count == 0)
+            if(lvConnection.SelectedItems == null || lvConnection.SelectedItems.Count == 0)
             {
-                lwOrder.Items.Clear();
+                lvOrder.Items.Clear();
+                txtTotalPrice.Text = "0";
                 lNotify.Visible = true;
                 bDiscard.Enabled = false;
                 bMarkasDone.Enabled = false;
-                foreach(Order o in OrderList)
-                {
-                    if(o.items.Count > 0)
-                    {
-                        lwConnection.Items[OrderList.IndexOf(o)].Selected = true;
-                        break;
-                    }
-                }
+                //foreach(Order o in OrderList)
+                //{
+                //    if(o.items.Count > 0)
+                //    {
+                //        lvConnection.Items[OrderList.IndexOf(o)].Selected = true;
+                //        break;
+                //    }
+                //}
                 return;
             }
-            if (OrderList.ElementAt(lwConnection.SelectedIndices[0]).items.Count == 0)
+            if (OrderList.ElementAt(lvConnection.SelectedIndices[0]).items.Count == 0)
             {
-                lwOrder.Items.Clear();
+                lvOrder.Items.Clear();
+                txtTotalPrice.Text = "0";
                 lNotify.Visible = true;
                 bDiscard.Enabled = false;
                 bMarkasDone.Enabled = false;
             }
             else
             {
-                lwOrder.Items.Clear();
+                lvOrder.Items.Clear();
+                txtTotalPrice.Text = "0";
                 lNotify.Visible = false;
                 bDiscard.Enabled = true;
                 bMarkasDone.Enabled = true;
-                foreach (RECEIPT_ITEM rt in OrderList.ElementAt(lwConnection.SelectedIndices[0]).items)
+                foreach (RECEIPT_ITEM rt in OrderList.ElementAt(lvConnection.SelectedIndices[0]).items)
                 {
                     ListViewItem i = new ListViewItem(NetBLL.Instance.getServicebyID(rt.ServiceID).Name);
                     i.SubItems.Add(rt.Amount.ToString());
-                    lwOrder.Items.Add(i);
+                    lvOrder.Items.Add(i);
+                    txtTotalPrice.Text = (Convert.ToInt32(txtTotalPrice.Text) + NetBLL.Instance.getServicebyID(rt.ServiceID).UnitPrice * rt.Amount).ToString();
                 }
             }
         }
@@ -73,7 +77,7 @@ namespace PBL3.View.AdminMod_subform
             DialogResult r = MessageBox.Show("Xác nhận hủy đơn này ?", "Xác nhận", MessageBoxButtons.YesNo);
             if(r == DialogResult.Yes)
             {
-                OrderList.ElementAt(lwConnection.SelectedIndices[0]).items.Clear();
+                OrderList.ElementAt(lvConnection.SelectedIndices[0]).items.Clear();
                 reloadOrderList();
             }
         }
@@ -83,11 +87,11 @@ namespace PBL3.View.AdminMod_subform
             DialogResult r = MessageBox.Show("Đã hoàn thành đơn hàng ?", "Xác nhận", MessageBoxButtons.YesNo);
             if( r == DialogResult.Yes)
             {
-                foreach(RECEIPT_ITEM ri in OrderList.ElementAt(lwConnection.SelectedIndices[0]).items)
+                foreach(RECEIPT_ITEM ri in OrderList.ElementAt(lvConnection.SelectedIndices[0]).items)
                 {
                     NetBLL.Instance.AddReceiptItem(ri);
                 }
-                OrderList.ElementAt(lwConnection.SelectedIndices[0]).items.Clear();
+                OrderList.ElementAt(lvConnection.SelectedIndices[0]).items.Clear();
                 reloadOrderList();
             }
         }

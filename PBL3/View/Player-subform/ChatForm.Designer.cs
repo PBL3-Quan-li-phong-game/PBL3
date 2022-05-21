@@ -81,6 +81,7 @@
             this.Controls.Add(this.rtbSend);
             this.Controls.Add(this.rtbDisplay);
             this.Controls.Add(this.lAdmin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ChatForm";
             this.Text = "ChatForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatForm_FormClosing);

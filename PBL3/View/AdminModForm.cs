@@ -92,11 +92,29 @@ namespace PBL3
 
         private void bMsg_Click(object sender, EventArgs e)
         {
+            chatForm.Hide();
+            foreach (ChatContext c in chatForm.chatContexts)
+            {
+                if (c.isRead == false)
+                {
+                    chatForm.lvConnection.Items[chatForm.chatContexts.IndexOf(c)].Selected = true;
+                    break;
+                }
+            }
             chatForm.Show();
         }
 
         private void bReceipt_Click(object sender, EventArgs e)
         { 
+            orderGettingForm.Hide();
+            foreach (Order o in orderGettingForm.OrderList)
+            {
+                if (o.items.Count > 0)
+                {
+                    orderGettingForm.lvConnection.Items[orderGettingForm.OrderList.IndexOf(o)].Selected = true;
+                    break;
+                }
+            }
             orderGettingForm.Show();
         }
 
@@ -159,20 +177,6 @@ namespace PBL3
             }
         }
 
-        private void refreshUserListView()
-        {
-            chatForm.lwConnection.Items.Clear();
-            orderGettingForm.lwConnection.Items.Clear();
-            foreach (string s in listUserName)
-            {
-                chatForm.lwConnection.Items.Add(s);
-            }
-            foreach (string s in listUserName)
-            {
-                orderGettingForm.lwConnection.Items.Add(s);
-            }
-        }
-
         ///*************SOCKET SECTION***************///
 
         List<Socket> ConnectionList = new List<Socket>();
@@ -204,7 +208,7 @@ namespace PBL3
                         listUserName.Add((string)Deserialize(data));
                         orderGettingForm.OrderList.Add(new Order());
                         chatForm.chatContexts.Add(new ChatContext());
-                        refreshUserListView();
+                        reloadConnectionView();
                         ConnectionList.Add(cnn);
 
                         Thread receive = new Thread(() => Receive(cnn));
@@ -221,6 +225,23 @@ namespace PBL3
             });
             listen.IsBackground = true;
             listen.Start();
+        }
+
+        private void reloadConnectionView()
+        {
+            orderGettingForm.lvConnection.Items.Clear();
+            chatForm.lvConnection.Items.Clear();
+            foreach(string n in listUserName)
+            {
+                orderGettingForm.lvConnection.Items.Add(n);
+                chatForm.lvConnection.Items.Add(n);
+            }
+        }
+
+        private void reloadContextView()
+        {
+            orderGettingForm.reloadOrderList();
+            chatForm.reloadChatContext();
         }
 
         private void Send(Socket Dest, object obj)
@@ -249,9 +270,9 @@ namespace PBL3
             }
             catch
             {
-                listUserName.RemoveAt(ConnectionList.IndexOf(src));
-                orderGettingForm.OrderList.RemoveAt(ConnectionList.IndexOf(src));
-                chatForm.chatContexts.RemoveAt(ConnectionList.IndexOf(src));
+                onSocketRemove(src);
+                reloadConnectionView();
+                reloadContextView();
                 ConnectionList.Remove(src);
                 src.Close();
             }
@@ -283,6 +304,13 @@ namespace PBL3
             }
         }
 
+        private void onSocketRemove(Socket src)
+        {
+            listUserName.RemoveAt(ConnectionList.IndexOf(src));
+            orderGettingForm.OrderList.RemoveAt(ConnectionList.IndexOf(src));
+            chatForm.chatContexts.RemoveAt(ConnectionList.IndexOf(src));
+        }
+
         ///*******************SOCKET MESSAGE HANDLER**********************///
         
         private void msgHandle(MSGviaSocket msg)
@@ -307,6 +335,7 @@ namespace PBL3
             {
                 chatForm.chatContexts.ElementAt(index).Message += msg_split[i];
             }
+            chatForm.reloadChatContext();
         }
 
         private void ReceiptHandle(string msg)

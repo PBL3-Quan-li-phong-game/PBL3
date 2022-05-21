@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.SocketList = new System.Windows.Forms.GroupBox();
-            this.lwConnection = new System.Windows.Forms.ListView();
-            this.lwOrder = new System.Windows.Forms.ListView();
+            this.lvConnection = new System.Windows.Forms.ListView();
+            this.lvOrder = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.bDiscard = new System.Windows.Forms.Button();
@@ -41,7 +41,7 @@
             // 
             // SocketList
             // 
-            this.SocketList.Controls.Add(this.lwConnection);
+            this.SocketList.Controls.Add(this.lvConnection);
             this.SocketList.Location = new System.Drawing.Point(12, 13);
             this.SocketList.Name = "SocketList";
             this.SocketList.Size = new System.Drawing.Size(188, 425);
@@ -49,28 +49,28 @@
             this.SocketList.TabStop = false;
             this.SocketList.Text = "Danh sách kết nối";
             // 
-            // lwConnection
+            // lvConnection
             // 
-            this.lwConnection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lwConnection.HideSelection = false;
-            this.lwConnection.Location = new System.Drawing.Point(3, 18);
-            this.lwConnection.MultiSelect = false;
-            this.lwConnection.Name = "lwConnection";
-            this.lwConnection.Size = new System.Drawing.Size(182, 404);
-            this.lwConnection.TabIndex = 0;
-            this.lwConnection.UseCompatibleStateImageBehavior = false;
-            this.lwConnection.View = System.Windows.Forms.View.List;
-            this.lwConnection.SelectedIndexChanged += new System.EventHandler(this.lwConnection_SelectedIndexChanged);
+            this.lvConnection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvConnection.HideSelection = false;
+            this.lvConnection.Location = new System.Drawing.Point(3, 18);
+            this.lvConnection.MultiSelect = false;
+            this.lvConnection.Name = "lvConnection";
+            this.lvConnection.Size = new System.Drawing.Size(182, 404);
+            this.lvConnection.TabIndex = 0;
+            this.lvConnection.UseCompatibleStateImageBehavior = false;
+            this.lvConnection.View = System.Windows.Forms.View.List;
+            this.lvConnection.SelectedIndexChanged += new System.EventHandler(this.lwConnection_SelectedIndexChanged);
             // 
-            // lwOrder
+            // lvOrder
             // 
-            this.lwOrder.HideSelection = false;
-            this.lwOrder.Location = new System.Drawing.Point(216, 31);
-            this.lwOrder.Name = "lwOrder";
-            this.lwOrder.Size = new System.Drawing.Size(300, 359);
-            this.lwOrder.TabIndex = 5;
-            this.lwOrder.UseCompatibleStateImageBehavior = false;
-            this.lwOrder.View = System.Windows.Forms.View.Details;
+            this.lvOrder.HideSelection = false;
+            this.lvOrder.Location = new System.Drawing.Point(216, 31);
+            this.lvOrder.Name = "lvOrder";
+            this.lvOrder.Size = new System.Drawing.Size(300, 359);
+            this.lvOrder.TabIndex = 5;
+            this.lvOrder.UseCompatibleStateImageBehavior = false;
+            this.lvOrder.View = System.Windows.Forms.View.Details;
             // 
             // label1
             // 
@@ -131,8 +131,9 @@
             this.Controls.Add(this.bDiscard);
             this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lwOrder);
+            this.Controls.Add(this.lvOrder);
             this.Controls.Add(this.SocketList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "OrderGettingForm";
             this.Text = "OrderGettingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrderGettingForm_FormClosing);
@@ -145,12 +146,12 @@
         #endregion
 
         public System.Windows.Forms.GroupBox SocketList;
-        public System.Windows.Forms.ListView lwConnection;
+        public System.Windows.Forms.ListView lvConnection;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.Button bDiscard;
         private System.Windows.Forms.Button bMarkasDone;
         private System.Windows.Forms.Label lNotify;
-        public System.Windows.Forms.ListView lwOrder;
+        public System.Windows.Forms.ListView lvOrder;
     }
 }

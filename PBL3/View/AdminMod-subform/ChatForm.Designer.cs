@@ -32,7 +32,7 @@
             this.rtbSend = new System.Windows.Forms.RichTextBox();
             this.bSend = new System.Windows.Forms.Button();
             this.SocketList = new System.Windows.Forms.GroupBox();
-            this.lwConnection = new System.Windows.Forms.ListView();
+            this.lvConnection = new System.Windows.Forms.ListView();
             this.lUserName = new System.Windows.Forms.Label();
             this.SocketList.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             // SocketList
             // 
-            this.SocketList.Controls.Add(this.lwConnection);
+            this.SocketList.Controls.Add(this.lvConnection);
             this.SocketList.Location = new System.Drawing.Point(13, 13);
             this.SocketList.Name = "SocketList";
             this.SocketList.Size = new System.Drawing.Size(188, 425);
@@ -75,18 +75,18 @@
             this.SocketList.TabStop = false;
             this.SocketList.Text = "Danh sách kết nối";
             // 
-            // lwConnection
+            // lvConnection
             // 
-            this.lwConnection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lwConnection.HideSelection = false;
-            this.lwConnection.Location = new System.Drawing.Point(3, 18);
-            this.lwConnection.MultiSelect = false;
-            this.lwConnection.Name = "lwConnection";
-            this.lwConnection.Size = new System.Drawing.Size(182, 404);
-            this.lwConnection.TabIndex = 0;
-            this.lwConnection.UseCompatibleStateImageBehavior = false;
-            this.lwConnection.View = System.Windows.Forms.View.List;
-            this.lwConnection.SelectedIndexChanged += new System.EventHandler(this.lwConnection_SelectedIndexChanged);
+            this.lvConnection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvConnection.HideSelection = false;
+            this.lvConnection.Location = new System.Drawing.Point(3, 18);
+            this.lvConnection.MultiSelect = false;
+            this.lvConnection.Name = "lvConnection";
+            this.lvConnection.Size = new System.Drawing.Size(182, 404);
+            this.lvConnection.TabIndex = 0;
+            this.lvConnection.UseCompatibleStateImageBehavior = false;
+            this.lvConnection.View = System.Windows.Forms.View.List;
+            this.lvConnection.SelectedIndexChanged += new System.EventHandler(this.lwConnection_SelectedIndexChanged);
             // 
             // lUserName
             // 
@@ -99,6 +99,7 @@
             // 
             // ChatForm
             // 
+            this.AcceptButton = this.bSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 450);
@@ -107,6 +108,7 @@
             this.Controls.Add(this.bSend);
             this.Controls.Add(this.rtbSend);
             this.Controls.Add(this.rtbDisplay);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ChatForm";
             this.Text = "ChatForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChatForm_FormClosing);
@@ -123,6 +125,6 @@
         public System.Windows.Forms.Button bSend;
         public System.Windows.Forms.GroupBox SocketList;
         public System.Windows.Forms.Label lUserName;
-        public System.Windows.Forms.ListView lwConnection;
+        public System.Windows.Forms.ListView lvConnection;
     }
 }

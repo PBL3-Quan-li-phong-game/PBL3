@@ -196,6 +196,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTotalCost);
             this.Controls.Add(this.ServiceItemContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ServiceForm";
             this.Text = "ServiceForm";
             this.ServiceItemContainer.ResumeLayout(false);

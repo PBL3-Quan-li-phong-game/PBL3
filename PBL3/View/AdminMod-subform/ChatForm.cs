@@ -42,13 +42,13 @@ namespace PBL3.View.AdminMod_subform
 
         private void bSend_Click(object sender, EventArgs e)
         {
-            if (rtbSend.Text != string.Empty && lwConnection.SelectedItems.Count > 0)
+            if (rtbSend.Text != string.Empty && lvConnection.SelectedItems.Count > 0)
             {
                 DateTime SendTime = DateTime.Now;
                 CHAT_LOG log = new CHAT_LOG
                 {
                     sender = user.UserName,
-                    receiver = lwConnection.SelectedItems[0].Text,
+                    receiver = lvConnection.SelectedItems[0].Text,
                     SendTime = SendTime,
                     msg = rtbSend.Text
                 };
@@ -56,15 +56,15 @@ namespace PBL3.View.AdminMod_subform
                 string Context =
                     "(" + SendTime + ") " + "Admin" + ":\n" +
                     rtbSend.Text + "\n\n";
-                socketSend(lwConnection.SelectedIndices[0], new MSGviaSocket
+                socketSend(lvConnection.SelectedIndices[0], new MSGviaSocket
                 {
                     Title = "CHAT",
                     Message = Context
                 });
-                AddMSG(lwConnection.SelectedIndices[0], Context);
+                AddMSG(lvConnection.SelectedIndices[0], Context);
                 rtbDisplay.Clear();
                 rtbSend.Clear();
-                rtbDisplay.Text = chatContexts.ElementAt(lwConnection.SelectedIndices[0]).Message;
+                rtbDisplay.Text = chatContexts.ElementAt(lvConnection.SelectedIndices[0]).Message;
             }
         }
 
@@ -73,25 +73,25 @@ namespace PBL3.View.AdminMod_subform
             reloadChatContext();
         }
 
-        private void reloadChatContext()
+        public void reloadChatContext()
         {
-            if (lwConnection.SelectedItems == null || lwConnection.SelectedItems.Count == 0)
+            if (lvConnection.SelectedItems == null || lvConnection.SelectedItems.Count == 0)
             {
                 rtbDisplay.Text = "";
                 bSend.Enabled = false;
-                foreach(ListViewItem i in lwConnection.Items)
+                foreach(ListViewItem i in lvConnection.Items)
                 {
-                    if(chatContexts.ElementAt(lwConnection.Items.IndexOf(i)).isRead == false)
+                    if(chatContexts.ElementAt(lvConnection.Items.IndexOf(i)).isRead == false)
                     {
-                        lwConnection.Items[lwConnection.Items.IndexOf(i)].Selected = true;
+                        lvConnection.Items[lvConnection.Items.IndexOf(i)].Selected = true;
                         break;
                     }
                 }
             }
             else
             {
-                rtbDisplay.Text = chatContexts.ElementAt(lwConnection.SelectedIndices[0]).Message;
-                chatContexts.ElementAt(lwConnection.SelectedIndices[0]).isRead = true;
+                rtbDisplay.Text = chatContexts.ElementAt(lvConnection.SelectedIndices[0]).Message;
+                chatContexts.ElementAt(lvConnection.SelectedIndices[0]).isRead = true;
                 bSend.Enabled = true;
             }
         }

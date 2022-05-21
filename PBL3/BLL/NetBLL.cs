@@ -120,9 +120,9 @@ namespace PBL3.BLL
                 p.USERS.Remove(u);
                 p.StatusID = 1;
                 RECEIPT r = NetModel.RECEIPTs.Find(ReceiptID);
-                foreach(RECEIPT_ITEM ri in NetBLL.Instance.getAllReceiptItembyReceiptID(r.ID))
+                foreach(RECEIPT_ITEM ri in NetModel.RECEIPT_ITEMs.Where(item => item.ReceiptID == ReceiptID).ToList())
                 {
-                    r.TotalPrice += ri.Amount * NetBLL.Instance.getServicebyID(ri.ServiceID).UnitPrice;
+                    r.TotalPrice += ri.Amount * NetModel.SERVICEs.Find(ri.ServiceID).UnitPrice;
                 }
             }
             NetModel.LOGIN_HISTORY.Add(lh);
@@ -253,7 +253,6 @@ namespace PBL3.BLL
         {
             NetModel = new Model_Net();
             SERV s = NetModel.SERVICEs.Find(ID);
-            NetModel.Dispose();
             return s;
         }
         public List<RECEIPT> getListReceiptbyUserName(string UserName)

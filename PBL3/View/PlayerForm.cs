@@ -80,6 +80,13 @@ namespace PBL3
             sf.Show();
         }
 
+        private void PlayerForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NetBLL.Instance.onLogout(USER, PC, ReceiptID);
+            Disconnect();
+            this.close();
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
 
