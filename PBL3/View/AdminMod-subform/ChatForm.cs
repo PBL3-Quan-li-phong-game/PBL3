@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using PBL3.BLL;
 using PBL3.DTO;
-using PBL3.BLL;
 using PBL3.Model.Context;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 
 namespace PBL3.View.AdminMod_subform
@@ -33,7 +27,7 @@ namespace PBL3.View.AdminMod_subform
 
         private void ChatForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
                 Hide();
@@ -78,10 +72,11 @@ namespace PBL3.View.AdminMod_subform
             if (lvConnection.SelectedItems == null || lvConnection.SelectedItems.Count == 0)
             {
                 rtbDisplay.Text = "";
+                lUserName.Text = "";
                 bSend.Enabled = false;
-                foreach(ListViewItem i in lvConnection.Items)
+                foreach (ListViewItem i in lvConnection.Items)
                 {
-                    if(chatContexts.ElementAt(lvConnection.Items.IndexOf(i)).isRead == false)
+                    if (chatContexts.ElementAt(lvConnection.Items.IndexOf(i)).isRead == false)
                     {
                         lvConnection.Items[lvConnection.Items.IndexOf(i)].Selected = true;
                         break;
@@ -92,13 +87,14 @@ namespace PBL3.View.AdminMod_subform
             {
                 rtbDisplay.Text = chatContexts.ElementAt(lvConnection.SelectedIndices[0]).Message;
                 chatContexts.ElementAt(lvConnection.SelectedIndices[0]).isRead = true;
+                lUserName.Text = lvConnection.SelectedItems[0].Text;
                 bSend.Enabled = true;
             }
         }
 
         private void AddMSG(int Index, string Context)
         {
-            chatContexts.ElementAt(Index).Message += Context; 
+            chatContexts.ElementAt(Index).Message += Context;
         }
     }
 }

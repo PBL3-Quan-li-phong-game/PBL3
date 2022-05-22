@@ -289,9 +289,13 @@
             // 
             // dgvPC
             // 
+            this.dgvPC.AllowUserToAddRows = false;
+            this.dgvPC.AllowUserToDeleteRows = false;
+            this.dgvPC.AllowUserToResizeRows = false;
             this.dgvPC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPC.Location = new System.Drawing.Point(0, 35);
             this.dgvPC.Name = "dgvPC";
+            this.dgvPC.ReadOnly = true;
             this.dgvPC.RowHeadersWidth = 51;
             this.dgvPC.RowTemplate.Height = 24;
             this.dgvPC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -371,7 +375,8 @@
             // 
             // dgvAccount
             // 
-            this.dgvAccount.AllowUserToResizeColumns = false;
+            this.dgvAccount.AllowUserToAddRows = false;
+            this.dgvAccount.AllowUserToDeleteRows = false;
             this.dgvAccount.AllowUserToResizeRows = false;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAccount.Location = new System.Drawing.Point(3, 38);
