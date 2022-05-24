@@ -29,6 +29,7 @@ namespace PBL3
         public int ReceiptID;
 
         public TimeSpan RemainingTime;
+        public int UsedTimebySecond;
 
         public ChatForm chatForm;
         public PlayerForm(USERS user, PC pc)
@@ -37,6 +38,7 @@ namespace PBL3
             this.PC = NetBLL.Instance.getPCbyID(pc.ID);
             this.USER.PC = this.PC;
             this.ReceiptID = NetBLL.Instance.getLastReceiptRecordof(USER.UserName).ID;
+            this.UsedTimebySecond = 0;
             this.chatForm = new ChatForm(USER);
             this.chatForm.socketSend = new ChatForm.SocketSend(this.Send);
 
@@ -44,11 +46,14 @@ namespace PBL3
 
             lPCID.Text = PC.ID;
             lUserName.Text = USER.UserName;
-            txtReMoney.Text = USER.RemainingMoney.ToString();
+            txtReMoney.Text = Math.Round(USER.RemainingMoney).ToString();
             RemainingTime = TimeSpan.FromHours(USER.RemainingMoney / USER.PC.AREA.Cost);
             txtReTime.Text = RemainingTime.ToString().Remove(RemainingTime.ToString().Length - 3);
-
             txt1hPrice.Text = PC.AREA.Cost.ToString();
+            txtUsedMoney.Text = "0";
+            txtUsedTime.Text = "00:00:00";
+
+            timer.Interval = 1000;
             timer.Enabled = true;
 
             Connect();
@@ -89,7 +94,26 @@ namespace PBL3
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            UsedTimebySecond++;
+            txtUsedTime.Text = TimeSpan.FromSeconds(UsedTimebySecond).ToString(); 
+            if(UsedTimebySecond % 10 == 0)
+            {
+                USER.RemainingMoney -= 10 * PC.AREA.Cost / 3600;
+                if(USER.RemainingMoney < 0)
+                {
+                    USER.RemainingMoney = 0;
+                }
+                NetBLL.Instance.UpdateUser(USER);
+                txtUsedMoney.Text = Math.Round(UsedTimebySecond * PC.AREA.Cost / 3600).ToString();
+                ReloadView();
+            }
+        }
 
+        private void ReloadView()
+        {
+            txtReMoney.Text = Math.Round(USER.RemainingMoney).ToString();
+            RemainingTime = TimeSpan.FromHours(USER.RemainingMoney / PC.AREA.Cost);
+            txtReTime.Text = RemainingTime.ToString().Remove(RemainingTime.ToString().Length - 3);
         }
 
         ///***************SOCKET SECTION****************///
@@ -171,6 +195,12 @@ namespace PBL3
                     break;
                 case "CHAT":
                     chatForm.rtbDisplay.Text += msg.Message;
+                    break;
+                case "CHARGE":
+                    timer.Stop();
+                    this.USER = NetBLL.Instance.getUserbyUserName(USER.UserName);
+                    ReloadView();
+                    timer.Start();
                     break;
             }
         }

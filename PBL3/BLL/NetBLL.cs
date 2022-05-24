@@ -48,6 +48,14 @@ namespace PBL3.BLL
             USERS user = NetModel.USERs.Find(UserName);
             return user;
         }
+        public void UpdateUser(USERS user)
+        {
+            NetModel = new Model_Net();
+            USERS u = NetModel.USERs.Find(user.UserName);
+            u.RemainingMoney = user.RemainingMoney;
+            NetModel.SaveChanges();
+            NetModel.Dispose();
+        }
         public List<PC> GetAllPC()
         {
             List<PC> data = new List<PC>();

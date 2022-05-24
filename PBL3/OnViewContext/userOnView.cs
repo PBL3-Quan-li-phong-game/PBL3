@@ -22,7 +22,7 @@ namespace PBL3.OnViewContext
             this.UserName = user.UserName;
             this.RoleID = user.RoleID;
             this.UsingPC = user.UsingPC;
-            this.RemainingMoney = user.RemainingMoney;
+            this.RemainingMoney = Math.Round(user.RemainingMoney, 2);
             this.RegisterDate = user.RegisterDate;
             this.LastLogin = user.LastLogin;
             this.OnlineStatus = user.OnlineStatus;

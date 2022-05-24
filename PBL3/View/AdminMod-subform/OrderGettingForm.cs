@@ -37,14 +37,6 @@ namespace PBL3.View.AdminMod_subform
                 lNotify.Visible = true;
                 bDiscard.Enabled = false;
                 bMarkasDone.Enabled = false;
-                //foreach(Order o in OrderList)
-                //{
-                //    if(o.items.Count > 0)
-                //    {
-                //        lvConnection.Items[OrderList.IndexOf(o)].Selected = true;
-                //        break;
-                //    }
-                //}
                 return;
             }
             if (OrderList.ElementAt(lvConnection.SelectedIndices[0]).items.Count == 0)

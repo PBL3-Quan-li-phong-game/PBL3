@@ -122,6 +122,7 @@ namespace PBL3
         {
             ChargeForm cf = new ChargeForm(dgvAccount.SelectedRows[0].Cells[0].Value.ToString());
             cf.Reload = new ChargeForm.ReloadGate(this.ReloadView);
+            cf.send = new ChargeForm.SendGate(this.SendToUser);
             cf.Show();
         }
 
@@ -254,6 +255,13 @@ namespace PBL3
             Send(ConnectionList.ElementAt(IndexOfSocket), obj);
         }
 
+        private void SendToUser(string UserName, object obj)
+        {
+            int index = listUserName.IndexOf(UserName);
+            if (index == -1) return;
+            Send(ConnectionList.ElementAt(index), obj);
+        }
+
         private void Receive(object obj)
         {
             Socket src = obj as Socket;
@@ -348,6 +356,7 @@ namespace PBL3
                 ServiceID = msg_split[2],
                 Amount = Convert.ToInt32(msg_split[3])
             });
+            orderGettingForm.reloadOrderList();
         }
     }
 }

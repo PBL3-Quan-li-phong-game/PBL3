@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3.BLL;
 using PBL3.Model.Context;
+using PBL3.DTO;
 
 namespace PBL3.View.AdminMod_subform
 {
@@ -16,6 +17,8 @@ namespace PBL3.View.AdminMod_subform
     {
         public delegate void ReloadGate();
         public ReloadGate Reload;
+        public delegate void SendGate(string username, object obj);
+        public SendGate send;
         public USERS user;
         public ChargeForm(string username)
         {
@@ -47,6 +50,11 @@ namespace PBL3.View.AdminMod_subform
             {
                 NetBLL.Instance.MoneyCharge(user, Convert.ToInt32(txtMoney.Text));
                 Reload();
+                send(user.UserName, new MSGviaSocket
+                {
+                    Title = "CHARGE",
+                    Message = ""
+                });
                 this.Close();
             }
         }
