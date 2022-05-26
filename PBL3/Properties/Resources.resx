@@ -124,8 +124,11 @@
   <data name="add_user-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\add_user-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MiTom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\MiTom.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mirinda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\Mirinda.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="7up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\7up.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="statitic-ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\statitic-ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,8 +136,20 @@
   <data name="refresh-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\sprite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Setting-Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\Setting-Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="service-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\service-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellowSting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\yellowSting.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="redString" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\redString.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="quit-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\quit-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,17 +157,20 @@
   <data name="bill-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\bill-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\logout-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ChangeAccount-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\ChangeAccount-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\Coca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pwdchange-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\pwdchange-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="help-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\help-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pepsi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\Pepsi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MiTom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\illu-Service\MiTom.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,31 +178,16 @@
   <data name="playerprofile-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\playerprofile-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Setting-Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\Setting-Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="help-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\help-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="7up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\7up.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logout-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\logout-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Aqua" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\illu-Service\Aqua.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Coca" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\Coca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Mirinda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\Mirinda.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pepsi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\Pepsi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="redString" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\redString.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\sprite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="yellowSting" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\illu-Service\yellowSting.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Login-History-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\Login-History-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

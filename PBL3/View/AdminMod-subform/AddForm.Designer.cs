@@ -71,7 +71,7 @@
             this.txtPWD.Location = new System.Drawing.Point(149, 69);
             this.txtPWD.Name = "txtPWD";
             this.txtPWD.Size = new System.Drawing.Size(100, 22);
-            this.txtPWD.TabIndex = 1;
+            this.txtPWD.TabIndex = 2;
             this.txtPWD.TextChanged += new System.EventHandler(this.txtPWD_TextChanged);
             // 
             // label3
@@ -88,7 +88,7 @@
             this.txtMoney.Location = new System.Drawing.Point(149, 111);
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.Size = new System.Drawing.Size(100, 22);
-            this.txtMoney.TabIndex = 1;
+            this.txtMoney.TabIndex = 3;
             this.txtMoney.TextChanged += new System.EventHandler(this.txtMoney_TextChanged);
             // 
             // bCancel
@@ -96,7 +96,7 @@
             this.bCancel.Location = new System.Drawing.Point(24, 207);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(75, 23);
-            this.bCancel.TabIndex = 2;
+            this.bCancel.TabIndex = 5;
             this.bCancel.Text = "Hủy";
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
@@ -106,7 +106,7 @@
             this.bOK.Location = new System.Drawing.Point(174, 207);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
-            this.bOK.TabIndex = 3;
+            this.bOK.TabIndex = 6;
             this.bOK.Text = "Tạo";
             this.bOK.UseVisualStyleBackColor = true;
             this.bOK.Click += new System.EventHandler(this.bOK_Click);
@@ -115,7 +115,7 @@
             // 
             this.lNotify.AutoSize = true;
             this.lNotify.ForeColor = System.Drawing.Color.Red;
-            this.lNotify.Location = new System.Drawing.Point(36, 176);
+            this.lNotify.Location = new System.Drawing.Point(53, 176);
             this.lNotify.Name = "lNotify";
             this.lNotify.Size = new System.Drawing.Size(41, 16);
             this.lNotify.TabIndex = 4;
@@ -127,7 +127,7 @@
             this.cbMOD.Location = new System.Drawing.Point(91, 145);
             this.cbMOD.Name = "cbMOD";
             this.cbMOD.Size = new System.Drawing.Size(101, 20);
-            this.cbMOD.TabIndex = 5;
+            this.cbMOD.TabIndex = 4;
             this.cbMOD.Text = "Vai trò MOD";
             this.cbMOD.UseVisualStyleBackColor = true;
             this.cbMOD.CheckedChanged += new System.EventHandler(this.cbMOD_CheckedChanged);

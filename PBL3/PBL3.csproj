@@ -160,6 +160,12 @@
     <Compile Include="View\Player-subform\ChatForm.Designer.cs">
       <DependentUpon>ChatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Player-subform\LoginHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Player-subform\LoginHistoryForm.Designer.cs">
+      <DependentUpon>LoginHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Player-subform\ProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Player-subform\ChatForm.resx">
       <DependentUpon>ChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Player-subform\LoginHistoryForm.resx">
+      <DependentUpon>LoginHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Player-subform\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
@@ -305,6 +314,7 @@
     <None Include="icon\illu-Service\redString.jpg" />
     <None Include="icon\illu-Service\sprite.jpg" />
     <None Include="icon\illu-Service\yellowSting.jpg" />
+    <None Include="icon\Login-History-icon.jpg" />
     <Content Include="icon\Search.png" />
     <None Include="icon\Setting-Profile.png" />
   </ItemGroup>

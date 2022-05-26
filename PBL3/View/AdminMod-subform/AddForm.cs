@@ -36,6 +36,12 @@ namespace PBL3.View.AdminMod_subform
                 lNotify.Visible = true;
             }
             else
+            if(NetBLL.Instance.getUserbyUserName(txtUserName.Text) != null)
+            {
+                lNotify.Text = "Tài khoản đã tồn tại!";
+                lNotify.Visible = true;
+            }
+            else
             {
                 USERS user = new USERS
                 {

@@ -56,6 +56,13 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+        public List<LOGIN_HISTORY> getLoginHistory(USERS user)
+        {
+            List<LOGIN_HISTORY> data = new List<LOGIN_HISTORY>();
+            NetModel = new Model_Net();
+            data = NetModel.LOGIN_HISTORY.Where(p => p.UserName == user.UserName).OrderByDescending(p => p.ID).ToList();
+            return data;
+        }
         public List<PC> GetAllPC()
         {
             List<PC> data = new List<PC>();

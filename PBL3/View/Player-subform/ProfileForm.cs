@@ -26,5 +26,12 @@ namespace PBL3.View.Player_subform
             pf.Show();
             this.Close();
         }
+
+        private void bLog_Click(object sender, EventArgs e)
+        {
+            LoginHistoryForm lh = new LoginHistoryForm(user);
+            lh.Show();
+            this.Close();
+        }
     }
 }

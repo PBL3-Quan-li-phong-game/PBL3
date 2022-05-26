@@ -54,7 +54,7 @@
             this.bSwitch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bSwitch.Name = "bSwitch";
             this.bSwitch.Size = new System.Drawing.Size(122, 34);
-            this.bSwitch.TabIndex = 14;
+            this.bSwitch.TabIndex = 3;
             this.bSwitch.Text = "Chuyển tài khoản";
             this.bSwitch.UseVisualStyleBackColor = false;
             this.bSwitch.Click += new System.EventHandler(this.bSwitch_Click);
@@ -75,7 +75,7 @@
             this.txtPWD.Name = "txtPWD";
             this.txtPWD.PasswordChar = '*';
             this.txtPWD.Size = new System.Drawing.Size(131, 22);
-            this.txtPWD.TabIndex = 13;
+            this.txtPWD.TabIndex = 2;
             this.txtPWD.TextChanged += new System.EventHandler(this.txtPWD_TextChanged);
             // 
             // label1
@@ -93,7 +93,7 @@
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(131, 22);
-            this.txtUserName.TabIndex = 12;
+            this.txtUserName.TabIndex = 1;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // SwitchAccountForm
