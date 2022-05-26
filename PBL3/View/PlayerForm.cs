@@ -57,6 +57,12 @@ namespace PBL3
             timer.Enabled = true;
 
             Connect();
+            Thread.Sleep(2000);
+            Send(new MSGviaSocket
+            {
+                Title = "RELOAD",
+                Message = ""
+            });
         }
 
         private void bLogOut_Click(object sender, EventArgs e)

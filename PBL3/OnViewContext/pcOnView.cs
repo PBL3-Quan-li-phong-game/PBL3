@@ -10,9 +10,10 @@ namespace PBL3.OnViewContext
     public class pcOnView
     {
         public string ID { get; set; }
-        public double RemainingMoney { get; set; }
-        public string UsingUser { get; set; }
         public string pcStatus { get; set; }
+        public string UsingUser { get; set; }
+        public double RemainingMoney { get; set; }
+        
         public pcOnView(PC pc)
         {
             this.ID = pc.ID;

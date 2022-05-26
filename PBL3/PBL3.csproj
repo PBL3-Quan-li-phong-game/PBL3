@@ -99,6 +99,7 @@
     <Compile Include="Model\Context\SERV.cs" />
     <Compile Include="Model\Context\USERS.cs" />
     <Compile Include="OnViewContext\pcOnView.cs" />
+    <Compile Include="OnViewContext\receiptOnView.cs" />
     <Compile Include="OnViewContext\userOnView.cs" />
     <Compile Include="View\AdminMod-subform\AddForm.cs">
       <SubType>Form</SubType>

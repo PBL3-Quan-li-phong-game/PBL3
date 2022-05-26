@@ -291,9 +291,11 @@
             // 
             this.dgvPC.AllowUserToAddRows = false;
             this.dgvPC.AllowUserToDeleteRows = false;
+            this.dgvPC.AllowUserToResizeColumns = false;
             this.dgvPC.AllowUserToResizeRows = false;
             this.dgvPC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPC.Location = new System.Drawing.Point(0, 35);
+            this.dgvPC.MultiSelect = false;
             this.dgvPC.Name = "dgvPC";
             this.dgvPC.ReadOnly = true;
             this.dgvPC.RowHeadersWidth = 51;
@@ -364,22 +366,31 @@
             // 
             // dgvReceiptHistory
             // 
+            this.dgvReceiptHistory.AllowUserToAddRows = false;
+            this.dgvReceiptHistory.AllowUserToDeleteRows = false;
+            this.dgvReceiptHistory.AllowUserToResizeColumns = false;
+            this.dgvReceiptHistory.AllowUserToResizeRows = false;
             this.dgvReceiptHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReceiptHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReceiptHistory.Location = new System.Drawing.Point(10, 20);
+            this.dgvReceiptHistory.MultiSelect = false;
             this.dgvReceiptHistory.Name = "dgvReceiptHistory";
+            this.dgvReceiptHistory.ReadOnly = true;
             this.dgvReceiptHistory.RowHeadersWidth = 51;
             this.dgvReceiptHistory.RowTemplate.Height = 24;
             this.dgvReceiptHistory.Size = new System.Drawing.Size(340, 649);
             this.dgvReceiptHistory.TabIndex = 0;
+            this.dgvReceiptHistory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReceiptHistory_CellDoubleClick);
             // 
             // dgvAccount
             // 
             this.dgvAccount.AllowUserToAddRows = false;
             this.dgvAccount.AllowUserToDeleteRows = false;
+            this.dgvAccount.AllowUserToResizeColumns = false;
             this.dgvAccount.AllowUserToResizeRows = false;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAccount.Location = new System.Drawing.Point(3, 38);
+            this.dgvAccount.MultiSelect = false;
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersWidth = 51;

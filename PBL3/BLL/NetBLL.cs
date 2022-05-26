@@ -139,6 +139,7 @@ namespace PBL3.BLL
                 {
                     r.TotalPrice += ri.Amount * NetModel.SERVICEs.Find(ri.ServiceID).UnitPrice;
                 }
+                if (r.TotalPrice == 0) NetModel.RECEIPTs.Remove(r);
             }
             NetModel.LOGIN_HISTORY.Add(lh);
             NetModel.SaveChanges();
@@ -201,6 +202,16 @@ namespace PBL3.BLL
             foreach (pcOnView pc in NetBLL.Instance.getViewPC())
             {
                 if (pc.ID.ToUpper().Contains(search.ToUpper())) data.Add(pc);
+            }
+            return data;
+        }
+        public List<receiptOnView> getViewReceiptofUser(string UserName)
+        {
+            List<receiptOnView> data = new List<receiptOnView>();
+            List<RECEIPT> r = NetBLL.Instance.getListReceiptbyUserName(UserName);
+            foreach (RECEIPT receipt in r)
+            {
+                data.Add(new receiptOnView(receipt));
             }
             return data;
         }

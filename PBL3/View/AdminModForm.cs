@@ -45,13 +45,47 @@ namespace PBL3
             timer.Enabled = true;
 
             ReloadView();
+            GUI();
             SetupServer();
+        }
+
+        private void GUI()
+        {
+            dgvPC.Columns[0].HeaderText = "Mã PC";
+            dgvPC.Columns[0].Width = 240;
+            dgvPC.Columns[1].HeaderText = "Tình trạng máy";
+            dgvPC.Columns[1].Width = 250;
+            dgvPC.Columns[2].HeaderText = "Tài khoản người dùng";
+            dgvPC.Columns[2].Width = 250;
+            dgvPC.Columns[3].HeaderText = "Tiền trong tài khoản";
+            dgvPC.Columns[3].Width = 250;
+            ///
+            dgvAccount.Columns[0].HeaderText = "Tên tài khoản";
+            dgvAccount.Columns[0].Width = 100;
+            dgvAccount.Columns[1].HeaderText = "Mã vai trò";
+            dgvAccount.Columns[1].Width = 100;
+            dgvAccount.Columns[2].HeaderText = "Máy đang sử dụng";
+            dgvAccount.Columns[2].Width = 150;
+            dgvAccount.Columns[3].HeaderText = "Tiền trong tài khoản";
+            dgvAccount.Columns[3].Width = 130;
+            dgvAccount.Columns[4].HeaderText = "Ngày đăng ký";
+            dgvAccount.Columns[4].Width = 190;
+            dgvAccount.Columns[5].HeaderText = "Lần đăng nhập cuối";
+            dgvAccount.Columns[5].Width = 190;
+            dgvAccount.Columns[6].HeaderText = "Tình trạng Online";
+            dgvAccount.Columns[6].Width = 130;
+            ///
+            dgvReceiptHistory.Columns[0].HeaderText = "Mã hóa đơn";
+            dgvReceiptHistory.Columns[0].Width = 110;
+            dgvReceiptHistory.Columns[1].HeaderText = "Ngày lập hóa đơn";
+            dgvReceiptHistory.Columns[1].Width = 160;
         }
 
         public void ReloadView()
         {
             dgvPC.DataSource = NetBLL.Instance.getViewPC();
             dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
+            dgvReceiptHistory.DataSource = NetBLL.Instance.getViewReceiptofUser(dgvAccount.Rows[0].Cells[0].Value.ToString());
         }
 
         public void SwitchUser(USERS user)
@@ -158,6 +192,9 @@ namespace PBL3
             {
                 cmsAccount.Show(dgvAccount, new Point(e.X, e.Y));
             }
+            if (dgvAccount.SelectedRows.Count == 1)
+                dgvReceiptHistory.DataSource = NetBLL.Instance.getViewReceiptofUser(dgvAccount.SelectedRows[0].Cells[0].Value.ToString());
+            else dgvReceiptHistory.DataSource = null;
         }
 
         private void txtSearchPC_TextChanged(object sender, EventArgs e)
@@ -331,6 +368,9 @@ namespace PBL3
                 case "RECEIPT":
                     ReceiptHandle(msg.Message);
                     break;
+                case "RELOAD":
+                    ReloadView();
+                    break;
             }
         }
 
@@ -357,6 +397,11 @@ namespace PBL3
                 Amount = Convert.ToInt32(msg_split[3])
             });
             orderGettingForm.reloadOrderList();
+        }
+
+        private void dgvReceiptHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
