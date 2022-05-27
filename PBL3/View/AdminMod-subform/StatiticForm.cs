@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using PBL3.BLL;
 using PBL3.DTO;
-using PBL3.BLL;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 
 namespace PBL3.View.AdminMod_subform
@@ -31,7 +25,8 @@ namespace PBL3.View.AdminMod_subform
 
             StatiticView.Columns.AddRange(new ColumnHeader[]
             {
-                new ColumnHeader { Text = "Tên hàng", Width = 162},
+                new ColumnHeader { Text = "Tên hàng", Width = 102},
+                new ColumnHeader { Text = "Đơn vị", Width = 60},
                 new ColumnHeader { Text = "Số lượng", Width = 60}
             });
         }
@@ -40,9 +35,10 @@ namespace PBL3.View.AdminMod_subform
         {
             StatiticView.Items.Clear();
             List<StatiticItem> data = NetBLL.Instance.Statitic(cbbRange.SelectedIndex);
-            foreach(StatiticItem item in data)
+            foreach (StatiticItem item in data)
             {
                 ListViewItem i = new ListViewItem(item.ServiceName);
+                i.SubItems.Add(item.Unit);
                 i.SubItems.Add(item.TotalCount.ToString());
                 StatiticView.Items.Add(i);
             }

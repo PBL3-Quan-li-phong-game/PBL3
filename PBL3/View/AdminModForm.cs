@@ -1,6 +1,7 @@
 ﻿using PBL3.BLL;
 using PBL3.DTO;
 using PBL3.Model.Context;
+using PBL3.OnViewContext;
 using PBL3.View.AdminMod_subform;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.Windows.Forms;
+
 
 namespace PBL3
 {
@@ -25,6 +27,8 @@ namespace PBL3
         private ChatForm chatForm;
         private OrderGettingForm orderGettingForm;
 
+        private int tick = 0;
+
         public AdminModForm(USERS user)
         {
             CheckForIllegalCrossThreadCalls = false;
@@ -36,6 +40,7 @@ namespace PBL3
             InitializeComponent();
 
             lUserName.Text = USER.UserName;
+            timer.Interval = 1000;
             timer.Enabled = true;
 
             ReloadView();
@@ -69,6 +74,11 @@ namespace PBL3
             dgvAccount.Columns[6].HeaderText = "Tình trạng Online";
             dgvAccount.Columns[6].Width = 130;
             ///
+            dgvCurrReceipt.Columns[0].HeaderText = "Tên món";
+            dgvCurrReceipt.Columns[0].Width = 190;
+            dgvCurrReceipt.Columns[1].HeaderText = "Số lượng";
+            dgvCurrReceipt.Columns[1].Width = 80;
+            ///
             dgvReceiptHistory.Columns[0].HeaderText = "Mã hóa đơn";
             dgvReceiptHistory.Columns[0].Width = 110;
             dgvReceiptHistory.Columns[1].HeaderText = "Ngày lập hóa đơn";
@@ -80,6 +90,8 @@ namespace PBL3
             dgvPC.DataSource = NetBLL.Instance.getViewPC();
             dgvAccount.DataSource = NetBLL.Instance.getViewUsers();
             dgvReceiptHistory.DataSource = NetBLL.Instance.getViewReceiptofUser(dgvAccount.Rows[0].Cells[0].Value.ToString());
+            if (dgvAccount.Rows[0].Cells[2].Value != null) dgvCurrReceipt.DataSource = NetBLL.Instance.getViewReceiptItemofUser(dgvAccount.SelectedRows[0].Cells[2].Value.ToString());
+            else dgvCurrReceipt.DataSource = new List<ReceipItemOnView>();
         }
 
         public void SwitchUser(USERS user)
@@ -102,6 +114,11 @@ namespace PBL3
         private void timer_Tick(object sender, EventArgs e)
         {
             lDateTime.Text = DateTime.Now.ToString();
+            tick++;
+            if(tick % 20 == 0)
+            {
+                ReloadView();
+            }
         }
 
         private void bAddUser_Click(object sender, EventArgs e)
@@ -120,6 +137,7 @@ namespace PBL3
 
         private void bMsg_Click(object sender, EventArgs e)
         {
+            bMsg.BackColor = Color.White;
             chatForm.Hide();
             foreach (ChatContext c in chatForm.chatContexts)
             {
@@ -134,6 +152,7 @@ namespace PBL3
 
         private void bReceipt_Click(object sender, EventArgs e)
         {
+            bReceipt.BackColor = Color.White;
             orderGettingForm.Hide();
             foreach (Order o in orderGettingForm.OrderList)
             {
@@ -148,6 +167,7 @@ namespace PBL3
 
         private void Charge_Click(object sender, EventArgs e)
         {
+            tick = 0;
             ChargeForm cf = new ChargeForm(dgvAccount.SelectedRows[0].Cells[0].Value.ToString());
             cf.Reload = new ChargeForm.ReloadGate(this.ReloadView);
             cf.send = new ChargeForm.SendGate(this.SendToUser);
@@ -156,6 +176,7 @@ namespace PBL3
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            tick = 0;
             ReloadView();
         }
 
@@ -182,6 +203,7 @@ namespace PBL3
 
         private void dgvAccount_MouseClick(object sender, MouseEventArgs e)
         {
+            tick = 0;
             if (e.Button == MouseButtons.Right && dgvAccount.SelectedRows.Count > 0)
             {
                 cmsAccount.Show(dgvAccount, new Point(e.X, e.Y));
@@ -211,7 +233,12 @@ namespace PBL3
 
         private void dgvReceiptHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            tick = 0;
+            if (dgvReceiptHistory.SelectedRows.Count == 1)
+            {
+                ReceiptDetail rf = new ReceiptDetail(Convert.ToInt32(dgvReceiptHistory.SelectedRows[0].Cells[0].Value));
+                rf.Show();
+            }
         }
 
         private void bStat_Click(object sender, EventArgs e)
@@ -219,6 +246,14 @@ namespace PBL3
             StatiticForm sf = new StatiticForm();
             sf.Show();
         }
+
+        private void dgvPC_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            tick = 0;
+            if(dgvPC.SelectedRows[0].Cells[2].Value != null) dgvCurrReceipt.DataSource = NetBLL.Instance.getViewReceiptItemofUser(dgvPC.SelectedRows[0].Cells[2].Value.ToString());
+            else dgvCurrReceipt.DataSource = new List<ReceipItemOnView>();
+        }
+
 
         ////*************SOCKET SECTION***************////
         //////////////////////////////////////////////////
@@ -370,9 +405,11 @@ namespace PBL3
             switch (msg.Title)
             {
                 case "CHAT":
+                    bMsg.BackColor = Color.Red;
                     ChatHandle(msg.Message);
                     break;
                 case "RECEIPT":
+                    bReceipt.BackColor = Color.Red;
                     ReceiptHandle(msg.Message);
                     break;
                 case "RELOAD":

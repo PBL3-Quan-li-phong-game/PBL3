@@ -31,6 +31,7 @@ namespace PBL3.BLL
             NetModel = new Model_Net();
             USERS user = NetModel.USERs.Find(username);
             NetModel.Dispose();
+            if (user.UserName != username) return null;
             if (user == null) { return null; }
             else
             {
@@ -158,6 +159,12 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+        public RECEIPT getReceiptbyID(int ID)
+        {
+            NetModel = new Model_Net();
+            RECEIPT r = NetModel.RECEIPTs.Find(ID);
+            return r;
+        }
 
         ///*******************END GENERAL METHOD************************///
 
@@ -214,6 +221,20 @@ namespace PBL3.BLL
             }
             return data;
         }
+        public List<ReceipItemOnView> getViewReceiptItemofUser(string UserName)
+        {
+            List<ReceipItemOnView> data = new List<ReceipItemOnView>();
+            if (UserName == null) return data;
+            RECEIPT r = NetBLL.Instance.getLastReceiptRecordof(UserName);
+            if (r == null) return data;
+            NetModel = new Model_Net();
+            foreach(RECEIPT_ITEM i in NetModel.RECEIPT_ITEMs.Where(p => p.ReceiptID == r.ID).ToList())
+            {
+                data.Add(new ReceipItemOnView(i));
+            }
+            NetModel.Dispose();
+            return data;
+        }
         public void addUser(USERS user)
         {
             NetModel = new Model_Net();
@@ -260,16 +281,16 @@ namespace PBL3.BLL
         {
             NetModel = new Model_Net();
             List<StatiticItem> data = new List<StatiticItem>();
-            foreach(SERV s in NetModel.SERVICEs.ToList())
+            foreach (SERV s in NetModel.SERVICEs.ToList())
             {
-                data.Add(new StatiticItem { ID = s.ID, ServiceName = s.Name, TotalCount = 0});
+                data.Add(new StatiticItem { ID = s.ID, ServiceName = s.Name, Unit = s.Unit, TotalCount = 0 });
             }
 
             List<RECEIPT> rList = new List<RECEIPT>();
             switch (Range)
             {
                 case 0: //trong ngày
-                    foreach(RECEIPT r in NetModel.RECEIPTs.ToList())
+                    foreach (RECEIPT r in NetModel.RECEIPTs.ToList())
                     {
                         if ((DateTime.Now.Date - r.FormedDate.Date).TotalDays <= 1) rList.Add(r);
                     }
@@ -292,16 +313,16 @@ namespace PBL3.BLL
             }
 
             List<RECEIPT_ITEM> riList = new List<RECEIPT_ITEM>();
-            foreach(RECEIPT r in rList)
+            foreach (RECEIPT r in rList)
             {
                 riList.AddRange(NetModel.RECEIPT_ITEMs.Where(p => p.ReceiptID == r.ID).ToList());
             }
 
-            foreach(StatiticItem s in data)
+            foreach (StatiticItem s in data)
             {
-                foreach(RECEIPT_ITEM ri in riList)
+                foreach (RECEIPT_ITEM ri in riList)
                 {
-                    if(ri.ServiceID == s.ID)
+                    if (ri.ServiceID == s.ID)
                     {
                         s.TotalCount += ri.Amount;
                     }

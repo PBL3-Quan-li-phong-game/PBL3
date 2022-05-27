@@ -100,6 +100,7 @@
     <Compile Include="Model\Context\SERV.cs" />
     <Compile Include="Model\Context\USERS.cs" />
     <Compile Include="OnViewContext\pcOnView.cs" />
+    <Compile Include="OnViewContext\ReceipItemOnView.cs" />
     <Compile Include="OnViewContext\receiptOnView.cs" />
     <Compile Include="OnViewContext\userOnView.cs" />
     <Compile Include="View\AdminMod-subform\AddForm.cs">
@@ -131,6 +132,12 @@
     </Compile>
     <Compile Include="View\AdminMod-subform\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ReceiptDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\ReceiptDetail.Designer.cs">
+      <DependentUpon>ReceiptDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMod-subform\StatiticForm.cs">
       <SubType>Form</SubType>
@@ -223,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\ReceiptDetail.resx">
+      <DependentUpon>ReceiptDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\StatiticForm.resx">
       <DependentUpon>StatiticForm.cs</DependentUpon>

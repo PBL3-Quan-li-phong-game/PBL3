@@ -3,6 +3,7 @@ using PBL3.DTO;
 using PBL3.Model.Context;
 using PBL3.View.Player_subform;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -32,8 +33,10 @@ namespace PBL3
             this.USER.PC = this.PC;
             this.ReceiptID = NetBLL.Instance.getLastReceiptRecordof(USER.UserName).ID;
             this.UsedTimebySecond = 0;
-            this.chatForm = new ChatForm(USER);
-            this.chatForm.socketSend = new ChatForm.SocketSend(this.Send);
+            this.chatForm = new ChatForm(USER)
+            {
+                socketSend = new ChatForm.SocketSend(this.Send)
+            };
 
             InitializeComponent();
 
@@ -74,19 +77,27 @@ namespace PBL3
 
         private void bMSG_Click(object sender, EventArgs e)
         {
+            bMSG.BackColor = Color.White;
             chatForm.Show();
         }
 
         private void bService_Click(object sender, EventArgs e)
         {
-            ServiceForm sf = new ServiceForm(USER, ReceiptID);
-            sf.socketSend = new ServiceForm.SocketSend(Send);
+            ServiceForm sf = new ServiceForm(USER, ReceiptID)
+            {
+                socketSend = new ServiceForm.SocketSend(Send)
+            };
             sf.Show();
         }
 
         private void PlayerForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             NetBLL.Instance.onLogout(USER, PC, ReceiptID);
+            Send(new MSGviaSocket
+            {
+                Title = "RELOAD",
+                Message = ""
+            });
             Disconnect();
             this.close();
         }
@@ -193,6 +204,7 @@ namespace PBL3
                     Send(USER.UserName);
                     break;
                 case "CHAT":
+                    bMSG.BackColor = Color.Red;
                     chatForm.rtbDisplay.Text += msg.Message;
                     break;
                 case "CHARGE":

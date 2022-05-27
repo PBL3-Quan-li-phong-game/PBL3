@@ -304,6 +304,7 @@
             this.dgvPC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPC.Size = new System.Drawing.Size(1078, 669);
             this.dgvPC.TabIndex = 1;
+            this.dgvPC.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPC_CellMouseClick);
             // 
             // panel5
             // 
@@ -379,6 +380,7 @@
             this.dgvReceiptHistory.ReadOnly = true;
             this.dgvReceiptHistory.RowHeadersWidth = 51;
             this.dgvReceiptHistory.RowTemplate.Height = 24;
+            this.dgvReceiptHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReceiptHistory.Size = new System.Drawing.Size(340, 649);
             this.dgvReceiptHistory.TabIndex = 0;
             this.dgvReceiptHistory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReceiptHistory_CellDoubleClick);

@@ -28,13 +28,23 @@ namespace PBL3.Model
                 new PC { ID = "N0001", AreaID = 1, StatusID = 1},
                 new PC { ID = "N0002", AreaID = 1, StatusID = 1},
                 new PC { ID = "N0003", AreaID = 1, StatusID = 1},
+                new PC { ID = "N0004", AreaID = 1, StatusID = 1},
+                new PC { ID = "N0005", AreaID = 1, StatusID = 1},
+                new PC { ID = "N0006", AreaID = 1, StatusID = 1},
                 new PC { ID = "H0001", AreaID = 2, StatusID = 1},
                 new PC { ID = "H0002", AreaID = 2, StatusID = 1},
                 new PC { ID = "H0003", AreaID = 2, StatusID = 1},
+                new PC { ID = "H0004", AreaID = 2, StatusID = 1},
+                new PC { ID = "H0005", AreaID = 2, StatusID = 1},
+                new PC { ID = "H0006", AreaID = 2, StatusID = 1},
                 new PC { ID = "VI0001", AreaID = 3, StatusID = 1},
                 new PC { ID = "VI0002", AreaID = 3, StatusID = 1},
                 new PC { ID = "VI0003", AreaID = 3, StatusID = 1},
                 new PC { ID = "VI0004", AreaID = 3, StatusID = 1},
+                new PC { ID = "VI0005", AreaID = 3, StatusID = 1},
+                new PC { ID = "VI0006", AreaID = 3, StatusID = 1},
+                new PC { ID = "VI0007", AreaID = 3, StatusID = 1},
+                new PC { ID = "VI0008", AreaID = 3, StatusID = 1},
             });
 
             context.ROLEs.AddRange(new ROLES[]
@@ -46,11 +56,11 @@ namespace PBL3.Model
 
             context.USERs.AddRange(new USERS[]
             {
-                new USERS { UserName = "ADMIN", PWD = "123456789aA", RoleID = 1, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
-                new USERS { UserName = "MOD1", PWD = "123456789", RoleID = 2, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
-                new USERS { UserName = "user01", PWD = "123123123", RoleID = 3, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
-                new USERS { UserName = "user02", PWD = "123", RoleID = 3, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
-                new USERS { UserName = "user03", PWD = "123456789", RoleID = 3, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false}
+                new USERS { UserName = "ADMIN", PWD = "1", RoleID = 1, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
+                new USERS { UserName = "MOD1", PWD = "1", RoleID = 2, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
+                new USERS { UserName = "user01", PWD = "1", RoleID = 3, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
+                new USERS { UserName = "user02", PWD = "1", RoleID = 3, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false},
+                new USERS { UserName = "user03", PWD = "1", RoleID = 3, RegisterDate = DateTime.Now, LastLogin = DateTime.Now, OnlineStatus = false}
             });
 
             context.SERVICEs.AddRange(new SERV[]

@@ -17,7 +17,7 @@ namespace PBL3.View.AdminMod_subform
             CheckForIllegalCrossThreadCalls = false;
             OrderList = new List<Order>();
             InitializeComponent();
-            lvOrder.Columns.Add(new ColumnHeader { Name = "ServiceName", Text = "Tên món", Width = 170 });
+            lvOrder.Columns.Add(new ColumnHeader { Name = "ServiceName", Text = "Tên món", Width = 160 });
             lvOrder.Columns.Add(new ColumnHeader { Name = "Amount", Text = "Số lượng", Width = 70 });
             bDiscard.Enabled = false;
             bMarkasDone.Enabled = false;

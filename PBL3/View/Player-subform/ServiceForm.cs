@@ -4,6 +4,7 @@ using PBL3.DTO;
 using PBL3.Model.Context;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 
@@ -132,6 +133,7 @@ namespace PBL3.View.Player_subform
                             Message = user.UserName + "," + ReceiptID.ToString() + "," + c.service.ID + "," + c.txtAmount.Text
                             // format "UserName,ReceiptID,ServiceID,Amount"
                         });
+                        Thread.Sleep(100);
                     }
                 }
                 this.Close();
