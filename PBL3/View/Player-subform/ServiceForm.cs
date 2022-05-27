@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PBL3.BLL;
-using PBL3.Model.Context;
+﻿using PBL3.BLL;
 using PBL3.Component;
 using PBL3.DTO;
+using PBL3.Model.Context;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 
 namespace PBL3.View.Player_subform
@@ -30,7 +24,7 @@ namespace PBL3.View.Player_subform
             this.ReceiptID = ReceiptID;
             InitializeComponent();
             initializeComponentList();
-            foreach(cpnService c in cpnList)
+            foreach (cpnService c in cpnList)
             {
                 c.txtAmount.TextChanged += txtAmount_onTextChange;
             }
@@ -40,7 +34,7 @@ namespace PBL3.View.Player_subform
         private void txtAmount_onTextChange(object sender, EventArgs e)
         {
             txtTotalCost.Text = "0";
-            foreach(cpnService c in cpnList)
+            foreach (cpnService c in cpnList)
             {
                 txtTotalCost.Text = (Convert.ToInt32(txtTotalCost.Text) + Convert.ToInt32(c.lUnitPrice.Text) * Convert.ToInt32(c.txtAmount.Text)).ToString();
             }
@@ -111,7 +105,7 @@ namespace PBL3.View.Player_subform
 
         private void bClear_Click(object sender, EventArgs e)
         {
-            foreach(cpnService c in cpnList)
+            foreach (cpnService c in cpnList)
             {
                 c.txtAmount.Text = "0";
             }
@@ -126,16 +120,16 @@ namespace PBL3.View.Player_subform
         {
             if (txtTotalCost.Text == "0") return;
             DialogResult r = MessageBox.Show("Xác nhận đặt đơn này?", "Xác nhận", MessageBoxButtons.YesNo);
-            if(r == DialogResult.Yes)
+            if (r == DialogResult.Yes)
             {
-                foreach(cpnService c in cpnList)
+                foreach (cpnService c in cpnList)
                 {
-                    if(c.txtAmount.Text != "0")
+                    if (c.txtAmount.Text != "0")
                     {
                         socketSend(new MSGviaSocket
                         {
                             Title = "RECEIPT",
-                            Message = user.UserName + "," + ReceiptID.ToString() + "," + c.service.ID + "," + c.txtAmount.Text  
+                            Message = user.UserName + "," + ReceiptID.ToString() + "," + c.service.ID + "," + c.txtAmount.Text
                             // format "UserName,ReceiptID,ServiceID,Amount"
                         });
                     }

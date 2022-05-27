@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PBL3.BLL;
-using PBL3.Model.Context;
+﻿using PBL3.BLL;
 using PBL3.DTO;
+using PBL3.Model.Context;
+using System;
+using System.Windows.Forms;
 
 namespace PBL3.View.AdminMod_subform
 {
@@ -22,7 +15,7 @@ namespace PBL3.View.AdminMod_subform
         public USERS user;
         public ChargeForm(string username)
         {
-            this.user =  NetBLL.Instance.getUserbyUserName(username);
+            this.user = NetBLL.Instance.getUserbyUserName(username);
             InitializeComponent();
             lNotify.Visible = false;
             lUserName.Text = username;
@@ -58,7 +51,7 @@ namespace PBL3.View.AdminMod_subform
                 this.Close();
             }
         }
-        
+
         private bool TextValidate()
         {
             foreach (char c in txtMoney.Text)

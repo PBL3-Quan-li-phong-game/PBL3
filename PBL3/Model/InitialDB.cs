@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PBL3.Model.Context;
+using System;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PBL3.Model.Context;
 
 
 namespace PBL3.Model

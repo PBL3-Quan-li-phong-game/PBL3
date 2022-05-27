@@ -86,6 +86,7 @@
     <Compile Include="DTO\ChatContext.cs" />
     <Compile Include="DTO\MSGviaSocket.cs" />
     <Compile Include="DTO\Order.cs" />
+    <Compile Include="DTO\StatiticItem.cs" />
     <Compile Include="Model\InitialDB.cs" />
     <Compile Include="Model\Model_Net.cs" />
     <Compile Include="Model\Context\AREA.cs" />
@@ -130,6 +131,12 @@
     </Compile>
     <Compile Include="View\AdminMod-subform\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\StatiticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMod-subform\StatiticForm.Designer.cs">
+      <DependentUpon>StatiticForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMod-subform\SwitchAccountForm.cs">
       <SubType>Form</SubType>
@@ -216,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMod-subform\StatiticForm.resx">
+      <DependentUpon>StatiticForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMod-subform\SwitchAccountForm.resx">
       <DependentUpon>SwitchAccountForm.cs</DependentUpon>

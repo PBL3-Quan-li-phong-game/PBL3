@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PBL3.View.AdminMod_subform;
-using PBL3.BLL;
-using PBL3.Model;
-using PBL3.Model.Context;
-using PBL3.OnViewContext;
-using System.Net.Sockets;
-using System.Net;
-using System.Threading;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using PBL3.BLL;
 using PBL3.DTO;
+using PBL3.Model.Context;
+using PBL3.View.AdminMod_subform;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace PBL3
 {
@@ -139,7 +133,7 @@ namespace PBL3
         }
 
         private void bReceipt_Click(object sender, EventArgs e)
-        { 
+        {
             orderGettingForm.Hide();
             foreach (Order o in orderGettingForm.OrderList)
             {
@@ -215,7 +209,20 @@ namespace PBL3
             }
         }
 
-        ///*************SOCKET SECTION***************///
+        private void dgvReceiptHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bStat_Click(object sender, EventArgs e)
+        {
+            StatiticForm sf = new StatiticForm();
+            sf.Show();
+        }
+
+        ////*************SOCKET SECTION***************////
+        //////////////////////////////////////////////////
+
 
         List<Socket> ConnectionList = new List<Socket>();
 
@@ -269,7 +276,7 @@ namespace PBL3
         {
             orderGettingForm.lvConnection.Items.Clear();
             chatForm.lvConnection.Items.Clear();
-            foreach(string n in listUserName)
+            foreach (string n in listUserName)
             {
                 orderGettingForm.lvConnection.Items.Add(n);
                 chatForm.lvConnection.Items.Add(n);
@@ -286,7 +293,7 @@ namespace PBL3
         {
             Dest.Send(Serialize(obj));
         }
-        
+
         private void SendAtIndex(int IndexOfSocket, object obj)
         {
             Send(ConnectionList.ElementAt(IndexOfSocket), obj);
@@ -343,7 +350,7 @@ namespace PBL3
 
         private void Disconnect()
         {
-            foreach(Socket client in ConnectionList)
+            foreach (Socket client in ConnectionList)
             {
                 client.Close();
             }
@@ -357,7 +364,7 @@ namespace PBL3
         }
 
         ///*******************SOCKET MESSAGE HANDLER**********************///
-        
+
         private void msgHandle(MSGviaSocket msg)
         {
             switch (msg.Title)
@@ -379,7 +386,7 @@ namespace PBL3
             string[] msg_split = msg.Split('|');
             int index = listUserName.IndexOf(msg_split[0]);
             chatForm.chatContexts.ElementAt(index).isRead = false;
-            for(int i = 1; i < msg_split.Length; i++)
+            for (int i = 1; i < msg_split.Length; i++)
             {
                 chatForm.chatContexts.ElementAt(index).Message += msg_split[i];
             }
@@ -397,11 +404,6 @@ namespace PBL3
                 Amount = Convert.ToInt32(msg_split[3])
             });
             orderGettingForm.reloadOrderList();
-        }
-
-        private void dgvReceiptHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

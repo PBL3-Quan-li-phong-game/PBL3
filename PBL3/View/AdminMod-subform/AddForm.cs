@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PBL3.BLL;
+﻿using PBL3.BLL;
 using PBL3.Model.Context;
+using System;
+using System.Windows.Forms;
 
 namespace PBL3.View.AdminMod_subform
 {
@@ -36,7 +29,7 @@ namespace PBL3.View.AdminMod_subform
                 lNotify.Visible = true;
             }
             else
-            if(NetBLL.Instance.getUserbyUserName(txtUserName.Text) != null)
+            if (NetBLL.Instance.getUserbyUserName(txtUserName.Text) != null)
             {
                 lNotify.Text = "Tài khoản đã tồn tại!";
                 lNotify.Visible = true;
@@ -81,13 +74,13 @@ namespace PBL3.View.AdminMod_subform
                 else
                 {
                     lNotify.Text = "Mật khẩu không hợp lệ!";
-                    return false; 
+                    return false;
                 }
             }
             foreach (char c in txtMoney.Text)
             {
                 if (c < '0' && c > '9')
-                { 
+                {
                     lNotify.Text = "Số tiền không hợp lệ!";
                     return false;
                 }
@@ -111,12 +104,12 @@ namespace PBL3.View.AdminMod_subform
                 lNotify.Text = "         Số tiền trống!      ";
                 return false;
             }
-            if(txtUserName.Text.Length > 18)
+            if (txtUserName.Text.Length > 18)
             {
                 lNotify.Text = "Tên đăng nhập tối đa 18 kí tự";
                 return false;
             }
-            if(txtPWD.Text.Length > 18)
+            if (txtPWD.Text.Length > 18)
             {
                 lNotify.Text = "   Mật khẩu tối đa 18 kí tự  ";
                 return false;
@@ -141,7 +134,7 @@ namespace PBL3.View.AdminMod_subform
 
         private void cbMOD_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbMOD.Checked == true)
+            if (cbMOD.Checked == true)
             {
                 txtMoney.Text = "0";
                 txtMoney.Enabled = false;

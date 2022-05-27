@@ -45,3 +45,4 @@ C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.Com
 C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.Player_subform.ServiceForm.resources
 C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.OrderGettingForm.resources
 C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.Player_subform.LoginHistoryForm.resources
+C:\Users\minhn\source\repos\PBL3-Quan-li-phong-game\PBL3\PBL3\obj\Debug\PBL3.View.AdminMod_subform.StatiticForm.resources

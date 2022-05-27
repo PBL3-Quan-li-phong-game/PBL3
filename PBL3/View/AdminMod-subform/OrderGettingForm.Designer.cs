@@ -71,6 +71,7 @@
             this.lvOrder.TabIndex = 5;
             this.lvOrder.UseCompatibleStateImageBehavior = false;
             this.lvOrder.View = System.Windows.Forms.View.Details;
+            this.lvOrder.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvOrder_ColumnWidthChanging);
             // 
             // label1
             // 

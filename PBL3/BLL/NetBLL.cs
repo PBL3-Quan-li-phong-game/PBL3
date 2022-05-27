@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PBL3.DTO;
 using PBL3.Model;
 using PBL3.Model.Context;
 using PBL3.OnViewContext;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PBL3.BLL
 {
@@ -89,7 +88,7 @@ namespace PBL3.BLL
         public USERS getOnlineADMOD()
         {
             NetModel = new Model_Net();
-            List<USERS> li = NetModel.USERs.Where(p => p.RoleID < 3).Where(p =>p.OnlineStatus == true).ToList();
+            List<USERS> li = NetModel.USERs.Where(p => p.RoleID < 3).Where(p => p.OnlineStatus == true).ToList();
             USERS user = li.ElementAt(0);
             return user;
         }
@@ -135,7 +134,7 @@ namespace PBL3.BLL
                 p.USERS.Remove(u);
                 p.StatusID = 1;
                 RECEIPT r = NetModel.RECEIPTs.Find(ReceiptID);
-                foreach(RECEIPT_ITEM ri in NetModel.RECEIPT_ITEMs.Where(item => item.ReceiptID == ReceiptID).ToList())
+                foreach (RECEIPT_ITEM ri in NetModel.RECEIPT_ITEMs.Where(item => item.ReceiptID == ReceiptID).ToList())
                 {
                     r.TotalPrice += ri.Amount * NetModel.SERVICEs.Find(ri.ServiceID).UnitPrice;
                 }
@@ -256,6 +255,60 @@ namespace PBL3.BLL
             NetModel.RECEIPT_ITEMs.Add(ri);
             NetModel.SaveChanges();
             NetModel.Dispose();
+        }
+        public List<StatiticItem> Statitic(int Range)
+        {
+            NetModel = new Model_Net();
+            List<StatiticItem> data = new List<StatiticItem>();
+            foreach(SERV s in NetModel.SERVICEs.ToList())
+            {
+                data.Add(new StatiticItem { ID = s.ID, ServiceName = s.Name, TotalCount = 0});
+            }
+
+            List<RECEIPT> rList = new List<RECEIPT>();
+            switch (Range)
+            {
+                case 0: //trong ngày
+                    foreach(RECEIPT r in NetModel.RECEIPTs.ToList())
+                    {
+                        if ((DateTime.Now.Date - r.FormedDate.Date).TotalDays <= 1) rList.Add(r);
+                    }
+                    break;
+                case 1: //trong tuần
+                    foreach (RECEIPT r in NetModel.RECEIPTs.ToList())
+                    {
+                        if ((DateTime.Now.Date - r.FormedDate.Date).TotalDays <= 7) rList.Add(r);
+                    }
+                    break;
+                case 2: //trong tháng
+                    foreach (RECEIPT r in NetModel.RECEIPTs.ToList())
+                    {
+                        if ((DateTime.Now.Date - r.FormedDate.Date).TotalDays <= 30) rList.Add(r);
+                    }
+                    break;
+                default: //all
+                    rList = NetModel.RECEIPTs.ToList();
+                    break;
+            }
+
+            List<RECEIPT_ITEM> riList = new List<RECEIPT_ITEM>();
+            foreach(RECEIPT r in rList)
+            {
+                riList.AddRange(NetModel.RECEIPT_ITEMs.Where(p => p.ReceiptID == r.ID).ToList());
+            }
+
+            foreach(StatiticItem s in data)
+            {
+                foreach(RECEIPT_ITEM ri in riList)
+                {
+                    if(ri.ServiceID == s.ID)
+                    {
+                        s.TotalCount += ri.Amount;
+                    }
+                }
+            }
+
+            return data;
         }
 
 

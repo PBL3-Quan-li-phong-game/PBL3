@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PBL3.Model.Context
 {
@@ -15,7 +11,7 @@ namespace PBL3.Model.Context
 
         public int ID { get; set; }
         public string Name { get; set; }
-        
+
         public virtual ICollection<USERS> USERs { get; set; }
     }
 }

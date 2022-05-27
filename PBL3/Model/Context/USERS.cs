@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PBL3.Model.Context
 {
@@ -18,9 +15,11 @@ namespace PBL3.Model.Context
             this.ReceiverLog = new HashSet<CHAT_LOG>();
         }
 
-        [Key][MaxLength(18)]
+        [Key]
+        [MaxLength(18)]
         public string UserName { get; set; }
-        [MaxLength(18)][Required]
+        [MaxLength(18)]
+        [Required]
         public string PWD { get; set; }
         [Required]
         public int RoleID { get; set; }

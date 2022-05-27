@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PBL3.Model.Context
 {
@@ -18,6 +14,6 @@ namespace PBL3.Model.Context
         public int ID { get; set; }
         public string StatusName { get; set; }
 
-        public virtual ICollection<PC> PCs{ get; set; }
+        public virtual ICollection<PC> PCs { get; set; }
     }
 }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using PBL3.BLL;
 using PBL3.DTO;
 using PBL3.Model.Context;
-using PBL3.BLL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 
 namespace PBL3.View.AdminMod_subform
@@ -30,7 +25,7 @@ namespace PBL3.View.AdminMod_subform
 
         public void reloadOrderList()
         {
-            if(lvConnection.SelectedItems == null || lvConnection.SelectedItems.Count == 0)
+            if (lvConnection.SelectedItems == null || lvConnection.SelectedItems.Count == 0)
             {
                 lvOrder.Items.Clear();
                 txtTotalPrice.Text = "0";
@@ -67,7 +62,7 @@ namespace PBL3.View.AdminMod_subform
         private void bDiscard_Click(object sender, EventArgs e)
         {
             DialogResult r = MessageBox.Show("Xác nhận hủy đơn này ?", "Xác nhận", MessageBoxButtons.YesNo);
-            if(r == DialogResult.Yes)
+            if (r == DialogResult.Yes)
             {
                 OrderList.ElementAt(lvConnection.SelectedIndices[0]).items.Clear();
                 reloadOrderList();
@@ -77,9 +72,9 @@ namespace PBL3.View.AdminMod_subform
         private void bMarkasDone_Click(object sender, EventArgs e)
         {
             DialogResult r = MessageBox.Show("Đã hoàn thành đơn hàng ?", "Xác nhận", MessageBoxButtons.YesNo);
-            if( r == DialogResult.Yes)
+            if (r == DialogResult.Yes)
             {
-                foreach(RECEIPT_ITEM ri in OrderList.ElementAt(lvConnection.SelectedIndices[0]).items)
+                foreach (RECEIPT_ITEM ri in OrderList.ElementAt(lvConnection.SelectedIndices[0]).items)
                 {
                     NetBLL.Instance.AddReceiptItem(ri);
                 }
@@ -95,11 +90,17 @@ namespace PBL3.View.AdminMod_subform
 
         private void OrderGettingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
                 Hide();
             }
+        }
+
+        private void lvOrder_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.Cancel = true;
+            e.NewWidth = lvOrder.Columns[e.ColumnIndex].Width;
         }
     }
 }

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using PBL3.BLL;
 using PBL3.DTO;
-using PBL3.BLL;
 using PBL3.Model.Context;
+using System;
+using System.Windows.Forms;
 
 
 namespace PBL3.View.Player_subform
@@ -43,7 +36,7 @@ namespace PBL3.View.Player_subform
                 };
                 NetBLL.Instance.addChatLog(log);
                 string Context =
-                    user.UserName + "|(" + SendTime + ") "  + user.UserName + ":\n" +
+                    user.UserName + "|(" + SendTime + ") " + user.UserName + ":\n" +
                     rtbSend.Text + "\n\n";
                 socketSend(new MSGviaSocket
                 {
@@ -63,7 +56,7 @@ namespace PBL3.View.Player_subform
                 Hide();
             }
         }
-        
+
         private void AddMSG(string msg)
         {
             rtbDisplay.Text += msg;

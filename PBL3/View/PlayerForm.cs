@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using PBL3.BLL;
+using PBL3.DTO;
 using PBL3.Model.Context;
-using PBL3.BLL;
 using PBL3.View.Player_subform;
+using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
-using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using PBL3.DTO;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace PBL3
 {
@@ -101,11 +94,11 @@ namespace PBL3
         private void timer_Tick(object sender, EventArgs e)
         {
             UsedTimebySecond++;
-            txtUsedTime.Text = TimeSpan.FromSeconds(UsedTimebySecond).ToString(); 
-            if(UsedTimebySecond % 10 == 0)
+            txtUsedTime.Text = TimeSpan.FromSeconds(UsedTimebySecond).ToString();
+            if (UsedTimebySecond % 10 == 0)
             {
                 USER.RemainingMoney -= 10 * PC.AREA.Cost / 3600;
-                if(USER.RemainingMoney < 0)
+                if (USER.RemainingMoney < 0)
                 {
                     USER.RemainingMoney = 0;
                 }
@@ -126,7 +119,7 @@ namespace PBL3
 
         Socket Server;
         IPEndPoint IP;
-        
+
         private void Connect()
         {
             IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);

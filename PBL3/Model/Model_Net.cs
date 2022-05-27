@@ -1,13 +1,11 @@
-using System;
-using System.Data.Entity;
-using System.Linq;
 using PBL3.Model.Context;
+using System.Data.Entity;
 
 
 namespace PBL3.Model
 {
     public class Model_Net : DbContext
-    { 
+    {
         public Model_Net()
             : base("name=Model_Net")
         {

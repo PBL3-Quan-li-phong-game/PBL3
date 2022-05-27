@@ -1,9 +1,5 @@
-﻿using System;
+﻿using PBL3.Model.Context;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PBL3.Model.Context;
 
 namespace PBL3.DTO
 {

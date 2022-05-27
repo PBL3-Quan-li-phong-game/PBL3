@@ -209,6 +209,7 @@
             this.bStat.Text = "Thống kê";
             this.bStat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bStat.UseVisualStyleBackColor = true;
+            this.bStat.Click += new System.EventHandler(this.bStat_Click);
             // 
             // bQuit
             // 

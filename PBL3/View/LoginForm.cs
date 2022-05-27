@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PBL3.Model;
+﻿using PBL3.BLL;
 using PBL3.Model.Context;
-using PBL3.BLL;
+using System;
+using System.Windows.Forms;
 
 namespace PBL3
 {
@@ -30,34 +22,34 @@ namespace PBL3
                 lNotify.Visible = true;
             }
             else
-            if(TextValidate() == false)
+            if (TextValidate() == false)
             {
                 lNotify.Text = "Chỉ được nhập từ 0->9, a->z, A->Z";
                 lNotify.Visible = true;
             }
-            else 
-            if(user == null)
+            else
+            if (user == null)
             {
                 lNotify.Text = "Sai tên đăng nhập hoặc mật khẩu!";
                 lNotify.Visible = true;
             }
             else
             {
-                if(NetBLL.Instance.CheckOnlineADMOD() == true)
+                if (NetBLL.Instance.CheckOnlineADMOD() == true)
                 {
-                    if(user.RoleID < 3)
+                    if (user.RoleID < 3)
                     {
                         lNotify.Text = "Sai tên đăng nhập hoặc mật khẩu!";
                         lNotify.Visible = true;
                     }
                     else
-                    if(user.OnlineStatus == true)
+                    if (user.OnlineStatus == true)
                     {
                         lNotify.Text = "    Tài khoản đang hoạt động!   ";
                         lNotify.Visible = true;
                     }
                     else
-                    if(user.RemainingMoney <= 0)
+                    if (user.RemainingMoney <= 0)
                     {
                         lNotify.Text = "Vui lòng nạp thêm vào tài khoản!";
                         lNotify.Visible = true;
@@ -72,7 +64,7 @@ namespace PBL3
                 }
                 else
                 {
-                    if(user.RoleID == 3)
+                    if (user.RoleID == 3)
                     {
                         lNotify.Text = "Chưa thể đăng nhập lúc này!";
                         lNotify.Visible = true;
@@ -101,19 +93,19 @@ namespace PBL3
 
         private bool TextValidate()
         {
-            foreach(char c in txtUserName.Text)
+            foreach (char c in txtUserName.Text)
             {
                 if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) continue;
                 else return false;
             }
-            foreach(char c in txtPWD.Text)
+            foreach (char c in txtPWD.Text)
             {
-                if((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) continue;
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) continue;
                 else return false;
             }
             return true;
         }
-        
+
         private bool emptyCheck()
         {
             if (txtPWD.Text.Length == 0 || txtUserName.Text.Length == 0) return true;
