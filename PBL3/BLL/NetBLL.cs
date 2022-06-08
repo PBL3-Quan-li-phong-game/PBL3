@@ -31,8 +31,8 @@ namespace PBL3.BLL
             NetModel = new Model_Net();
             USERS user = NetModel.USERs.Find(username);
             NetModel.Dispose();
+            if (user == null) return null;
             if (user.UserName != username) return null;
-            if (user == null) { return null; }
             else
             {
                 if (user.PWD != pwd) { return null; }
