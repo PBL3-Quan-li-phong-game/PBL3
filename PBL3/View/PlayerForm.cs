@@ -71,7 +71,6 @@ namespace PBL3
         private void bAccMNG_Click(object sender, EventArgs e)
         {
             ProfileForm pf = new ProfileForm(USER);
-
             pf.Show();
         }
 
@@ -165,10 +164,7 @@ namespace PBL3
                     msgHandle(msg);
                 }
             }
-            catch
-            {
-
-            }
+            catch{}
         }
 
         private byte[] Serialize(object obj)
@@ -212,6 +208,16 @@ namespace PBL3
                     this.USER = NetBLL.Instance.getUserbyUserName(USER.UserName);
                     ReloadView();
                     timer.Start();
+                    break;
+                case "FORCE-SHUTDOWN":
+                    NetBLL.Instance.onLogout(USER, PC, ReceiptID);
+                    Send(new MSGviaSocket
+                    {
+                        Title = "RELOAD",
+                        Message = ""
+                    });
+                    Disconnect();
+                    this.close();
                     break;
             }
         }

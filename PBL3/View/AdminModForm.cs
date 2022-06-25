@@ -180,6 +180,79 @@ namespace PBL3
             ReloadView();
         }
 
+        private void dgvPC_MouseClick(object sender, MouseEventArgs e)
+        {
+            tick = 0;
+            if(e.Button == MouseButtons.Right && dgvPC.SelectedRows.Count > 0)
+            {
+                SetCMSPC(dgvPC.SelectedRows[0].Cells[2].Value);
+                cmsPC.Show(dgvPC, new Point(e.X, e.Y));
+            }
+        }
+
+        private void SetCMSPC(object o)
+        {
+            if(o == null)
+            {
+                cmsPC.Items[0].Enabled = false;
+                cmsPC.Items[1].Enabled = false;
+                cmsPC.Items[2].Enabled = true;
+                if (dgvPC.SelectedRows[0].Cells[1].Value.ToString() == "OFF")
+                {
+                    cmsPC.Items[2].Text = "Đánh dấu là hỏng";
+                }
+                else
+                {
+                    cmsPC.Items[2].Text = "Bỏ dánh dấu hỏng";
+                }
+            }
+            else
+            {
+                cmsPC.Items[0].Enabled = true;
+                cmsPC.Items[1].Enabled = true;
+                cmsPC.Items[2].Enabled = false;
+            }
+        }
+
+        private void ChargeViaPC_Click(object sender, EventArgs e)
+        {
+            tick = 0;
+            ChargeForm cf = new ChargeForm(dgvPC.SelectedRows[0].Cells[2].Value.ToString());
+            cf.Reload = new ChargeForm.ReloadGate(this.ReloadView);
+            cf.send = new ChargeForm.SendGate(this.SendToUser);
+            cf.Show();
+        }
+
+        private void ShutDownPC_Click(object sender, EventArgs e)
+        {
+            tick = 0;
+            DialogResult r = MessageBox.Show("Bạn có chắc muốn tắt máy này !?", "Xác nhận", MessageBoxButtons.YesNo);
+            if(r == DialogResult.Yes)
+            {
+                SendToUser(
+                    dgvPC.SelectedRows[0].Cells[2].Value.ToString(),
+                    new MSGviaSocket
+                    {
+                        Title = "FORCE-SHUTDOWN",
+                        Message = ""
+                    }
+                );
+            }
+        }
+
+        private void SetAvailability_Click(object sender, EventArgs e)
+        {
+            if (dgvPC.SelectedRows[0].Cells[1].Value.ToString() == "OFF")
+            {
+                NetBLL.Instance.SetPCState(dgvPC.SelectedRows[0].Cells[0].Value.ToString(), 3);
+            }
+            else
+            {
+                NetBLL.Instance.SetPCState(dgvPC.SelectedRows[0].Cells[0].Value.ToString(), 1);
+            }
+            ReloadView();
+        }
+
         private void ResetPWD_Click(object sender, EventArgs e)
         {
             USERS u = NetBLL.Instance.getUserbyUserName(dgvAccount.SelectedRows[0].Cells[0].Value.ToString());
@@ -243,6 +316,11 @@ namespace PBL3
 
         private void bStat_Click(object sender, EventArgs e)
         {
+            if(USER.RoleID == 1)
+            {
+                MessageBox.Show("Chức năng này chỉ dành cho Admin!");
+                return;
+            }
             StatiticForm sf = new StatiticForm();
             sf.Show();
         }

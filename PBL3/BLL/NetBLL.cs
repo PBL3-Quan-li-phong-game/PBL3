@@ -277,6 +277,13 @@ namespace PBL3.BLL
             NetModel.SaveChanges();
             NetModel.Dispose();
         }
+        public void SetPCState(string PCID,int State)
+        {
+            NetModel = new Model_Net();
+            PC p = NetModel.PCs.Find(PCID);
+            p.StatusID = State;
+            NetModel.SaveChanges();
+        }
         public List<StatiticItem> Statitic(int Range)
         {
             NetModel = new Model_Net();

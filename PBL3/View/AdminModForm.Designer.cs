@@ -36,7 +36,6 @@
             this.lUserName = new System.Windows.Forms.Label();
             this.bProfile = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bHelp = new System.Windows.Forms.Button();
             this.bReceipt = new System.Windows.Forms.Button();
             this.bMsg = new System.Windows.Forms.Button();
             this.bStat = new System.Windows.Forms.Button();
@@ -67,6 +66,10 @@
             this.Charge = new System.Windows.Forms.ToolStripMenuItem();
             this.ResetPWD = new System.Windows.Forms.ToolStripMenuItem();
             this.Del = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsPC = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ChargeViaPC = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShutDownPC = new System.Windows.Forms.ToolStripMenuItem();
+            this.SetAvailability = new System.Windows.Forms.ToolStripMenuItem();
             this.pFooter.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.panel7.SuspendLayout();
             this.cmsAccount.SuspendLayout();
+            this.cmsPC.SuspendLayout();
             this.SuspendLayout();
             // 
             // pFooter
@@ -146,7 +150,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.bHelp);
             this.panel1.Controls.Add(this.bReceipt);
             this.panel1.Controls.Add(this.bMsg);
             this.panel1.Controls.Add(this.bStat);
@@ -158,25 +161,11 @@
             this.panel1.Size = new System.Drawing.Size(104, 739);
             this.panel1.TabIndex = 0;
             // 
-            // bHelp
-            // 
-            this.bHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bHelp.Image = global::PBL3.Properties.Resources.help_icon;
-            this.bHelp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bHelp.Location = new System.Drawing.Point(12, 588);
-            this.bHelp.Name = "bHelp";
-            this.bHelp.Size = new System.Drawing.Size(80, 96);
-            this.bHelp.TabIndex = 0;
-            this.bHelp.Text = "Trợ giúp";
-            this.bHelp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.bHelp.UseVisualStyleBackColor = true;
-            // 
             // bReceipt
             // 
             this.bReceipt.Image = global::PBL3.Properties.Resources.bill_icon;
             this.bReceipt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bReceipt.Location = new System.Drawing.Point(12, 313);
+            this.bReceipt.Location = new System.Drawing.Point(12, 357);
             this.bReceipt.Name = "bReceipt";
             this.bReceipt.Size = new System.Drawing.Size(80, 96);
             this.bReceipt.TabIndex = 0;
@@ -189,7 +178,7 @@
             // 
             this.bMsg.Image = global::PBL3.Properties.Resources.msg_icon;
             this.bMsg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bMsg.Location = new System.Drawing.Point(12, 175);
+            this.bMsg.Location = new System.Drawing.Point(12, 209);
             this.bMsg.Name = "bMsg";
             this.bMsg.Size = new System.Drawing.Size(80, 96);
             this.bMsg.TabIndex = 0;
@@ -202,7 +191,7 @@
             // 
             this.bStat.Image = global::PBL3.Properties.Resources.statitic_ico;
             this.bStat.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bStat.Location = new System.Drawing.Point(12, 37);
+            this.bStat.Location = new System.Drawing.Point(12, 67);
             this.bStat.Name = "bStat";
             this.bStat.Size = new System.Drawing.Size(80, 96);
             this.bStat.TabIndex = 0;
@@ -215,7 +204,7 @@
             // 
             this.bQuit.Image = global::PBL3.Properties.Resources.quit_icon;
             this.bQuit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bQuit.Location = new System.Drawing.Point(12, 451);
+            this.bQuit.Location = new System.Drawing.Point(12, 514);
             this.bQuit.Name = "bQuit";
             this.bQuit.Size = new System.Drawing.Size(80, 96);
             this.bQuit.TabIndex = 0;
@@ -305,6 +294,7 @@
             this.dgvPC.Size = new System.Drawing.Size(1078, 669);
             this.dgvPC.TabIndex = 1;
             this.dgvPC.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPC_CellMouseClick);
+            this.dgvPC.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPC_MouseClick);
             // 
             // panel5
             // 
@@ -507,6 +497,37 @@
             this.Del.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Del.Click += new System.EventHandler(this.Del_Click);
             // 
+            // cmsPC
+            // 
+            this.cmsPC.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsPC.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ChargeViaPC,
+            this.ShutDownPC,
+            this.SetAvailability});
+            this.cmsPC.Name = "cmsPC";
+            this.cmsPC.Size = new System.Drawing.Size(229, 76);
+            // 
+            // ChargeViaPC
+            // 
+            this.ChargeViaPC.Name = "ChargeViaPC";
+            this.ChargeViaPC.Size = new System.Drawing.Size(228, 24);
+            this.ChargeViaPC.Text = "Nạp tiền vào tài khoản";
+            this.ChargeViaPC.Click += new System.EventHandler(this.ChargeViaPC_Click);
+            // 
+            // ShutDownPC
+            // 
+            this.ShutDownPC.Name = "ShutDownPC";
+            this.ShutDownPC.Size = new System.Drawing.Size(228, 24);
+            this.ShutDownPC.Text = "Buộc tắt";
+            this.ShutDownPC.Click += new System.EventHandler(this.ShutDownPC_Click);
+            // 
+            // SetAvailability
+            // 
+            this.SetAvailability.Name = "SetAvailability";
+            this.SetAvailability.Size = new System.Drawing.Size(228, 24);
+            this.SetAvailability.Text = "Đánh dấu là hỏng";
+            this.SetAvailability.Click += new System.EventHandler(this.SetAvailability_Click);
+            // 
             // AdminModForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -543,6 +564,7 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.cmsAccount.ResumeLayout(false);
+            this.cmsPC.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -568,7 +590,6 @@
         private System.Windows.Forms.TextBox txtSearchAcc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lUserName;
-        private System.Windows.Forms.Button bHelp;
         private System.Windows.Forms.Button bMsg;
         private System.Windows.Forms.Button bStat;
         private System.Windows.Forms.Button bQuit;
@@ -587,5 +608,9 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvReceiptHistory;
+        private System.Windows.Forms.ContextMenuStrip cmsPC;
+        private System.Windows.Forms.ToolStripMenuItem ChargeViaPC;
+        private System.Windows.Forms.ToolStripMenuItem ShutDownPC;
+        private System.Windows.Forms.ToolStripMenuItem SetAvailability;
     }
 }

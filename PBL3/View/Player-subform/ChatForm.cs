@@ -32,12 +32,12 @@ namespace PBL3.View.Player_subform
                     sender = user.UserName,
                     receiver = onlineADMOD_Name,
                     SendTime = SendTime,
-                    msg = rtbSend.Text
+                    msg = rtbSend.Text.Length > 100 ? rtbSend.Text.Substring(0, 100) : rtbSend.Text
                 };
                 NetBLL.Instance.addChatLog(log);
                 string Context =
                     user.UserName + "|(" + SendTime + ") " + user.UserName + ":\n" +
-                    rtbSend.Text + "\n\n";
+                    log.msg + "\n\n";
                 socketSend(new MSGviaSocket
                 {
                     Title = "CHAT",
