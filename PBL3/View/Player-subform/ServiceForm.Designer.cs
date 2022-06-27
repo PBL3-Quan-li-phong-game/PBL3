@@ -63,7 +63,7 @@
             this.ServiceItemContainer.Location = new System.Drawing.Point(13, 12);
             this.ServiceItemContainer.Name = "ServiceItemContainer";
             this.ServiceItemContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.ServiceItemContainer.Size = new System.Drawing.Size(308, 284);
+            this.ServiceItemContainer.Size = new System.Drawing.Size(561, 391);
             this.ServiceItemContainer.TabIndex = 0;
             // 
             // cpnMiTom
@@ -82,56 +82,56 @@
             // 
             // cpn7up
             // 
-            this.cpn7up.Location = new System.Drawing.Point(13, 186);
+            this.cpn7up.Location = new System.Drawing.Point(271, 13);
             this.cpn7up.Name = "cpn7up";
             this.cpn7up.Size = new System.Drawing.Size(123, 167);
             this.cpn7up.TabIndex = 2;
             // 
             // cpnCoca
             // 
-            this.cpnCoca.Location = new System.Drawing.Point(142, 186);
+            this.cpnCoca.Location = new System.Drawing.Point(400, 13);
             this.cpnCoca.Name = "cpnCoca";
             this.cpnCoca.Size = new System.Drawing.Size(123, 167);
             this.cpnCoca.TabIndex = 3;
             // 
             // cpnMirinda
             // 
-            this.cpnMirinda.Location = new System.Drawing.Point(13, 359);
+            this.cpnMirinda.Location = new System.Drawing.Point(13, 186);
             this.cpnMirinda.Name = "cpnMirinda";
             this.cpnMirinda.Size = new System.Drawing.Size(123, 167);
             this.cpnMirinda.TabIndex = 4;
             // 
             // cpnPepsi
             // 
-            this.cpnPepsi.Location = new System.Drawing.Point(142, 359);
+            this.cpnPepsi.Location = new System.Drawing.Point(142, 186);
             this.cpnPepsi.Name = "cpnPepsi";
             this.cpnPepsi.Size = new System.Drawing.Size(123, 167);
             this.cpnPepsi.TabIndex = 5;
             // 
             // cpnRedSting
             // 
-            this.cpnRedSting.Location = new System.Drawing.Point(13, 532);
+            this.cpnRedSting.Location = new System.Drawing.Point(271, 186);
             this.cpnRedSting.Name = "cpnRedSting";
             this.cpnRedSting.Size = new System.Drawing.Size(123, 167);
             this.cpnRedSting.TabIndex = 6;
             // 
             // cpnYellowSting
             // 
-            this.cpnYellowSting.Location = new System.Drawing.Point(142, 532);
+            this.cpnYellowSting.Location = new System.Drawing.Point(400, 186);
             this.cpnYellowSting.Name = "cpnYellowSting";
             this.cpnYellowSting.Size = new System.Drawing.Size(123, 167);
             this.cpnYellowSting.TabIndex = 7;
             // 
             // cpnSprite
             // 
-            this.cpnSprite.Location = new System.Drawing.Point(13, 705);
+            this.cpnSprite.Location = new System.Drawing.Point(13, 359);
             this.cpnSprite.Name = "cpnSprite";
             this.cpnSprite.Size = new System.Drawing.Size(123, 167);
             this.cpnSprite.TabIndex = 8;
             // 
             // cpnAqua
             // 
-            this.cpnAqua.Location = new System.Drawing.Point(142, 705);
+            this.cpnAqua.Location = new System.Drawing.Point(142, 359);
             this.cpnAqua.Name = "cpnAqua";
             this.cpnAqua.Size = new System.Drawing.Size(123, 167);
             this.cpnAqua.TabIndex = 9;
@@ -140,7 +140,7 @@
             // 
             this.txtTotalCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotalCost.Enabled = false;
-            this.txtTotalCost.Location = new System.Drawing.Point(353, 43);
+            this.txtTotalCost.Location = new System.Drawing.Point(603, 62);
             this.txtTotalCost.Name = "txtTotalCost";
             this.txtTotalCost.ReadOnly = true;
             this.txtTotalCost.Size = new System.Drawing.Size(75, 22);
@@ -149,7 +149,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(356, 24);
+            this.label1.Location = new System.Drawing.Point(605, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 16);
             this.label1.TabIndex = 2;
@@ -157,7 +157,7 @@
             // 
             // bClear
             // 
-            this.bClear.Location = new System.Drawing.Point(353, 163);
+            this.bClear.Location = new System.Drawing.Point(603, 270);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(75, 23);
             this.bClear.TabIndex = 3;
@@ -167,7 +167,7 @@
             // 
             // bOrder
             // 
-            this.bOrder.Location = new System.Drawing.Point(353, 221);
+            this.bOrder.Location = new System.Drawing.Point(603, 328);
             this.bOrder.Name = "bOrder";
             this.bOrder.Size = new System.Drawing.Size(75, 75);
             this.bOrder.TabIndex = 4;
@@ -177,7 +177,7 @@
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(353, 192);
+            this.bCancel.Location = new System.Drawing.Point(603, 299);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(75, 23);
             this.bCancel.TabIndex = 5;
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 305);
+            this.ClientSize = new System.Drawing.Size(705, 419);
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.bOrder);
             this.Controls.Add(this.bClear);

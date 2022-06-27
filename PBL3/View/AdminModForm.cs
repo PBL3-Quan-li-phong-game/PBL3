@@ -316,7 +316,7 @@ namespace PBL3
 
         private void bStat_Click(object sender, EventArgs e)
         {
-            if(USER.RoleID == 1)
+            if(USER.RoleID == 2)
             {
                 MessageBox.Show("Chức năng này chỉ dành cho Admin!");
                 return;
