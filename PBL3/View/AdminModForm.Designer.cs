@@ -211,6 +211,7 @@
             this.bQuit.Text = "Thoát";
             this.bQuit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bQuit.UseVisualStyleBackColor = true;
+            this.bQuit.Click += new System.EventHandler(this.bQuit_Click);
             // 
             // tabControl
             // 

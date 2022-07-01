@@ -333,6 +333,14 @@ namespace PBL3
         }
 
 
+        private void bQuit_Click(object sender, EventArgs e)
+        {
+            NetBLL.Instance.onLogout(USER);
+            Disconnect();
+            this.close();
+        }
+
+
         ////*************SOCKET SECTION***************////
         //////////////////////////////////////////////////
 

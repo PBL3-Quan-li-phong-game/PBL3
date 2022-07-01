@@ -44,7 +44,7 @@ namespace PBL3
             lUserName.Text = USER.UserName;
             txtReMoney.Text = Math.Round(USER.RemainingMoney).ToString();
             RemainingTime = TimeSpan.FromHours(USER.RemainingMoney / USER.PC.AREA.Cost);
-            txtReTime.Text = RemainingTime.ToString().Remove(RemainingTime.ToString().Length - 3);
+            txtReTime.Text = RemainingTime.ToString().Substring(0, 8);
             txt1hPrice.Text = PC.AREA.Cost.ToString();
             txtUsedMoney.Text = "0";
             txtUsedTime.Text = "00:00:00";
@@ -105,9 +105,9 @@ namespace PBL3
         {
             UsedTimebySecond++;
             txtUsedTime.Text = TimeSpan.FromSeconds(UsedTimebySecond).ToString();
-            if (UsedTimebySecond % 10 == 0)
+            USER.RemainingMoney -= PC.AREA.Cost / 3600;
+            if (UsedTimebySecond % 10 == 0 || USER.RemainingMoney < 0)
             {
-                USER.RemainingMoney -= 10 * PC.AREA.Cost / 3600;
                 if (USER.RemainingMoney < 0)
                 {
                     USER.RemainingMoney = 0;
@@ -116,13 +116,21 @@ namespace PBL3
                 txtUsedMoney.Text = Math.Round(UsedTimebySecond * PC.AREA.Cost / 3600).ToString();
                 ReloadView();
             }
+            if (USER.RemainingMoney == 0) 
+            {
+                this.timer.Stop();
+                this.timer.Enabled = false;
+                MessageBox.Show("Tài khoản đã hết tiền, vui lòng nạp thêm!");
+                NetBLL.Instance.onLogout(USER, PC, ReceiptID);
+                this.close();
+            }
         }
 
         private void ReloadView()
         {
             txtReMoney.Text = Math.Round(USER.RemainingMoney).ToString();
             RemainingTime = TimeSpan.FromHours(USER.RemainingMoney / PC.AREA.Cost);
-            txtReTime.Text = RemainingTime.ToString().Remove(RemainingTime.ToString().Length - 3);
+            txtReTime.Text = RemainingTime.ToString().Substring(0, 8);
         }
 
         ///***************SOCKET SECTION****************///
